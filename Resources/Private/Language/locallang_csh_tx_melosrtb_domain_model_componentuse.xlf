@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-12T13:36:23Z" product-name="melos_rtb">
+		<header/>
+		<body>
+			<trans-unit id="system.description">
+				<source>system</source>
+			</trans-unit>
+			<trans-unit id="application.description">
+				<source>application</source>
+			</trans-unit>
+			<trans-unit id="component.description">
+				<source>component</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
