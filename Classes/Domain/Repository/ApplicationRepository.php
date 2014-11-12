@@ -1,7 +1,6 @@
 <?php
 namespace Famelo\MelosRtb\Domain\Repository;
 
-
 /***************************************************************
  *
  *  Copyright notice

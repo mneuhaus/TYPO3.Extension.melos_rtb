@@ -1,0 +1,30 @@
+<div class="content">
+
+    <div class="container">
+        <div id="passendeSysteme" class="row">
+            <div class="col-sm-6">
+                <h2>Passende Systeme zu Laufbahnen</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="owlCarouselQuadsRelatedSystems" class="owl-carousel relatedObjects">
+                    <f:for each="{currentApplication.systems}" as="system">
+                        <div class="item">
+                            <div class="owlQuad onePxPadding">
+                                <div class="owlQuadText">
+                                    <h4 class="owlQuadTextHeadline">{system.name}</h4>
+                                    <p>{system.teaser}</p>
+                                </div>
+                                <a href="" class="">
+                                    <f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                </a>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

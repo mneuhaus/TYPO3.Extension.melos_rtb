@@ -1,7 +1,6 @@
 <?php
 namespace Famelo\MelosRtb\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -38,14 +37,19 @@ class ApplicationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 * @var \Famelo\MelosRtb\Domain\Repository\ApplicationRepository
 	 * @inject
 	 */
-	protected $applicationRepository;
+	protected $applicationRepository = NULL;
 
 	/**
 	 * action index
 	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Application $application
 	 * @return void
 	 */
-	public function indexAction() {
+	public function indexAction(\Famelo\MelosRtb\Domain\Model\Application $application = NULL) {
+		if ($application === NULL) {
+			$application = $this->applicationRepository->findAll()->getFirst();
+		}
+		$this->view->assign('currentApplication', $application);
 		$this->view->assign('applications', $this->applicationRepository->findAll());
 	}
 

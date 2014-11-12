@@ -120,9 +120,9 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getThumbnailReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
+	public function getThumbnailReturnsInitialValueForFileReference() {
+		$this->assertEquals(
+			NULL,
 			$this->subject->getThumbnail()
 		);
 	}
@@ -130,11 +130,12 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function setThumbnailForStringSetsThumbnail() {
-		$this->subject->setThumbnail('Conceived at T3CON10');
+	public function setThumbnailForFileReferenceSetsThumbnail() {
+		$fileReferenceFixture = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
+		$this->subject->setThumbnail($fileReferenceFixture);
 
 		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
+			$fileReferenceFixture,
 			'thumbnail',
 			$this->subject
 		);
@@ -143,9 +144,9 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getImageReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
+	public function getImageReturnsInitialValueForFileReference() {
+		$this->assertEquals(
+			NULL,
 			$this->subject->getImage()
 		);
 	}
@@ -153,11 +154,12 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function setImageForStringSetsImage() {
-		$this->subject->setImage('Conceived at T3CON10');
+	public function setImageForFileReferenceSetsImage() {
+		$fileReferenceFixture = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
+		$this->subject->setImage($fileReferenceFixture);
 
 		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
+			$fileReferenceFixture,
 			'image',
 			$this->subject
 		);
@@ -241,26 +243,26 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getComponentUsesReturnsInitialValueForComponentUse() {
+	public function getSystemsReturnsInitialValueForSystem() {
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->subject->getComponentUses()
+			$this->subject->getSystems()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setComponentUsesForObjectStorageContainingComponentUseSetsComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$objectStorageHoldingExactlyOneComponentUses = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOneComponentUses->attach($componentUs);
-		$this->subject->setComponentUses($objectStorageHoldingExactlyOneComponentUses);
+	public function setSystemsForObjectStorageContainingSystemSetsSystems() {
+		$system = new \Famelo\MelosRtb\Domain\Model\System();
+		$objectStorageHoldingExactlyOneSystems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$objectStorageHoldingExactlyOneSystems->attach($system);
+		$this->subject->setSystems($objectStorageHoldingExactlyOneSystems);
 
 		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOneComponentUses,
-			'componentUses',
+			$objectStorageHoldingExactlyOneSystems,
+			'systems',
 			$this->subject
 		);
 	}
@@ -268,25 +270,25 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function addComponentUsToObjectStorageHoldingComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$componentUsesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$componentUsesObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($componentUs));
-		$this->inject($this->subject, 'componentUses', $componentUsesObjectStorageMock);
+	public function addSystemToObjectStorageHoldingSystems() {
+		$system = new \Famelo\MelosRtb\Domain\Model\System();
+		$systemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
+		$systemsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($system));
+		$this->inject($this->subject, 'systems', $systemsObjectStorageMock);
 
-		$this->subject->addComponentUs($componentUs);
+		$this->subject->addSystem($system);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeComponentUsFromObjectStorageHoldingComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$componentUsesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$componentUsesObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($componentUs));
-		$this->inject($this->subject, 'componentUses', $componentUsesObjectStorageMock);
+	public function removeSystemFromObjectStorageHoldingSystems() {
+		$system = new \Famelo\MelosRtb\Domain\Model\System();
+		$systemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
+		$systemsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($system));
+		$this->inject($this->subject, 'systems', $systemsObjectStorageMock);
 
-		$this->subject->removeComponentUs($componentUs);
+		$this->subject->removeSystem($system);
 
 	}
 }

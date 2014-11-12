@@ -1,0 +1,34 @@
+<!-- mobile navigation einstiege -->
+
+<div id="mobileNavigationBottom" class="visible-xs mobileNavigationBottom offCanvas">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 onePxPadding">
+
+        <!-- gradienten für pfeile der Navigation-->
+        <div class="gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
+        <div class="gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
+
+        <div id="owlCarouselQuadsNavigationMobile" class="owl-carousel">
+
+        	<f:for each="{applications}" as="application">
+
+	          <div class="item">
+	            <div class="owlQuad onePxPadding">
+	            	<f:link.action action="index" arguments="{application: application}" class="{f:if(condition: '{application}=={currentApplication}', then: 'active')}">
+	            		<f:image src="{application.thumbnail.uid}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" />
+	            		<span>{application.name}</span>
+	            	</f:link.action>
+	            </div>
+	          </div>
+
+        	</f:for>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!--ENDE  mobile navigation einstiege -->

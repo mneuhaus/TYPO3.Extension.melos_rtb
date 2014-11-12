@@ -1,7 +1,6 @@
 <?php
 namespace Famelo\MelosRtb\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice

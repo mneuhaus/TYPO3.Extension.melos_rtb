@@ -191,26 +191,26 @@ class SystemTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getComponentUsesReturnsInitialValueForComponentUse() {
+	public function getComponentsReturnsInitialValueForComponent() {
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->subject->getComponentUses()
+			$this->subject->getComponents()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setComponentUsesForObjectStorageContainingComponentUseSetsComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$objectStorageHoldingExactlyOneComponentUses = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOneComponentUses->attach($componentUs);
-		$this->subject->setComponentUses($objectStorageHoldingExactlyOneComponentUses);
+	public function setComponentsForObjectStorageContainingComponentSetsComponents() {
+		$component = new \Famelo\MelosRtb\Domain\Model\Component();
+		$objectStorageHoldingExactlyOneComponents = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$objectStorageHoldingExactlyOneComponents->attach($component);
+		$this->subject->setComponents($objectStorageHoldingExactlyOneComponents);
 
 		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOneComponentUses,
-			'componentUses',
+			$objectStorageHoldingExactlyOneComponents,
+			'components',
 			$this->subject
 		);
 	}
@@ -218,25 +218,77 @@ class SystemTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function addComponentUsToObjectStorageHoldingComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$componentUsesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$componentUsesObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($componentUs));
-		$this->inject($this->subject, 'componentUses', $componentUsesObjectStorageMock);
+	public function addComponentToObjectStorageHoldingComponents() {
+		$component = new \Famelo\MelosRtb\Domain\Model\Component();
+		$componentsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
+		$componentsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($component));
+		$this->inject($this->subject, 'components', $componentsObjectStorageMock);
 
-		$this->subject->addComponentUs($componentUs);
+		$this->subject->addComponent($component);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeComponentUsFromObjectStorageHoldingComponentUses() {
-		$componentUs = new \Famelo\MelosRtb\Domain\Model\ComponentUse();
-		$componentUsesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$componentUsesObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($componentUs));
-		$this->inject($this->subject, 'componentUses', $componentUsesObjectStorageMock);
+	public function removeComponentFromObjectStorageHoldingComponents() {
+		$component = new \Famelo\MelosRtb\Domain\Model\Component();
+		$componentsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
+		$componentsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($component));
+		$this->inject($this->subject, 'components', $componentsObjectStorageMock);
 
-		$this->subject->removeComponentUs($componentUs);
+		$this->subject->removeComponent($component);
+
+	}
+
+	/**
+	 * @test
+	 */
+	public function getApplicationsReturnsInitialValueForApplication() {
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->subject->getApplications()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setApplicationsForObjectStorageContainingApplicationSetsApplications() {
+		$application = new \Famelo\MelosRtb\Domain\Model\Application();
+		$objectStorageHoldingExactlyOneApplications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$objectStorageHoldingExactlyOneApplications->attach($application);
+		$this->subject->setApplications($objectStorageHoldingExactlyOneApplications);
+
+		$this->assertAttributeEquals(
+			$objectStorageHoldingExactlyOneApplications,
+			'applications',
+			$this->subject
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function addApplicationToObjectStorageHoldingApplications() {
+		$application = new \Famelo\MelosRtb\Domain\Model\Application();
+		$applicationsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
+		$applicationsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($application));
+		$this->inject($this->subject, 'applications', $applicationsObjectStorageMock);
+
+		$this->subject->addApplication($application);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeApplicationFromObjectStorageHoldingApplications() {
+		$application = new \Famelo\MelosRtb\Domain\Model\Application();
+		$applicationsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
+		$applicationsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($application));
+		$this->inject($this->subject, 'applications', $applicationsObjectStorageMock);
+
+		$this->subject->removeApplication($application);
 
 	}
 }

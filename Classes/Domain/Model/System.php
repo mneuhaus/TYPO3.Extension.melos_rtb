@@ -1,7 +1,6 @@
 <?php
 namespace Famelo\MelosRtb\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -75,12 +74,19 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $teaser = '';
 
 	/**
-	 * componentUses
+	 * components
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ComponentUse>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
 	 * @cascade remove
 	 */
-	protected $componentUses = NULL;
+	protected $components = NULL;
+
+	/**
+	 * applications
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application>
+	 */
+	protected $applications = NULL;
 
 	/**
 	 * __construct
@@ -99,7 +105,8 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		$this->componentUses = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->components = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->applications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -219,40 +226,79 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a ComponentUse
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ComponentUse $componentUs
-	 * @return void
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
-	public function addComponentUs(\Famelo\MelosRtb\Domain\Model\ComponentUse $componentUs) {
-		$this->componentUses->attach($componentUs);
+	public function addComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$this->components->attach($component);
 	}
 
 	/**
 	 * Removes a ComponentUse
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ComponentUse $componentUsToRemove The ComponentUse to be removed
-	 * @return void
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $componentToRemove The Component to be removed
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
-	public function removeComponentUs(\Famelo\MelosRtb\Domain\Model\ComponentUse $componentUsToRemove) {
-		$this->componentUses->detach($componentUsToRemove);
+	public function removeComponent(\Famelo\MelosRtb\Domain\Model\Component $componentToRemove) {
+		$this->components->detach($componentToRemove);
 	}
 
 	/**
-	 * Returns the componentUses
+	 * Returns the components
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ComponentUse> $componentUses
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
-	public function getComponentUses() {
-		return $this->componentUses;
+	public function getComponents() {
+		return $this->components;
 	}
 
 	/**
-	 * Sets the componentUses
+	 * Sets the components
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ComponentUse> $componentUses
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $components
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
+	 */
+	public function setComponents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $components) {
+		$this->components = $components;
+	}
+
+	/**
+	 * Adds a Application
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Application $application
 	 * @return void
 	 */
-	public function setComponentUses(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $componentUses) {
-		$this->componentUses = $componentUses;
+	public function addApplication(\Famelo\MelosRtb\Domain\Model\Application $application) {
+		$this->applications->attach($application);
+	}
+
+	/**
+	 * Removes a Application
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Application $applicationToRemove The Application to be removed
+	 * @return void
+	 */
+	public function removeApplication(\Famelo\MelosRtb\Domain\Model\Application $applicationToRemove) {
+		$this->applications->detach($applicationToRemove);
+	}
+
+	/**
+	 * Returns the applications
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application> $applications
+	 */
+	public function getApplications() {
+		return $this->applications;
+	}
+
+	/**
+	 * Sets the applications
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application> $applications
+	 * @return void
+	 */
+	public function setApplications(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $applications) {
+		$this->applications = $applications;
 	}
 
 }
