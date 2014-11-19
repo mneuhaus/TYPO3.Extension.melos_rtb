@@ -214,6 +214,29 @@ class SystemTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
+	public function getL10nParentReturnsInitialValueForInteger() {
+		$this->assertSame(
+			0,
+			$this->subject->getL10nParent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setL10nParentForIntegerSetsL10nParent() {
+		$this->subject->setL10nParent(12);
+
+		$this->assertAttributeEquals(
+			12,
+			'l10nParent',
+			$this->subject
+		);
+	}
+
+	/**
+	 * @test
+	 */
 	public function getComponentsReturnsInitialValueForComponent() {
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->assertEquals(

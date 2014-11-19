@@ -89,6 +89,13 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $sorting = '';
 
 	/**
+	 * l10nParent
+	 *
+	 * @var integer
+	 */
+	protected $l10nParent = 0;
+
+	/**
 	 * systems
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
@@ -327,4 +334,24 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setSorting($sorting) {
 		$this->sorting = $sorting;
 	}
+
+	/**
+	 * Returns the l10nParent
+	 *
+	 * @return integer l10nParent
+	 */
+	public function getL10nParent() {
+		return $this->l10nParent;
+	}
+
+	/**
+	 * Sets the l10nParent
+	 *
+	 * @param integer $l10nParent
+	 * @return integer l10nParent
+	 */
+	public function setL10nParent($l10nParent) {
+		$this->l10nParent = $l10nParent;
+	}
+
 }

@@ -40,6 +40,12 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	protected $persistenceManager = NULL;
 
 	/**
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
+	 * @inject
+	 */
+	protected $objectManager;
+
+	/**
 	 * action index
 	 *
 	 * @return void
@@ -72,34 +78,52 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				'tableIdentifier' => 'Komponenten',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Component'
 			),
-			// array(
-			// 	'sheet' => 0,
-			// 	'tableIdentifier' => 'Farben'
-			// ),
-			// array(
-			// 	'sheet' => 0,
-			// 	'tableIdentifier' => 'Art - CGR'
-			// ),
-			// array(
-			// 	'sheet' => 0,
-			// 	'tableIdentifier' => 'Art - RGR'
-			// ),
-			// array(
-			// 	'sheet' => 0,
-			// 	'tableIdentifier' => 'Art - PUR'
-			// )
+			array(
+				'sheet' => 0,
+				'tableIdentifier' => 'Farben',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Color'
+			),
+			array(
+				'sheet' => 0,
+				'tableIdentifier' => 'Art - CGR',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			),
+			array(
+				'sheet' => 0,
+				'tableIdentifier' => 'Art - RGR',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			),
+			array(
+				'sheet' => 0,
+				'tableIdentifier' => 'Art - PUR',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			)
 		);
 		$imports = $this->getTables($file, $imports);
 
 		foreach ($imports as $import) {
-			var_dump($import);
 			foreach ($import['rows'] as $row) {
 				$existingObject = $this->findByCode($row['Code'], $import['entity']);
 				if ($existingObject === NULL) {
-					$existingObject = new $import['entity']();
+					$existingObject = $this->objectManager->get($import['entity']);
 					$existingObject->setCode($row['Code']);
 				}
+
+				$this->addOrUpdate($existingObject);
+
+				if (isset($row['Bezeichnung EN'])) {
+					$translation = $this->getTranslation($existingObject);
+					if ($translation === NULL) {
+						$translation = $this->objectManager->get($import['entity']);
+						$translation->_setProperty('_languageUid', 1);
+						$translation->setL10nParent($existingObject->getUid());
+					}
+					$translation->setName($row['Bezeichnung EN']);
+					$this->addOrUpdate($translation);
+				}
+
 				$existingObject->setName($row['Bezeichnung']);
+				$existingObject->setSorting($row['Sortierung']);
 				$this->addOrUpdate($existingObject);
 			}
 		}
@@ -178,5 +202,13 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		} else {
 			$this->persistenceManager->update($object);
 		}
+		$this->persistenceManager->persistAll();
+	}
+
+	public function getTranslation($existingObject) {
+		$query = $this->persistenceManager->createQueryForType(get_class($existingObject));
+		$query->matching($query->equals('l10n_parent', $existingObject->getUid()));
+		$query->getQuerySettings()->setRespectSysLanguage(FALSE);
+		return $query->execute()->getFirst();
 	}
 }

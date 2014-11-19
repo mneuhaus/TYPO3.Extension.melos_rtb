@@ -14,6 +14,7 @@ CREATE TABLE tx_melosrtb_domain_model_application (
 	downloads int(11) unsigned DEFAULT '0' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -61,6 +62,7 @@ CREATE TABLE tx_melosrtb_domain_model_system (
 	thumbnail int(11) unsigned NOT NULL default '0',
 	teaser text NOT NULL,
 	sorting text NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	components int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
 
@@ -109,6 +111,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	teaser text NOT NULL,
 	description text NOT NULL,
 	sorting text NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -151,6 +154,7 @@ CREATE TABLE tx_melosrtb_domain_model_color (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -193,6 +197,7 @@ CREATE TABLE tx_melosrtb_domain_model_kerning (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -235,6 +240,7 @@ CREATE TABLE tx_melosrtb_domain_model_packagesize (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -277,6 +283,7 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

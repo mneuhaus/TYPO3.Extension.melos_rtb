@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-19T11:19:46Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-19T14:44:58Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -30,8 +30,8 @@
 			<trans-unit id="tx_melosrtb_domain_model_application.sorting">
 				<source>Sorting</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_application.translation_parent">
-				<source>Translation Parent</source>
+			<trans-unit id="tx_melosrtb_domain_model_application.l10n_parent">
+				<source>L10n Parent</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.systems">
 				<source>Systems</source>
@@ -59,6 +59,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.sorting">
 				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.l10n_parent">
+				<source>L10n Parent</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.components">
 				<source>Components</source>
@@ -90,6 +93,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
 				<source>Sorting</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.systems">
 				<source>Systems</source>
 			</trans-unit>
@@ -105,6 +111,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_color.sorting">
 				<source>Sorting</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_kerning">
 				<source>Kerning</source>
 			</trans-unit>
@@ -116,6 +125,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_kerning.sorting">
 				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.l10n_parent">
+				<source>L10n Parent</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_packagesize">
 				<source>Package Size</source>
@@ -129,6 +141,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_packagesize.sorting">
 				<source>Sorting</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article">
 				<source>Article</source>
 			</trans-unit>
@@ -140,6 +155,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.sorting">
 				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.l10n_parent">
+				<source>L10n Parent</source>
 			</trans-unit>
 		</body>
 	</file>

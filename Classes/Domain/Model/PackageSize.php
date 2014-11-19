@@ -32,6 +32,13 @@ namespace Famelo\MelosRtb\Domain\Model;
 class PackageSize extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
+	 * l10nParent
+	 *
+	 * @var integer
+	 */
+	protected $l10nParent = 0;
+
+	/**
 	 * name
 	 *
 	 * @var string
@@ -107,6 +114,25 @@ class PackageSize extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSorting($sorting) {
 		$this->sorting = $sorting;
+	}
+
+	/**
+	 * Returns the l10nParent
+	 *
+	 * @return integer $l10nParent
+	 */
+	public function getL10nParent() {
+		return $this->l10nParent;
+	}
+
+	/**
+	 * Sets the l10nParent
+	 *
+	 * @param integer $l10nParent
+	 * @return void
+	 */
+	public function setL10nParent($l10nParent) {
+		$this->l10nParent = $l10nParent;
 	}
 
 }

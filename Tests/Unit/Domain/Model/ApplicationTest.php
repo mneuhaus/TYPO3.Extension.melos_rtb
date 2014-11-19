@@ -266,22 +266,22 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getTranslationParentReturnsInitialValueForInteger() {
+	public function getL10nParentReturnsInitialValueForInteger() {
 		$this->assertSame(
 			0,
-			$this->subject->getTranslationParent()
+			$this->subject->getL10nParent()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setTranslationParentForIntegerSetsTranslationParent() {
-		$this->subject->setTranslationParent(12);
+	public function setL10nParentForIntegerSetsL10nParent() {
+		$this->subject->setL10nParent(12);
 
 		$this->assertAttributeEquals(
 			12,
-			'translationParent',
+			'l10nParent',
 			$this->subject
 		);
 	}

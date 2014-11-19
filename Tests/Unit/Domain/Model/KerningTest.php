@@ -116,4 +116,27 @@ class KerningTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 			$this->subject
 		);
 	}
+
+	/**
+	 * @test
+	 */
+	public function getL10nParentReturnsInitialValueForInteger() {
+		$this->assertSame(
+			0,
+			$this->subject->getL10nParent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setL10nParentForIntegerSetsL10nParent() {
+		$this->subject->setL10nParent(12);
+
+		$this->assertAttributeEquals(
+			12,
+			'l10nParent',
+			$this->subject
+		);
+	}
 }

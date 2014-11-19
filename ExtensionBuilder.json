@@ -121,7 +121,7 @@
                             "propertyDescription": "",
                             "propertyIsExcludeField": true,
                             "propertyIsRequired": false,
-                            "propertyName": "translationParent",
+                            "propertyName": "l10nParent",
                             "propertyType": "Integer",
                             "uid": "174048390143"
                         }
@@ -247,6 +247,16 @@
                             "propertyName": "sorting",
                             "propertyType": "Text",
                             "uid": "557319341855"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "391746691325"
                         }
                     ]
                 },
@@ -380,6 +390,16 @@
                             "propertyName": "sorting",
                             "propertyType": "Text",
                             "uid": "260417045457"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "1115474564175"
                         }
                     ]
                 },
@@ -461,6 +481,16 @@
                             "propertyName": "sorting",
                             "propertyType": "String",
                             "uid": "493939209264"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "821269656573"
                         }
                     ]
                 },
@@ -531,6 +561,16 @@
                             "propertyName": "sorting",
                             "propertyType": "String",
                             "uid": "771973874179"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "660880674366"
                         }
                     ]
                 },
@@ -601,6 +641,16 @@
                             "propertyName": "sorting",
                             "propertyType": "String",
                             "uid": "600374916074"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "328855937020"
                         }
                     ]
                 },
@@ -671,6 +721,16 @@
                             "propertyName": "sorting",
                             "propertyType": "String",
                             "uid": "932424511448"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "l10nParent",
+                            "propertyType": "Integer",
+                            "uid": "1039350393871"
                         }
                     ]
                 },
@@ -798,7 +858,7 @@
         }
     ],
     "log": {
-        "last_modified": "2014-11-19 11:19",
+        "last_modified": "2014-11-19 02:45",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }
