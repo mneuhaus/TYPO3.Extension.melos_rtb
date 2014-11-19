@@ -163,6 +163,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 				'eval' => 'trim'
 			),
 		),
+		'sorting' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_application.sorting',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
 		'systems' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_application.systems',

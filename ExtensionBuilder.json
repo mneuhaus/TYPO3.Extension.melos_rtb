@@ -104,6 +104,26 @@
                             "propertyName": "code",
                             "propertyType": "String",
                             "uid": "471764304567"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "String",
+                            "uid": "778101917474"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "translationParent",
+                            "propertyType": "Integer",
+                            "uid": "174048390143"
                         }
                     ]
                 },
@@ -217,6 +237,16 @@
                             "propertyName": "teaser",
                             "propertyType": "Text",
                             "uid": "506747054569"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "Text",
+                            "uid": "557319341855"
                         }
                     ]
                 },
@@ -340,6 +370,16 @@
                             "propertyName": "description",
                             "propertyType": "Text",
                             "uid": "1407670070601"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "Text",
+                            "uid": "260417045457"
                         }
                     ]
                 },
@@ -411,6 +451,16 @@
                             "propertyName": "code",
                             "propertyType": "String",
                             "uid": "464468459719"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "String",
+                            "uid": "493939209264"
                         }
                     ]
                 },
@@ -471,6 +521,16 @@
                             "propertyName": "code",
                             "propertyType": "String",
                             "uid": "1061194403974"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "String",
+                            "uid": "771973874179"
                         }
                     ]
                 },
@@ -531,6 +591,16 @@
                             "propertyName": "code",
                             "propertyType": "String",
                             "uid": "1095135474201"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "String",
+                            "uid": "600374916074"
                         }
                     ]
                 },
@@ -591,6 +661,16 @@
                             "propertyName": "code",
                             "propertyType": "String",
                             "uid": "394078670988"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "sorting",
+                            "propertyType": "String",
+                            "uid": "932424511448"
                         }
                     ]
                 },
@@ -718,7 +798,7 @@
         }
     ],
     "log": {
-        "last_modified": "2014-11-12 04:07",
+        "last_modified": "2014-11-19 11:19",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }

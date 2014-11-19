@@ -243,6 +243,52 @@ class ApplicationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
+	public function getSortingReturnsInitialValueForString() {
+		$this->assertSame(
+			'',
+			$this->subject->getSorting()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setSortingForStringSetsSorting() {
+		$this->subject->setSorting('Conceived at T3CON10');
+
+		$this->assertAttributeEquals(
+			'Conceived at T3CON10',
+			'sorting',
+			$this->subject
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function getTranslationParentReturnsInitialValueForInteger() {
+		$this->assertSame(
+			0,
+			$this->subject->getTranslationParent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setTranslationParentForIntegerSetsTranslationParent() {
+		$this->subject->setTranslationParent(12);
+
+		$this->assertAttributeEquals(
+			12,
+			'translationParent',
+			$this->subject
+		);
+	}
+
+	/**
+	 * @test
+	 */
 	public function getSystemsReturnsInitialValueForSystem() {
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->assertEquals(

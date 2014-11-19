@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_kerning'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_kerning']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, code',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, code, sorting',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, code, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, code, sorting, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -109,6 +109,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_kerning'] = array(
 		'code' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_kerning.code',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'sorting' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_kerning.sorting',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

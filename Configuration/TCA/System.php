@@ -6,16 +6,16 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_system']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, code, description, image, thumbnail, teaser, components, applications',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, code, description, image, thumbnail, teaser, sorting, components, applications',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, code, description, image, thumbnail, teaser, components, applications, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, code, description, image, thumbnail, teaser, sorting, components, applications, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-
+	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -56,7 +56,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'max' => 255,
 			)
 		),
-
+	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -153,6 +153,16 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'eval' => 'trim'
 			)
 		),
+		'sorting' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.sorting',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			)
+		),
 		'components' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.components',
@@ -196,7 +206,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_application',
 				'MM' => 'tx_melosrtb_application_system_mm',
-				'MM_opposite_field' => 'systems',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -226,6 +235,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				),
 			),
 		),
-
+		
 	),
 );
