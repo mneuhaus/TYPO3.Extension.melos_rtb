@@ -32,13 +32,6 @@ namespace Famelo\MelosRtb\Domain\Model;
 class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * l10nParent
-	 *
-	 * @var integer
-	 */
-	protected $l10nParent = 0;
-
-	/**
 	 * name
 	 *
 	 * @var string
@@ -58,6 +51,20 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $sorting = '';
+
+	/**
+	 * l10nParent
+	 *
+	 * @var integer
+	 */
+	protected $l10nParent = 0;
+
+	/**
+	 * component
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Model\Component
+	 */
+	protected $component = NULL;
 
 	/**
 	 * Returns the name
@@ -133,6 +140,25 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setL10nParent($l10nParent) {
 		$this->l10nParent = $l10nParent;
+	}
+
+	/**
+	 * Returns the component
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\Component $component
+	 */
+	public function getComponent() {
+		return $this->component;
+	}
+
+	/**
+	 * Sets the component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @return void
+	 */
+	public function setComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$this->component = $component;
 	}
 
 }

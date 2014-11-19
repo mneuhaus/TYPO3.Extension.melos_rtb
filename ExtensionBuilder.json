@@ -146,7 +146,7 @@
         {
             "config": {
                 "position": [
-                    449,
+                    313,
                     50
                 ]
             },
@@ -289,8 +289,8 @@
         {
             "config": {
                 "position": [
-                    867,
-                    52
+                    582,
+                    55
                 ]
             },
             "name": "New Model Object",
@@ -414,6 +414,16 @@
                             "relationType": "manyToMany",
                             "relationWire": "[wired]",
                             "uid": "293084931056"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "articles",
+                            "relationType": "zeroToMany",
+                            "relationWire": "[wired]",
+                            "uid": "1217853957857"
                         }
                     ]
                 }
@@ -662,8 +672,8 @@
         {
             "config": {
                 "position": [
-                    46,
-                    736
+                    859,
+                    51
                 ]
             },
             "name": "New Model Object",
@@ -735,7 +745,18 @@
                     ]
                 },
                 "relationGroup": {
-                    "relations": []
+                    "relations": [
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "component",
+                            "relationType": "manyToOne",
+                            "relationWire": "[wired]",
+                            "uid": "894794962161"
+                        }
+                    ]
                 }
             }
         }
@@ -855,10 +876,34 @@
                 "terminal": "SOURCES",
                 "uid": "1146813678681"
             }
+        },
+        {
+            "src": {
+                "moduleId": 2,
+                "terminal": "relationWire_1",
+                "uid": "1217853957857"
+            },
+            "tgt": {
+                "moduleId": 6,
+                "terminal": "SOURCES",
+                "uid": "959297637719"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 6,
+                "terminal": "relationWire_0",
+                "uid": "894794962161"
+            },
+            "tgt": {
+                "moduleId": 2,
+                "terminal": "SOURCES",
+                "uid": "876721542257"
+            }
         }
     ],
     "log": {
-        "last_modified": "2014-11-19 02:45",
+        "last_modified": "2014-11-19 04:12",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }

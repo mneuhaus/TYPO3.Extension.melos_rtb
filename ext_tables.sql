@@ -113,6 +113,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	sorting text NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
+	articles int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -280,10 +281,13 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	component int(11) unsigned DEFAULT '0' NOT NULL,
+
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	component int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -361,6 +365,15 @@ CREATE TABLE tx_melosrtb_application_system_mm (
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_article'
+#
+CREATE TABLE tx_melosrtb_domain_model_article (
+
+	component  int(11) unsigned DEFAULT '0' NOT NULL,
+
 );
 
 #

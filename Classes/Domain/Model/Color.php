@@ -32,13 +32,6 @@ namespace Famelo\MelosRtb\Domain\Model;
 class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * l10nParent
-	 *
-	 * @var integer
-	 */
-	protected $l10nParent = 0;
-
-	/**
 	 * name
 	 *
 	 * @var string
@@ -58,6 +51,13 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $sorting = '';
+
+	/**
+	 * l10nParent
+	 *
+	 * @var integer
+	 */
+	protected $l10nParent = 0;
 
 	/**
 	 * Returns the name
