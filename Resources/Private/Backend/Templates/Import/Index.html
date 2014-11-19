@@ -1,0 +1,5 @@
+<ul>
+<f:for each="{files}" as="file">
+	<li><f:link.action action="import" arguments="{file: file}">import: {file}</f:link.action></li>
+</f:for>
+</ul>

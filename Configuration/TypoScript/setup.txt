@@ -47,3 +47,15 @@ plugin.tx_melosrtb._CSS_DEFAULT_STYLE (
 	}
 
 )
+
+ # Module configuration
+module.tx_melosrtb {
+	persistence {
+		storagePid = {$module.tx_melosrtb.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_melosrtb.view.templateRootPath}
+		partialRootPath = {$module.tx_melosrtb.view.partialRootPath}
+		layoutRootPath = {$module.tx_melosrtb.view.layoutRootPath}
+	}
+}

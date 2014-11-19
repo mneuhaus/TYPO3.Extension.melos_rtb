@@ -21,6 +21,29 @@ if (!defined('TYPO3_MODE')) {
 	'Components'
 );
 
+if (TYPO3_MODE === 'BE') {
+
+	/**
+	 * Registers a Backend Module
+	 */
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+		'Famelo.' . $_EXTKEY,
+		'tools',	 // Make module a submodule of 'tools'
+		'import',	// Submodule key
+		'',						// Position
+		array(
+			'Import' => 'index, import',
+			
+		),
+		array(
+			'access' => 'user,group',
+			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_import.xlf',
+		)
+	);
+
+}
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'melos - Ready to Build');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_application', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_application.xlf');

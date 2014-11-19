@@ -601,7 +601,18 @@
         }
     ],
     "properties": {
-        "backendModules": [],
+        "backendModules": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Import => index, import"
+                },
+                "description": "Ready to Build - Import",
+                "key": "import",
+                "mainModule": "tools",
+                "name": "RTB-Import",
+                "tabLabel": "Import"
+            }
+        ],
         "description": "",
         "emConf": {
             "category": "plugin",
@@ -707,7 +718,7 @@
         }
     ],
     "log": {
-        "last_modified": "2014-11-12 03:30",
+        "last_modified": "2014-11-12 04:07",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }
