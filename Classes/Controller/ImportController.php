@@ -69,6 +69,67 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function importAction($file) {
+		// $this->importEntities($file);
+
+		$relations = array(
+			'rel1' => array(
+				'sheet' => 1,
+				'tableIdentifier' => 'Weg über Anwendungen',
+			),
+			'rel2' => array(
+				'sheet' => 2,
+				'tableIdentifier' => 'Weg über Systeme',
+			)
+		);
+		$relations = $this->getTables($file, $relations);
+		$applications = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\Application');
+		foreach ($applications as $application) {
+			$attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+			$application->setSystems($attributes);
+		}
+		$systems = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\System');
+		foreach ($systems as $system) {
+			$articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+			$system->setArticles($articles);
+		}
+		foreach ($relations['rel1']['rows'] as $row) {
+			$application = $applications[$row['Anwendung']];
+			$system = $systems[$row['Systeme']];
+			if ($row['Systeme'] === NULL) {
+				continue;
+			}
+			$application->addSystem($system);
+			$this->addOrUpdate($application);
+		}
+
+		foreach ($relations['rel2']['rows'] as $row) {
+			$system = $systems[$row['Systeme']];
+			$article = $this->getObject($row, '\Famelo\MelosRtb\Domain\Model\Article', FALSE);
+
+			$query = $this->createQuery($row, array(
+				'articleGroup' => 'Art',
+				'kerning' => 'Koernung',
+				'color' => 'Farbe',
+				'specification' => 'Spezifikation'
+			), '\Famelo\MelosRtb\Domain\Model\Article');
+
+			foreach ($query->execute() as $article) {
+				$system->addArticle($article);
+			}
+			$this->addOrUpdate($system);
+		}
+	}
+
+	public function getEntityIndex($className) {
+		$query = $this->persistenceManager->createQueryForType($className);
+		$entities = array();
+		foreach ($query->execute() as $entity) {
+			$entities[$entity->getCode()] = $entity;
+		}
+		return $entities;
+	}
+
+	public function importEntities($file) {
 		$imports = array(
 			array(
 				'sheet' => 0,
@@ -115,12 +176,17 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			),
 			array(
 				'sheet' => 3,
-				'tableIdentifier' => 'Artikel',
+				'tableIdentifier' => 'Artikel CGR',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
 			),
 			array(
 				'sheet' => 3,
 				'tableIdentifier' => 'Artikel PUR',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			),
+			array(
+				'sheet' => 3,
+				'tableIdentifier' => 'Artikel ATL',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
 			)
 		);
@@ -131,6 +197,9 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			// return;
 			foreach ($import['rows'] as $row) {
 				$existingObject = $this->getObject($row, $import['entity']);
+				$values = array_values($row);
+				echo 'Processing: ' . $values[1] . $values[2] . $values[3] . '<br />';
+				ob_flush();
 
 				$this->addOrUpdate($existingObject);
 
@@ -158,21 +227,21 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 						break;
 
 					case '\Famelo\MelosRtb\Domain\Model\Article':
-						$attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-						$existingObject->setAttributes($attributes);
-						$filter = explode(',', 'Komponente,Art,Koernung,Farbe,Spezifikation,Eimer,Fass,IBC,Bezeichnung,Bezeichnung EN,Artikelnr.');
-						foreach ($row as $key => $value) {
-							if (in_array($key, $filter)) {
-								continue;
-							}
-							if (empty($value) || trim($value) == '-') {
-								continue;
-							}
-							$attribute = new \Famelo\MelosRtb\Domain\Model\Attribute();
-							$attribute->setName($key);
-							$attribute->setValue($value);
-							$existingObject->addAttribute($attribute);
-						}
+						// $attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+						// $existingObject->setAttributes($attributes);
+						// $filter = explode(',', 'Komponente,Art,Koernung,Farbe,Spezifikation,Eimer,Fass,IBC,Bezeichnung,Bezeichnung EN,Artikelnr.');
+						// foreach ($row as $key => $value) {
+						// 	if (in_array($key, $filter)) {
+						// 		continue;
+						// 	}
+						// 	if (empty($value) || trim($value) == '-') {
+						// 		continue;
+						// 	}
+						// 	$attribute = new \Famelo\MelosRtb\Domain\Model\Attribute();
+						// 	$attribute->setName($key);
+						// 	$attribute->setValue($value);
+						// 	$existingObject->addAttribute($attribute);
+						// }
 						break;
 				}
 
@@ -185,8 +254,9 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		switch ($className) {
 			case '\Famelo\MelosRtb\Domain\Model\Article':
 				$keys = array(
+					'component' => 'Komponente',
 					'articleGroup' => 'Art',
-					'kerning' => 'Körnung',
+					'kerning' => 'Koernung',
 					'color' => 'Farbe',
 					'specification' => 'Spezifikation'
 				);
@@ -211,13 +281,23 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			if (isset($row[$column])) {
 				$propertyType = $this->getPropertyType($key, $className);
 				$value = $row[$column];
+				if (trim($value) == '-') {
+					continue;
+				}
+				if (empty($value)) {
+					continue;
+				}
 				if (class_exists($propertyType)) {
 					$value = $this->getObject(array('Code' => $value), $propertyType, FALSE);
 				}
+				// var_dump($column . ': ' . $value);
 				$key = strtolower(preg_replace('/([^A-Z])([A-Z])/', "$1_$2", $key));
+				// var_dump($propertyType, $key, $row[$column], $value);
+				// echo '<br />';
 				$conditions[] = $query->equals($key, $value);
 			}
 		}
+		// var_dump($conditions);
 		$query->matching($query->logicalAnd($conditions));
 		return $query;
 	}
@@ -230,8 +310,14 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			if (isset($row[$column])) {
 				$propertyType = $this->getPropertyType($key, $className);
 				$value = $row[$column];
+				if (trim($value) == '-') {
+					continue;
+				}
 				if (class_exists($propertyType)) {
 					$value = $this->getObject(array('Code' => $value), $propertyType, FALSE);
+					if ($value === NULL) {
+						continue;
+					}
 				}
 				ObjectAccess::setProperty($existingObject, $key, $value);
 			}
