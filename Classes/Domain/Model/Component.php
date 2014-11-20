@@ -322,6 +322,10 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function addArticle(\Famelo\MelosRtb\Domain\Model\Article $article) {
+		if ($this->articles === NULL) {
+			$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		}
+		$article->setComponent($this);
 		$this->articles->attach($article);
 	}
 

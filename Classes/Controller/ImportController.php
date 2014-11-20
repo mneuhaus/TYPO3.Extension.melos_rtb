@@ -86,17 +86,20 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - CGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'componentCode' => 'CGR'
 			),
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - RGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'componentCode' => 'RGR'
 			),
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - PUR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'componentCode' => 'PUR'
 			)
 		);
 		$imports = $this->getTables($file, $imports);
@@ -124,6 +127,15 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 				$existingObject->setName($row['Bezeichnung']);
 				$existingObject->setSorting($row['Sortierung']);
+
+				switch ($import['entity']) {
+					case '\Famelo\MelosRtb\Domain\Model\Article':
+						$component = $this->findByCode($import['componentCode'], '\Famelo\MelosRtb\Domain\Model\Component');
+						$component->addArticle($existingObject);
+						$this->addOrUpdate($component);
+						break;
+				}
+
 				$this->addOrUpdate($existingObject);
 			}
 		}

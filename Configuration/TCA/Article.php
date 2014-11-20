@@ -6,24 +6,24 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_article']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
-				name, 
-				code, 
-				sorting, 
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
+				name,
+				code,
+				sorting,
 				component',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-			name, 
-			code, 
-			sorting, 
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
+			name,
+			code,
+			sorting,
 			component, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -64,7 +64,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -138,10 +138,11 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
 		),
-		
+
 	),
 );

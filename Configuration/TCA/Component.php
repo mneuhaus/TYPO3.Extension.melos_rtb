@@ -6,16 +6,34 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_component']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, code, thumbnail, image, teaser, description, sorting, systems',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
+				name, 
+				code, 
+				thumbnail, 
+				image, 
+				teaser, 
+				description, 
+				sorting, 
+				systems, 
+				articles',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, code, thumbnail, image, teaser, description, sorting, systems, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+			name, 
+			code, 
+			thumbnail, 
+			image, 
+			teaser, 
+			description, 
+			sorting, 
+			systems, 
+			articles, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-
+	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -199,6 +217,25 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				),
 			),
 		),
+		'articles' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.articles',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_melosrtb_domain_model_article',
+				'foreign_field' => 'component',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'useSortable' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
 
+		),
+		
 	),
 );
