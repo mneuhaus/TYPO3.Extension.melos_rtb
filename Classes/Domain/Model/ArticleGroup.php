@@ -27,9 +27,9 @@ namespace Famelo\MelosRtb\Domain\Model;
  ***************************************************************/
 
 /**
- * Kerning
+ * Article
  */
-class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class ArticleGroup extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * name
@@ -58,6 +58,13 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var integer
 	 */
 	protected $l10nParent = 0;
+
+	/**
+	 * component
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Model\Component
+	 */
+	protected $component = NULL;
 
 	/**
 	 * articles
@@ -127,7 +134,7 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the l10nParent
 	 *
-	 * @return integer $l10nParent
+	 * @return integer l10nParent
 	 */
 	public function getL10nParent() {
 		return $this->l10nParent;
@@ -137,10 +144,29 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Sets the l10nParent
 	 *
 	 * @param integer $l10nParent
-	 * @return void
+	 * @return integer l10nParent
 	 */
 	public function setL10nParent($l10nParent) {
 		$this->l10nParent = $l10nParent;
+	}
+
+	/**
+	 * Returns the component
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\Component $component
+	 */
+	public function getComponent() {
+		return $this->component;
+	}
+
+	/**
+	 * Sets the component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @return void
+	 */
+	public function setComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$this->component = $component;
 	}
 
 	/**

@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-19T16:12:13Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-20T11:38:26Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
 				<source>name</source>
 			</trans-unit>
-			<trans-unit id="code.description">
-				<source>code</source>
+			<trans-unit id="number.description">
+				<source>number</source>
 			</trans-unit>
-			<trans-unit id="sorting.description">
-				<source>sorting</source>
+			<trans-unit id="specification.description">
+				<source>specification</source>
 			</trans-unit>
-			<trans-unit id="l10n_parent.description">
-				<source>l10nParent</source>
+			<trans-unit id="article_group.description">
+				<source>articleGroup</source>
 			</trans-unit>
-			<trans-unit id="component.description">
-				<source>component</source>
+			<trans-unit id="kerning.description">
+				<source>kerning</source>
+			</trans-unit>
+			<trans-unit id="color.description">
+				<source>color</source>
+			</trans-unit>
+			<trans-unit id="attributes.description">
+				<source>attributes</source>
 			</trans-unit>
 		</body>
 	</file>

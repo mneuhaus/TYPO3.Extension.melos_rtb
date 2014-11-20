@@ -96,12 +96,12 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $systems = NULL;
 
 	/**
-	 * articles
+	 * articleGroups
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup>
 	 * @cascade remove
 	 */
-	protected $articles = NULL;
+	protected $articleGroups = NULL;
 
 	/**
 	 * __construct
@@ -121,7 +121,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected function initStorageObjects() {
 		$this->systems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->articleGroups = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -318,44 +318,44 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a Article
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\Article $article
-	 * @return void
+	 * @param \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
 	 */
-	public function addArticle(\Famelo\MelosRtb\Domain\Model\Article $article) {
-		if ($this->articles === NULL) {
-			$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	public function addArticleGroup(\Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup) {
+		if ($this->articleGroups === NULL) {
+			$this->articleGroups = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		}
-		$article->setComponent($this);
-		$this->articles->attach($article);
+		$articleGroup->setComponent($this);
+		$this->articleGroups->attach($articleGroup);
 	}
 
 	/**
 	 * Removes a Article
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\Article $articleToRemove The Article to be removed
-	 * @return void
+	 * @param \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroupToRemove The ArticleGroup to be removed
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
 	 */
-	public function removeArticle(\Famelo\MelosRtb\Domain\Model\Article $articleToRemove) {
-		$this->articles->detach($articleToRemove);
+	public function removeArticleGroup(\Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroupToRemove) {
+		$this->articleGroups->detach($articleGroupToRemove);
 	}
 
 	/**
-	 * Returns the articles
+	 * Returns the articleGroups
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
 	 */
-	public function getArticles() {
-		return $this->articles;
+	public function getArticleGroups() {
+		return $this->articleGroups;
 	}
 
 	/**
-	 * Sets the articles
+	 * Sets the articleGroups
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
-	 * @return void
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> $articleGroups
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
 	 */
-	public function setArticles(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articles) {
-		$this->articles = $articles;
+	public function setArticleGroups(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articleGroups) {
+		$this->articleGroups = $articleGroups;
 	}
 
 }

@@ -3,27 +3,25 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
-	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_article']['ctrl'],
+$GLOBALS['TCA']['tx_melosrtb_domain_model_articlegroup'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_articlegroup']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
 				name,
-				number,
-				specification,
-				article_group,
-				kerning,
-				color,
-				attributes',
+				code,
+				sorting,
+				l10n_parent,
+				component,
+				articles',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
 			name,
-			number,
-			specification,
-			article_group,
-			kerning,
-			color,
-			attributes, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+			code,
+			sorting,
+			l10n_parent,
+			component,
+			articles, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -52,8 +50,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_melosrtb_domain_model_article',
-				'foreign_table_where' => 'AND tx_melosrtb_domain_model_article.pid=###CURRENT_PID### AND tx_melosrtb_domain_model_article.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_melosrtb_domain_model_articlegroup',
+				'foreign_table_where' => 'AND tx_melosrtb_domain_model_articlegroup.pid=###CURRENT_PID### AND tx_melosrtb_domain_model_articlegroup.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -113,25 +111,25 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 
 		'name' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.name',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'number' => array(
+		'code' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.number',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.code',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'specification' => array(
+		'sorting' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.specification',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.sorting',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -140,62 +138,31 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 		),
 		'l10n_parent' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.l10n_parent',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.l10n_parent',
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
 				'eval' => 'int'
 			)
 		),
-		'article_group' => array(
+		'component' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.article_group',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.component',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_melosrtb_domain_model_articlegroup',
+				'foreign_table' => 'tx_melosrtb_domain_model_component',
 				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'minitems' => 0,
 				'maxitems' => 1,
-				'items' => array(
-					array('', 0)
-				)
 			),
 		),
-		'kerning' => array(
+		'articles' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.kerning',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_melosrtb_domain_model_kerning',
-				'foreign_table_where' => ' AND sys_language_uid = 0',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'items' => array(
-					array('', 0)
-				)
-			),
-		),
-		'color' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.color',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_melosrtb_domain_model_color',
-				'foreign_table_where' => ' AND sys_language_uid = 0',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'items' => array(
-					array('', 0)
-				)
-			),
-		),
-		'attributes' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.attributes',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup.articles',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_melosrtb_domain_model_attribute',
-				'foreign_field' => 'article',
+				'foreign_table' => 'tx_melosrtb_domain_model_article',
+				'foreign_field' => 'articlegroup',
 				'maxitems'      => 9999,
 				'appearance' => array(
 					'collapseAll' => 0,

@@ -15,7 +15,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				description, 
 				sorting, 
 				systems, 
-				articles',
+				article_groups',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
@@ -27,7 +27,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			description, 
 			sorting, 
 			systems, 
-			articles, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+			article_groups, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -74,7 +74,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'max' => 255,
 			)
 		),
-
+	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -217,12 +217,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				),
 			),
 		),
-		'articles' => array(
+		'article_groups' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.articles',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.article_groups',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_melosrtb_domain_model_article',
+				'foreign_table' => 'tx_melosrtb_domain_model_articlegroup',
 				'foreign_field' => 'component',
 				'maxitems'      => 9999,
 				'appearance' => array(

@@ -127,7 +127,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,thumbnail,image,teaser,description,sorting,l10n_parent,systems,articles,',
+		'searchFields' => 'name,code,thumbnail,image,teaser,description,sorting,l10n_parent,systems,article_groups,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Component.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_component.gif'
 	),
@@ -156,7 +156,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_color'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,sorting,l10n_parent,',
+		'searchFields' => 'name,code,sorting,l10n_parent,articles,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Color.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_color.gif'
 	),
@@ -185,7 +185,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_kerning'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,sorting,l10n_parent,',
+		'searchFields' => 'name,code,sorting,l10n_parent,articles,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Kerning.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_kerning.gif'
 	),
@@ -220,11 +220,11 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_packagesize'] = array(
 	),
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_article', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_article.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_melosrtb_domain_model_article');
-$GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_articlegroup', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_articlegroup.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_melosrtb_domain_model_articlegroup');
+$GLOBALS['TCA']['tx_melosrtb_domain_model_articlegroup'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article',
+		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_articlegroup',
 		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -244,7 +244,65 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,code,sorting,l10n_parent,component,',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/ArticleGroup.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_articlegroup.gif'
+	),
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_article', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_article.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_melosrtb_domain_model_article');
+$GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article',
+		'label' => 'name',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'name,number,specification,article_group,kerning,color,attributes,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Article.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_article.gif'
+	),
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_attribute', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_attribute.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_melosrtb_domain_model_attribute');
+$GLOBALS['TCA']['tx_melosrtb_domain_model_attribute'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_attribute',
+		'label' => 'name',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'name,value,article,',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Attribute.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_attribute.gif'
 	),
 );

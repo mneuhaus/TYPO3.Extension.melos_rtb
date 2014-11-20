@@ -26,6 +26,7 @@ namespace Famelo\MelosRtb\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use \TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('melos_rtb') . '/Resources/Private/PHP/phpexcel/Classes/PHPExcel/IOFactory.php');
 
@@ -44,6 +45,12 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @inject
 	 */
 	protected $objectManager;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Reflection\ReflectionService
+	 * @inject
+	 */
+	protected $reflectionService;
 
 	/**
 	 * action index
@@ -86,31 +93,44 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - CGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
 				'componentCode' => 'CGR'
 			),
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - RGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
 				'componentCode' => 'RGR'
 			),
 			array(
 				'sheet' => 0,
 				'tableIdentifier' => 'Art - PUR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
 				'componentCode' => 'PUR'
+			),
+			array(
+				'sheet' => 0,
+				'tableIdentifier' => 'Körnungen',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Kerning'
+			),
+			array(
+				'sheet' => 3,
+				'tableIdentifier' => 'Artikel',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			),
+			array(
+				'sheet' => 3,
+				'tableIdentifier' => 'Artikel PUR',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
 			)
 		);
 		$imports = $this->getTables($file, $imports);
 
 		foreach ($imports as $import) {
+			// var_dump($import);
+			// return;
 			foreach ($import['rows'] as $row) {
-				$existingObject = $this->findByCode($row['Code'], $import['entity']);
-				if ($existingObject === NULL) {
-					$existingObject = $this->objectManager->get($import['entity']);
-					$existingObject->setCode($row['Code']);
-				}
+				$existingObject = $this->getObject($row, $import['entity']);
 
 				$this->addOrUpdate($existingObject);
 
@@ -126,19 +146,103 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				}
 
 				$existingObject->setName($row['Bezeichnung']);
-				$existingObject->setSorting($row['Sortierung']);
+				if (isset($row['Sortierung'])) {
+					$existingObject->setSorting($row['Sortierung']);
+				}
 
 				switch ($import['entity']) {
-					case '\Famelo\MelosRtb\Domain\Model\Article':
+					case '\Famelo\MelosRtb\Domain\Model\ArticleGroup':
 						$component = $this->findByCode($import['componentCode'], '\Famelo\MelosRtb\Domain\Model\Component');
-						$component->addArticle($existingObject);
+						$component->addArticleGroup($existingObject);
 						$this->addOrUpdate($component);
+						break;
+
+					case '\Famelo\MelosRtb\Domain\Model\Article':
+						$attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+						$existingObject->setAttributes($attributes);
+						$filter = explode(',', 'Komponente,Art,Koernung,Farbe,Spezifikation,Eimer,Fass,IBC,Bezeichnung,Bezeichnung EN,Artikelnr.');
+						foreach ($row as $key => $value) {
+							if (in_array($key, $filter)) {
+								continue;
+							}
+							if (empty($value) || trim($value) == '-') {
+								continue;
+							}
+							$attribute = new \Famelo\MelosRtb\Domain\Model\Attribute();
+							$attribute->setName($key);
+							$attribute->setValue($value);
+							$existingObject->addAttribute($attribute);
+						}
 						break;
 				}
 
 				$this->addOrUpdate($existingObject);
 			}
 		}
+	}
+
+	public function getObject($row, $className, $autoCreate = TRUE) {
+		switch ($className) {
+			case '\Famelo\MelosRtb\Domain\Model\Article':
+				$keys = array(
+					'articleGroup' => 'Art',
+					'kerning' => 'Körnung',
+					'color' => 'Farbe',
+					'specification' => 'Spezifikation'
+				);
+				break;
+			default:
+				$keys = array('code' => 'Code');
+		}
+
+		$query = $this->createQuery($row, $keys, $className);
+		$existingObject = $query->execute()->getFirst();
+		if ($existingObject === NULL && $autoCreate) {
+			$existingObject = $this->createObject($row, $className, $keys);
+		}
+
+		return $existingObject;
+	}
+
+	public function createQuery($row, $keys, $className) {
+		$query = $this->persistenceManager->createQueryForType($className);
+		$conditions = array();
+		foreach ($keys as $key => $column) {
+			if (isset($row[$column])) {
+				$propertyType = $this->getPropertyType($key, $className);
+				$value = $row[$column];
+				if (class_exists($propertyType)) {
+					$value = $this->getObject(array('Code' => $value), $propertyType, FALSE);
+				}
+				$key = strtolower(preg_replace('/([^A-Z])([A-Z])/', "$1_$2", $key));
+				$conditions[] = $query->equals($key, $value);
+			}
+		}
+		$query->matching($query->logicalAnd($conditions));
+		return $query;
+	}
+
+	public function createObject($row, $className, $keys) {
+		$existingObject = $this->objectManager->get($className);
+		// $existingObject->setNumber($row['Artikelnr.']);
+
+		foreach ($keys as $key => $column) {
+			if (isset($row[$column])) {
+				$propertyType = $this->getPropertyType($key, $className);
+				$value = $row[$column];
+				if (class_exists($propertyType)) {
+					$value = $this->getObject(array('Code' => $value), $propertyType, FALSE);
+				}
+				ObjectAccess::setProperty($existingObject, $key, $value);
+			}
+		}
+		return $existingObject;
+	}
+
+	public function getPropertyType($key, $className) {
+		$tags = $this->reflectionService->getPropertyTagsValues($className, $key);
+
+		return current($tags['var']);
 	}
 
 	public function getTables($file, $tables) {
@@ -159,12 +263,14 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 					continue;
 				}
 				$cellIterator = $row->getCellIterator();
+				$cellIterator->setIterateOnlyExistingCells(FALSE);
 				$row = array();
 				foreach ($cellIterator as $cell) {
-					if (!is_null($cell)) {
+					// if (!is_null($cell)) {
 						$row[] = $cell->getCalculatedValue();
-					}
+					// }
 				}
+
 				if ($seeking === TRUE && $this->emptyArray($row)) {
 					continue;
 				}
