@@ -96,6 +96,13 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $component = NULL;
 
 	/**
+	 * system
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
+	 */
+	protected $system = NULL;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -113,6 +120,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected function initStorageObjects() {
 		$this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->system = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -305,6 +313,45 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
 		$this->component = $component;
+	}
+
+	/**
+	 * Adds a System
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\System $system
+	 * @return void
+	 */
+	public function addSystem(\Famelo\MelosRtb\Domain\Model\System $system) {
+		$this->system->attach($system);
+	}
+
+	/**
+	 * Removes a System
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\System $systemToRemove The System to be removed
+	 * @return void
+	 */
+	public function removeSystem(\Famelo\MelosRtb\Domain\Model\System $systemToRemove) {
+		$this->system->detach($systemToRemove);
+	}
+
+	/**
+	 * Returns the system
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> $system
+	 */
+	public function getSystem() {
+		return $this->system;
+	}
+
+	/**
+	 * Sets the system
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> $system
+	 * @return void
+	 */
+	public function setSystem(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $system) {
+		$this->system = $system;
 	}
 
 }

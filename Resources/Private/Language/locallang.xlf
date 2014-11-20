@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-20T11:38:26Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-20T17:15:55Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -69,6 +69,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_system.applications">
 				<source>Applications</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.articles">
+				<source>Articles</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component">
 				<source>Component</source>
 			</trans-unit>
@@ -99,8 +102,11 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.systems">
 				<source>Systems</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_component.articles_groups">
-				<source>Articles Groups</source>
+			<trans-unit id="tx_melosrtb_domain_model_component.article_groups">
+				<source>Article Groups</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.articles">
+				<source>Articles</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
@@ -171,6 +177,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_articlegroup.component">
 				<source>Component</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_articlegroup.articles">
+				<source>Articles</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article">
 				<source>Article</source>
 			</trans-unit>
@@ -183,6 +192,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_article.specification">
 				<source>Specification</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.article_group">
 				<source>Article Group</source>
 			</trans-unit>
@@ -194,6 +206,12 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.attributes">
 				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.component">
+				<source>Component</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.system">
+				<source>System</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute">
 				<source>Attribute</source>

@@ -65,6 +65,7 @@ CREATE TABLE tx_melosrtb_domain_model_system (
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	components int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
+	articles int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -343,6 +344,8 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	kerning int(11) unsigned DEFAULT '0',
 	color int(11) unsigned DEFAULT '0',
 	attributes int(11) unsigned DEFAULT '0' NOT NULL,
+	component int(11) unsigned DEFAULT '0',
+	system int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -455,6 +458,19 @@ CREATE TABLE tx_melosrtb_system_component_mm (
 # Table structure for table 'tx_melosrtb_application_system_mm'
 #
 CREATE TABLE tx_melosrtb_application_system_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_melosrtb_system_article_mm'
+#
+CREATE TABLE tx_melosrtb_system_article_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

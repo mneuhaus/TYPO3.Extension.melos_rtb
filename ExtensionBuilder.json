@@ -281,6 +281,16 @@
                             "relationType": "manyToMany",
                             "relationWire": "[wired]",
                             "uid": "266166311011"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "articles",
+                            "relationType": "manyToMany",
+                            "relationWire": "[wired]",
+                            "uid": "793373726049"
                         }
                     ]
                 }
@@ -928,6 +938,16 @@
                             "relationType": "manyToOne",
                             "relationWire": "[wired]",
                             "uid": "838467447687"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "system",
+                            "relationType": "manyToMany",
+                            "relationWire": "[wired]",
+                            "uid": "1103807079004"
                         }
                     ]
                 }
@@ -1083,18 +1103,6 @@
                 "moduleId": 1,
                 "terminal": "SOURCES",
                 "uid": "1146813678681"
-            }
-        },
-        {
-            "src": {
-                "moduleId": 1,
-                "terminal": "relationWire_1",
-                "uid": "266166311011"
-            },
-            "tgt": {
-                "moduleId": 0,
-                "terminal": "SOURCES",
-                "uid": "1294973394547"
             }
         },
         {
@@ -1264,10 +1272,46 @@
                 "terminal": "SOURCES",
                 "uid": "124616706528"
             }
+        },
+        {
+            "src": {
+                "moduleId": 1,
+                "terminal": "relationWire_1",
+                "uid": "266166311011"
+            },
+            "tgt": {
+                "moduleId": 0,
+                "terminal": "SOURCES",
+                "uid": "1294973394547"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 1,
+                "terminal": "relationWire_2",
+                "uid": "793373726049"
+            },
+            "tgt": {
+                "moduleId": 7,
+                "terminal": "SOURCES",
+                "uid": "124616706528"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 7,
+                "terminal": "relationWire_5",
+                "uid": "1103807079004"
+            },
+            "tgt": {
+                "moduleId": 1,
+                "terminal": "SOURCES",
+                "uid": "1146813678681"
+            }
         }
     ],
     "log": {
-        "last_modified": "2014-11-20 03:37",
+        "last_modified": "2014-11-20 05:15",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }
