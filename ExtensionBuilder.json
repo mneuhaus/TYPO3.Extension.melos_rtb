@@ -424,6 +424,16 @@
                             "relationType": "zeroToMany",
                             "relationWire": "[wired]",
                             "uid": "1217853957857"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "articles",
+                            "relationType": "zeroToMany",
+                            "relationWire": "[wired]",
+                            "uid": "435013497305"
                         }
                     ]
                 }
@@ -432,8 +442,8 @@
         {
             "config": {
                 "position": [
-                    512,
-                    297
+                    1203,
+                    199
                 ]
             },
             "name": "New Model Object",
@@ -523,8 +533,8 @@
         {
             "config": {
                 "position": [
-                    1207,
-                    296
+                    1209,
+                    402
                 ]
             },
             "name": "New Model Object",
@@ -795,8 +805,8 @@
         {
             "config": {
                 "position": [
-                    864,
-                    279
+                    715,
+                    370
                 ]
             },
             "name": "New Model Object",
@@ -908,6 +918,16 @@
                             "relationType": "zeroToMany",
                             "relationWire": "[wired]",
                             "uid": "620308461324"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": false,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "component",
+                            "relationType": "manyToOne",
+                            "relationWire": "[wired]",
+                            "uid": "838467447687"
                         }
                     ]
                 }
@@ -916,8 +936,8 @@
         {
             "config": {
                 "position": [
-                    613,
-                    513
+                    1208,
+                    615
                 ]
             },
             "name": "New Model Object",
@@ -1220,10 +1240,34 @@
                 "terminal": "SOURCES",
                 "uid": "124616706528"
             }
+        },
+        {
+            "src": {
+                "moduleId": 7,
+                "terminal": "relationWire_4",
+                "uid": "838467447687"
+            },
+            "tgt": {
+                "moduleId": 2,
+                "terminal": "SOURCES",
+                "uid": "876721542257"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 2,
+                "terminal": "relationWire_2",
+                "uid": "435013497305"
+            },
+            "tgt": {
+                "moduleId": 7,
+                "terminal": "SOURCES",
+                "uid": "124616706528"
+            }
         }
     ],
     "log": {
-        "last_modified": "2014-11-20 12:04",
+        "last_modified": "2014-11-20 03:37",
         "extension_builder_version": "6.2.0",
         "be_user": " (2)"
     }

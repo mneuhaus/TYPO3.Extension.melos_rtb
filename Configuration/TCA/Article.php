@@ -6,30 +6,32 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_article']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
-				name,
-				number,
-				specification,
-				article_group,
-				kerning,
-				color,
-				attributes',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
+				name, 
+				number, 
+				specification, 
+				article_group, 
+				kerning, 
+				color, 
+				attributes, 
+				component',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
-			name,
-			number,
-			specification,
-			article_group,
-			kerning,
-			color,
-			attributes, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+			name, 
+			number, 
+			specification, 
+			article_group, 
+			kerning, 
+			color, 
+			attributes, 
+			component, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-
+	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -70,7 +72,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				'max' => 255,
 			)
 		),
-
+	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -206,6 +208,27 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				),
 			),
 
-		)
+		),
+		
+		'component' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
+		'color' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
+		'kerning' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
+		'articlegroup' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
 	),
 );

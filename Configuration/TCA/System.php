@@ -169,6 +169,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'MM' => 'tx_melosrtb_system_component_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -205,6 +206,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_application',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'MM' => 'tx_melosrtb_application_system_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,

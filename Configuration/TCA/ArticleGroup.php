@@ -151,7 +151,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_articlegroup'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
-				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),

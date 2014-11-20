@@ -114,6 +114,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
 	article_groups int(11) unsigned DEFAULT '0' NOT NULL,
+	articles int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -330,6 +331,7 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	component int(11) unsigned DEFAULT '0' NOT NULL,
 	color int(11) unsigned DEFAULT '0' NOT NULL,
 	kerning int(11) unsigned DEFAULT '0' NOT NULL,
 	articlegroup int(11) unsigned DEFAULT '0' NOT NULL,

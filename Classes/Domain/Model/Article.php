@@ -53,6 +53,13 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $specification = '';
 
 	/**
+	 * l10nParent
+	 *
+	 * @var integer
+	 */
+	protected $l10nParent = 0;
+
+	/**
 	 * articleGroup
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\ArticleGroup
@@ -82,11 +89,11 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $attributes = NULL;
 
 	/**
-	 * l10nParent
+	 * component
 	 *
-	 * @var integer
+	 * @var \Famelo\MelosRtb\Domain\Model\Component
 	 */
-	protected $l10nParent = 0;
+	protected $component = NULL;
 
 	/**
 	 * __construct
@@ -279,6 +286,25 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setL10nParent($l10nParent) {
 		$this->l10nParent = $l10nParent;
+	}
+
+	/**
+	 * Returns the component
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\Component $component
+	 */
+	public function getComponent() {
+		return $this->component;
+	}
+
+	/**
+	 * Sets the component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @return void
+	 */
+	public function setComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$this->component = $component;
 	}
 
 }
