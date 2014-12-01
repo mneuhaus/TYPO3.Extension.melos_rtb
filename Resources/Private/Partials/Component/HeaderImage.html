@@ -1,0 +1,50 @@
+<div class="headerimage">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="headerimageBackground">
+
+          <div class="row">
+            <div class="col-xs-12">
+          		<f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive" />
+            </div>
+          </div>
+
+          <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
+
+            <div class="headerimageToolbar">
+
+              <a class="headerimageToolbarBTN col-05" href="#passendeSysteme">
+        				<img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-system.png', extensionName: 'template')}">
+              </a>
+
+              <a class="headerimageToolbarBTN col-05" href="#weitereInformationen">
+								<img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}">
+        			</a>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-1 onePxPadding">
+              	<img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
+              </div>
+
+              <div class="col-sm-7 onePxPadding">
+                <f:render partial="HeaderCarousel" arguments="{items: applications, currentItem: currentComponent, fallbackImage: 'art/system-bilderheader.png'}" />
+          		</div>
+
+          		<div class="row">
+              	<div class="col-sm-3 onePxPadding">&nbsp;</div>
+              	<div class="col-sm-4 onePxPadding">
+                  <h2 class="mainSummary">{currentComponent.teaser -> f:format.nl2br()}</h2>
+              	</div>
+          		</div>
+
+        		</div>
+        	</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

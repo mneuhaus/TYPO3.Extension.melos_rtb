@@ -191,7 +191,13 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail
 	 */
 	public function getThumbnail() {
-		return $this->thumbnail;
+		if ($this->thumbnail !== NULL) {
+			return $this->thumbnail;
+		}
+
+		if ($this->parent !== NULL) {
+			return $this->parent->getThumbnail();
+		}
 	}
 
 	/**
@@ -422,6 +428,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function addChild(\Famelo\MelosRtb\Domain\Model\Component $child) {
+		$child->setParent($this);
 		$this->children->attach($child);
 	}
 

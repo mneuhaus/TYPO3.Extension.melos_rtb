@@ -1,5 +1,5 @@
 <?php
-namespace Famelo\MelosRtb\Controller;
+namespace Famelo\MelosRtb\Domain\Repository;
 
 /***************************************************************
  *
@@ -27,30 +27,9 @@ namespace Famelo\MelosRtb\Controller;
  ***************************************************************/
 
 /**
- * SystemController
+ * The repository for Applications
  */
-class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class ComponentRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-	/**
-	 * systemRepository
-	 *
-	 * @var \Famelo\MelosRtb\Domain\Repository\SystemRepository
-	 * @inject
-	 */
-	protected $systemRepository = NULL;
-
-	/**
-	 * action index
-	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\System $item
-	 * @return void
-	 */
-	public function indexAction(\Famelo\MelosRtb\Domain\Model\System $item = NULL) {
-		if ($item === NULL) {
-			$item = $this->systemRepository->findAll()->getFirst();
-		}
-		$this->view->assign('currentSystem', $item);
-		$this->view->assign('systems', $this->systemRepository->findAll());
-	}
 
 }

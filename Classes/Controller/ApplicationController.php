@@ -42,14 +42,14 @@ class ApplicationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	/**
 	 * action index
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\Application $application
+	 * @param \Famelo\MelosRtb\Domain\Model\Application $item
 	 * @return void
 	 */
-	public function indexAction(\Famelo\MelosRtb\Domain\Model\Application $application = NULL) {
-		if ($application === NULL) {
-			$application = $this->applicationRepository->findAll()->getFirst();
+	public function indexAction(\Famelo\MelosRtb\Domain\Model\Application $item = NULL) {
+		if ($item === NULL) {
+			$item = $this->applicationRepository->findAll()->getFirst();
 		}
-		$this->view->assign('currentApplication', $application);
+		$this->view->assign('currentApplication', $item);
 		$this->view->assign('applications', $this->applicationRepository->findAll());
 	}
 

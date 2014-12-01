@@ -70,60 +70,7 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 */
 	public function importAction($file) {
 		// $this->importEntities($file);
-
-		$relations = array(
-			'rel1' => array(
-				'sheet' => 1,
-				'tableIdentifier' => 'Weg über Anwendungen',
-			),
-			'rel2' => array(
-				'sheet' => 2,
-				'tableIdentifier' => 'Weg über Systeme',
-			)
-		);
-		$relations = $this->getTables($file, $relations);
-		$applications = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\Application');
-		foreach ($applications as $application) {
-			$attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-			$application->setSystems($attributes);
-		}
-		$systems = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\System');
-		foreach ($systems as $system) {
-			$articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-			$system->setArticles($articles);
-			$components = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-			$system->setComponents($components);
-		}
-		foreach ($relations['rel1']['rows'] as $row) {
-			$application = $applications[$row['Anwendung']];
-			$system = $systems[$row['Systeme']];
-			if ($row['Systeme'] === NULL) {
-				continue;
-			}
-			$application->addSystem($system);
-			$this->addOrUpdate($application);
-		}
-
-		foreach ($relations['rel2']['rows'] as $row) {
-			$system = $systems[$row['Systeme']];
-			$article = $this->getObject($row, '\Famelo\MelosRtb\Domain\Model\Article', FALSE);
-
-			$query = $this->createQuery($row, array(
-				'articleGroup' => 'Art',
-				'kerning' => 'Koernung',
-				'color' => 'Farbe',
-				'specification' => 'Spezifikation'
-			), '\Famelo\MelosRtb\Domain\Model\Article');
-
-			foreach ($query->execute() as $article) {
-				$system->addArticle($article);
-
-				if ($article->getComponent() !== NULL && !$system->hasComponent($article->getComponent())) {
-					$system->addComponent($article->getComponent());
-				}
-			}
-			$this->addOrUpdate($system);
-		}
+		$this->importRelations($file);
 	}
 
 	public function getEntityIndex($className) {
@@ -138,74 +85,114 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	public function importEntities($file) {
 		$imports = array(
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Anwendungen',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Application',
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Systeme',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\System'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Komponenten',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Component'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Farben',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Color'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Art - CGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
 				'componentCode' => 'CGR'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Art - RGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
 				'componentCode' => 'RGR'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Art - PUR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\ArticleGroup',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
 				'componentCode' => 'PUR'
 			),
 			array(
-				'sheet' => 0,
+				'sheet' => 'Index',
 				'tableIdentifier' => 'Körnungen',
 				'entity' => '\Famelo\MelosRtb\Domain\Model\Kerning'
 			),
 			array(
-				'sheet' => 3,
-				'tableIdentifier' => 'Artikel CGR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+				'sheet' => 'Systeme',
+				'tableIdentifier' => 'Weg über Systeme',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
+				'codeParts' => array('Spezifi. 2', 'Spezifi. 3'),
+				'name' => 'Komponenten',
+				'parentField' => 'Spezifi. 2'
 			),
 			array(
-				'sheet' => 3,
-				'tableIdentifier' => 'Artikel PUR',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+				'sheet' => 'Systeme',
+				'tableIdentifier' => 'Weg über Systeme',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
+				'codeParts' => array('Spezifi. 2', 'Spezifi. 3'),
+				'name' => 'Komponenten',
+				'parentField' => 'Spezifi. 2'
 			),
 			array(
-				'sheet' => 3,
-				'tableIdentifier' => 'Artikel ATL',
-				'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
-			)
+				'sheet' => 'Systeme',
+				'tableIdentifier' => 'Weg über Systeme',
+				'entity' => '\Famelo\MelosRtb\Domain\Model\Component',
+				'codeParts' => array('Spezifi. 2'),
+				'name' => 'Komponenten',
+				'parentField' => 'Spezifi. 1'
+			),
+			// array(
+			// 	'sheet' => 'Artikel',
+			// 	'tableIdentifier' => 'Artikel CGR',
+			// 	'entity' => '\Famelo\MelosRtb\Domain\Model\Article',
+			// 	'relations' => array(
+			// 		array(
+			// 			'className' => '\Famelo\MelosRtb\Domain\Model\Kerning',
+			// 			'codeField' => 'Körnung',
+			// 			'method' => 'setKerning'
+			// 		)
+			// 	)
+			// ),
+			// array(
+			// 	'sheet' => 'Artikel',
+			// 	'tableIdentifier' => 'Artikel PUR',
+			// 	'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			// ),
+			// array(
+			// 	'sheet' => 'Artikel',
+			// 	'tableIdentifier' => 'Artikel ATL',
+			// 	'entity' => '\Famelo\MelosRtb\Domain\Model\Article'
+			// )
 		);
 		$imports = $this->getTables($file, $imports);
 
 		foreach ($imports as $import) {
-			// var_dump($import);
-			// return;
 			foreach ($import['rows'] as $row) {
+				if (isset($import['codeParts'])) {
+					$codeParts = array();
+					foreach ($import['codeParts'] as $codePart) {
+						if (trim($row[$codePart]) == '-') {
+							continue;
+						}
+						$codeParts[] = $row[$codePart];
+					}
+					$row['Code'] = implode('.', $codeParts);
+				}
+
 				$existingObject = $this->getObject($row, $import['entity']);
 				$values = array_values($row);
-				echo 'Processing: ' . $values[1] . $values[2] . $values[3] . '<br />';
-				ob_flush();
+				// echo 'Processing: ' . $values[1] . $values[2] . $values[3] . '<br />';
+				// ob_flush();
 
 				$this->addOrUpdate($existingObject);
 
@@ -220,18 +207,39 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 					$this->addOrUpdate($translation);
 				}
 
-				$existingObject->setName($row['Bezeichnung']);
+				if (isset($import['name'])) {
+					$existingObject->setName($row[$import['name']]);
+				} else {
+					$existingObject->setName($row['Bezeichnung']); //  . '(' . $import['sheet'] . ', ' . $import['tableIdentifier'] . ')'
+				}
 				if (isset($row['Sortierung'])) {
 					$existingObject->setSorting($row['Sortierung']);
 				}
 
-				switch ($import['entity']) {
-					case '\Famelo\MelosRtb\Domain\Model\ArticleGroup':
-						$component = $this->findByCode($import['componentCode'], '\Famelo\MelosRtb\Domain\Model\Component');
-						$component->addArticleGroup($existingObject);
-						$this->addOrUpdate($component);
-						break;
 
+				if (isset($import['parentField'])) {
+					$import['componentCode'] = $row[$import['parentField']];
+				}
+
+				if (isset($import['componentCode'])) {
+					$component = $this->findByCode($import['componentCode'], '\Famelo\MelosRtb\Domain\Model\Component');
+					if ($component !== NULL) {
+						$component->addChild($existingObject);
+						$this->addOrUpdate($component);
+					}
+				}
+
+				if (isset($import['relations'])) {
+					foreach ($import['relations'] as $relation) {
+						$relatedObject = $this->findByCode($row[$relation['codeField']], $relation['className']);
+						if ($relatedObject !== NULL) {
+							call_user_method($relation['method'], $existingObject, $relatedObject);
+							$this->addOrUpdate($relatedObject);
+						}
+					}
+				}
+
+				switch ($import['entity']) {
 					case '\Famelo\MelosRtb\Domain\Model\Article':
 						// $attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 						// $existingObject->setAttributes($attributes);
@@ -253,6 +261,80 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 				$this->addOrUpdate($existingObject);
 			}
+		}
+	}
+
+	public function importRelations($file) {
+		$relations = array(
+			'rel1' => array(
+				'sheet' => 'Anwendungen',
+				'tableIdentifier' => 'Weg über Anwendungen',
+			),
+			'rel2' => array(
+				'sheet' => 'Systeme',
+				'tableIdentifier' => 'Weg über Systeme',
+			)
+		);
+		$relations = $this->getTables($file, $relations);
+		$applications = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\Application');
+		foreach ($applications as $application) {
+			$attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+			$application->setSystems($attributes);
+		}
+		$systems = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\System');
+		foreach ($systems as $system) {
+			$components = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+			$system->setComponents($components);
+		}
+		$components = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\Component');
+		foreach ($components as $component) {
+			$component->setArticles(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
+			$component->setSystems(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
+		}
+		foreach ($relations['rel1']['rows'] as $row) {
+			$application = $applications[$row['Anwendung']];
+			$system = $systems[$row['Systeme']];
+			if ($row['Systeme'] !== NULL) {
+				$application->addSystem($system);
+				$this->addOrUpdate($application);
+			}
+
+			$keys = array();
+			foreach (array('Spezifikation 2', 'Spezifikation 3') as $key) {
+				if (trim($row[$key]) === '-' || empty($row[$key])) {
+					continue;
+				}
+				$keys[] = $row[$key];
+			}
+			$key = implode('.', $keys);
+			$component = $components[$key];
+			if ($component !== NULL) {
+				$system->addComponent($component);
+				$this->addOrUpdate($system);
+			}
+		}
+
+		return;
+
+		foreach ($relations['rel2']['rows'] as $row) {
+			$system = $systems[$row['Systeme']];
+			$article = $this->getObject($row, '\Famelo\MelosRtb\Domain\Model\Article', FALSE);
+
+			$query = $this->createQuery($row, array(
+				'articleGroup' => 'Art',
+				'kerning' => 'Koernung',
+				'color' => 'Farbe',
+				'specification' => 'Spezifikation'
+			), '\Famelo\MelosRtb\Domain\Model\Article');
+
+			foreach ($query->execute() as $article) {
+				$system->addArticle($article);
+
+				if ($article->getComponent() !== NULL && !$system->hasComponent($article->getComponent())) {
+					$system->addComponent($article->getComponent());
+				}
+			}
+			$this->addOrUpdate($system);
 		}
 	}
 
@@ -303,7 +385,10 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				$conditions[] = $query->equals($key, $value);
 			}
 		}
-		// var_dump($conditions);
+		if (empty($conditions)) {
+			var_dump($keys, $row);
+			exit();
+		}
 		$query->matching($query->logicalAnd($conditions));
 		return $query;
 	}
@@ -340,12 +425,16 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	public function getTables($file, $tables) {
 		$xls = \PHPExcel_IOFactory::load(PATH_site . '/fileadmin/' . $file);
 		foreach ($tables as $key => $tableSource) {
-			$worksheet = $xls->getSheet($tableSource['sheet']);
+			if (is_int($tableSource['sheet'])) {
+				$worksheet = $xls->getSheet($tableSource['sheet']);
+			} else {
+				$worksheet = $xls->getSheetByName($tableSource['sheet']);
+			}
 			$collecting = FALSE;
 			$seeking = FALSE;
 			$rows = array();
-			foreach ($worksheet->getRowIterator() as $row) {
-				$header = $worksheet->getCell('A' . $row->getRowIndex())->getValue();
+			foreach ($worksheet->getRowIterator() as $sheetRow) {
+				$header = $worksheet->getCell('A' . $sheetRow->getRowIndex())->getValue();
 				if ($header !== $tableSource['tableIdentifier'] && $collecting == FALSE) {
 					continue;
 				}
@@ -354,8 +443,9 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 					$seeking = TRUE;
 					continue;
 				}
-				$cellIterator = $row->getCellIterator();
+				$cellIterator = $sheetRow->getCellIterator();
 				$cellIterator->setIterateOnlyExistingCells(FALSE);
+
 				$row = array();
 				foreach ($cellIterator as $cell) {
 					// if (!is_null($cell)) {
@@ -370,6 +460,12 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 					break;
 				}
 				$seeking = FALSE;
+
+				$firstCellValue = $worksheet->getCell('A' . $sheetRow->getRowIndex())->getCalculatedValue();
+				if ($firstCellValue === NULL || $firstCellValue === 'Codierung') {
+					continue;
+				}
+
 				$rows[] = $row;
 			}
 

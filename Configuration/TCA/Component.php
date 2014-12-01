@@ -6,40 +6,40 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_component']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
-				name, 
-				code, 
-				thumbnail, 
-				image, 
-				teaser, 
-				description, 
-				sorting, 
-				systems, 
-				articles, 
-				kerning, 
-				parent, 
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
+				name,
+				code,
+				thumbnail,
+				image,
+				teaser,
+				description,
+				sorting,
+				systems,
+				articles,
+				kerning,
+				parent,
 				children',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-			name, 
-			code, 
-			thumbnail, 
-			image, 
-			teaser, 
-			description, 
-			sorting, 
-			systems, 
-			articles, 
-			kerning, 
-			parent, 
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
+			name,
+			code,
+			thumbnail,
+			image,
+			teaser,
+			description,
+			sorting,
+			systems,
+			articles,
+			kerning,
+			parent,
 			children, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -80,7 +80,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -227,16 +227,34 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.articles',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_article',
 				'foreign_field' => 'component',
+				'size' => 10,
 				'maxitems'      => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'multiple' => 1,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_melosrtb_domain_model_system',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
 				),
 			),
 
@@ -257,6 +275,9 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'items' => array(
+					array('', 0),
+				),
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
@@ -265,20 +286,38 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.children',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
-				'foreign_field' => 'component3',
+				'foreign_field' => 'parent',
+				'size' => 10,
 				'maxitems'      => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'multiple' => 1,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_melosrtb_domain_model_system',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
 				),
 			),
 
 		),
-		
+
 	),
 );

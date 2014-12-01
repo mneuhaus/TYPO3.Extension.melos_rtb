@@ -32,12 +32,25 @@ namespace Famelo\MelosRtb\Controller;
 class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
+	 * componentRepository
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Repository\ComponentRepository
+	 * @inject
+	 */
+	protected $componentRepository = NULL;
+
+	/**
 	 * action index
 	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $item
 	 * @return void
 	 */
-	public function indexAction() {
-		
+	public function indexAction(\Famelo\MelosRtb\Domain\Model\Component $item = NULL) {
+		if ($item === NULL) {
+			$item = $this->componentRepository->findAll()->getFirst();
+		}
+		$this->view->assign('currentComponent', $item);
+		$this->view->assign('components', $this->componentRepository->findAll());
 	}
 
 }

@@ -252,6 +252,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
 	public function addComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$component->addSystem($this);
 		if (!$this->components->contains($component)) {
 			$this->components->attach($component);
 		}
