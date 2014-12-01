@@ -12,6 +12,12 @@ plugin.tx_melosrtb {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+
+	settings {
+		applicationPage = 6
+		systemPage = 7
+		compomentPage = 8
+	}
 }
 
 plugin.tx_melosrtb._CSS_DEFAULT_STYLE (

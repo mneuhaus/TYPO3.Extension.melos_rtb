@@ -42,10 +42,15 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
 	 * action index
 	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\System $system
 	 * @return void
 	 */
-	public function indexAction() {
-		
+	public function indexAction(\Famelo\MelosRtb\Domain\Model\System $system = NULL) {
+		if ($system === NULL) {
+			$system = $this->systemRepository->findAll()->getFirst();
+		}
+		$this->view->assign('currentSystem', $system);
+		$this->view->assign('systems', $this->systemRepository->findAll());
 	}
 
 }

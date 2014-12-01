@@ -1,0 +1,19 @@
+<div id="owlCarouselQuadsNavigation" class="owl-carousel">
+  <f:for each="{items}" as="item">
+    <div class="item">
+      <div class="owlQuad onePxPadding">
+        <f:link.action action="index" arguments="{item: item}" class="{f:if(condition: '{item}=={currentItem}', then: 'active')}">
+          <f:if condition="{item.thumbnail}">
+            <f:then>
+              <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive" />
+            </f:then>
+            <f:else>
+              <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive" />
+            </f:else>
+          </f:if>
+          <span>{item.name}</span>
+        </f:link.action>
+      </div>
+    </div>
+  </f:for>
+</div>

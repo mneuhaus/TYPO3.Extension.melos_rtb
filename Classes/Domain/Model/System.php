@@ -252,7 +252,9 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
 	public function addComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
-		$this->components->attach($component);
+		if (!$this->components->contains($component)) {
+			$this->components->attach($component);
+		}
 	}
 
 	/**
@@ -263,6 +265,16 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function removeComponent(\Famelo\MelosRtb\Domain\Model\Component $componentToRemove) {
 		$this->components->detach($componentToRemove);
+	}
+
+	/**
+	 * Removes a ComponentUse
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component The Component to be removed
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
+	 */
+	public function hasComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		return $this->components->contains($component);
 	}
 
 	/**

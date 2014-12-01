@@ -8,6 +8,10 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
+                <!-- gradienten für pfeile der Navigation-->
+                <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
+                <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
+
                 <div id="owlCarouselQuadsRelatedSystems" class="owl-carousel relatedObjects">
                     <f:for each="{currentApplication.systems}" as="system">
                         <div class="item">
@@ -16,9 +20,9 @@
                                     <h4 class="owlQuadTextHeadline">{system.name}</h4>
                                     <p>{system.teaser}</p>
                                 </div>
-                                <a href="" class="">
+                                <f:link.action action="index" controller="System" pluginName="Systems" pageUid="{settings.systemPage}">
                                     <f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                                </a>
+                                </f:link.action>
                             </div>
                         </div>
                     </f:for>

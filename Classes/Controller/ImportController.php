@@ -91,6 +91,8 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		foreach ($systems as $system) {
 			$articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 			$system->setArticles($articles);
+			$components = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+			$system->setComponents($components);
 		}
 		foreach ($relations['rel1']['rows'] as $row) {
 			$application = $applications[$row['Anwendung']];
@@ -115,6 +117,10 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 			foreach ($query->execute() as $article) {
 				$system->addArticle($article);
+
+				if ($article->getComponent() !== NULL && !$system->hasComponent($article->getComponent())) {
+					$system->addComponent($article->getComponent());
+				}
 			}
 			$this->addOrUpdate($system);
 		}

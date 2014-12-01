@@ -31,18 +31,7 @@
               </div>
 
               <div class="col-sm-7 onePxPadding">
-                <div id="owlCarouselQuadsNavigation" class="owl-carousel">
-                	<f:for each="{applications}" as="application">
-	                  <div class="item">
-	                    <div class="owlQuad onePxPadding">
-	                    	<f:link.action action="index" arguments="{application: application}" class="{f:if(condition: '{application}=={currentApplication}', then: 'active')}">
-	          							<f:image src="{application.thumbnail.uid}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" />
-	                    		<span>{application.name}</span>
-	                    	</f:link.action>
-	                    </div>
-	                 	</div>
-                	</f:for>
-              	</div>
+                <f:render partial="HeaderCarousel" arguments="{items: applications, currentItem: currentApplication, fallbackImage: 'art/system-bilderheader.png'}" />
           		</div>
 
           		<div class="row">
