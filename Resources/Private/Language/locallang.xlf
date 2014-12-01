@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-20T17:15:55Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-01T11:06:32Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -102,11 +102,17 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.systems">
 				<source>Systems</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_component.article_groups">
-				<source>Article Groups</source>
-			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.articles">
 				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.kerning">
+				<source>Kerning</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.parent">
+				<source>Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.children">
+				<source>Children</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
@@ -144,6 +150,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_kerning.articles">
 				<source>Articles</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.components">
+				<source>Components</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_packagesize">
 				<source>Package Size</source>
 			</trans-unit>
@@ -159,27 +168,6 @@
 			<trans-unit id="tx_melosrtb_domain_model_packagesize.l10n_parent">
 				<source>L10n Parent</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup">
-				<source>Article Group</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.code">
-				<source>Code</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.sorting">
-				<source>Sorting</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.l10n_parent">
-				<source>L10n Parent</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.component">
-				<source>Component</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_articlegroup.articles">
-				<source>Articles</source>
-			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article">
 				<source>Article</source>
 			</trans-unit>
@@ -194,9 +182,6 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.l10n_parent">
 				<source>L10n Parent</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_article.article_group">
-				<source>Article Group</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.kerning">
 				<source>Kerning</source>

@@ -15,8 +15,10 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				description, 
 				sorting, 
 				systems, 
-				article_groups, 
-				articles',
+				articles, 
+				kerning, 
+				parent, 
+				children',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
@@ -28,8 +30,10 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			description, 
 			sorting, 
 			systems, 
-			article_groups, 
-			articles, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+			articles, 
+			kerning, 
+			parent, 
+			children, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -219,25 +223,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				),
 			),
 		),
-		'article_groups' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.article_groups',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_melosrtb_domain_model_articlegroup',
-				'foreign_field' => 'component',
-				'maxitems'      => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'useSortable' => 1,
-					'showAllLocalizationLink' => 1
-				),
-			),
-
-		),
 		'articles' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.articles',
@@ -245,6 +230,44 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_melosrtb_domain_model_article',
 				'foreign_field' => 'component',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+
+		),
+		'kerning' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.kerning',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_melosrtb_domain_model_kerning',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+		'parent' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.parent',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+		'children' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.children',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'foreign_field' => 'component3',
 				'maxitems'      => 9999,
 				'appearance' => array(
 					'collapseAll' => 0,

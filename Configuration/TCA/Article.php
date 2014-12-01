@@ -151,20 +151,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				'eval' => 'int'
 			)
 		),
-		'article_group' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.article_group',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_melosrtb_domain_model_articlegroup',
-				'foreign_table_where' => ' AND sys_language_uid = 0',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'items' => array(
-					array('', 0)
-				)
-			),
-		),
 		'kerning' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_article.kerning',

@@ -68,6 +68,14 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $articles = NULL;
 
 	/**
+	 * components
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @cascade remove
+	 */
+	protected $components = NULL;
+
+	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -161,6 +169,7 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected function initStorageObjects() {
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->components = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -200,6 +209,45 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setArticles(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articles) {
 		$this->articles = $articles;
+	}
+
+	/**
+	 * Adds a Component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @return void
+	 */
+	public function addComponent(\Famelo\MelosRtb\Domain\Model\Component $component) {
+		$this->components->attach($component);
+	}
+
+	/**
+	 * Removes a Component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $componentToRemove The Component to be removed
+	 * @return void
+	 */
+	public function removeComponent(\Famelo\MelosRtb\Domain\Model\Component $componentToRemove) {
+		$this->components->detach($componentToRemove);
+	}
+
+	/**
+	 * Returns the components
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $components
+	 */
+	public function getComponents() {
+		return $this->components;
+	}
+
+	/**
+	 * Sets the components
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $components
+	 * @return void
+	 */
+	public function setComponents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $components) {
+		$this->components = $components;
 	}
 
 }

@@ -60,13 +60,6 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $l10nParent = 0;
 
 	/**
-	 * articleGroup
-	 *
-	 * @var \Famelo\MelosRtb\Domain\Model\ArticleGroup
-	 */
-	protected $articleGroup = NULL;
-
-	/**
 	 * kerning
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
@@ -178,25 +171,6 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSpecification($specification) {
 		$this->specification = $specification;
-	}
-
-	/**
-	 * Returns the articleGroup
-	 *
-	 * @return \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup
-	 */
-	public function getArticleGroup() {
-		return $this->articleGroup;
-	}
-
-	/**
-	 * Sets the articleGroup
-	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup
-	 * @return void
-	 */
-	public function setArticleGroup(\Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup) {
-		$this->articleGroup = $articleGroup;
 	}
 
 	/**

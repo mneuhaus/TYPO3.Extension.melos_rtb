@@ -96,20 +96,34 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $systems = NULL;
 
 	/**
-	 * articleGroups
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup>
-	 * @cascade remove
-	 */
-	protected $articleGroups = NULL;
-
-	/**
 	 * articles
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
 	 * @cascade remove
 	 */
 	protected $articles = NULL;
+
+	/**
+	 * kerning
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
+	 */
+	protected $kerning = NULL;
+
+	/**
+	 * parent
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Model\Component
+	 */
+	protected $parent = NULL;
+
+	/**
+	 * children
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @cascade remove
+	 */
+	protected $children = NULL;
 
 	/**
 	 * __construct
@@ -129,8 +143,8 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected function initStorageObjects() {
 		$this->systems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->articleGroups = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->children = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -327,49 +341,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a Article
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
-	 */
-	public function addArticleGroup(\Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroup) {
-		if ($this->articleGroups === NULL) {
-			$this->articleGroups = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		}
-		$articleGroup->setComponent($this);
-		$this->articleGroups->attach($articleGroup);
-	}
-
-	/**
-	 * Removes a Article
-	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroupToRemove The ArticleGroup to be removed
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
-	 */
-	public function removeArticleGroup(\Famelo\MelosRtb\Domain\Model\ArticleGroup $articleGroupToRemove) {
-		$this->articleGroups->detach($articleGroupToRemove);
-	}
-
-	/**
-	 * Returns the articleGroups
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
-	 */
-	public function getArticleGroups() {
-		return $this->articleGroups;
-	}
-
-	/**
-	 * Sets the articleGroups
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> $articleGroups
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ArticleGroup> articleGroups
-	 */
-	public function setArticleGroups(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articleGroups) {
-		$this->articleGroups = $articleGroups;
-	}
-
-	/**
-	 * Adds a Article
-	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Article $article
 	 * @return void
 	 */
@@ -404,6 +375,83 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setArticles(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articles) {
 		$this->articles = $articles;
+	}
+
+	/**
+	 * Returns the kerning
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\Kerning $kerning
+	 */
+	public function getKerning() {
+		return $this->kerning;
+	}
+
+	/**
+	 * Sets the kerning
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Kerning $kerning
+	 * @return void
+	 */
+	public function setKerning(\Famelo\MelosRtb\Domain\Model\Kerning $kerning) {
+		$this->kerning = $kerning;
+	}
+
+	/**
+	 * Returns the parent
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\Component $parent
+	 */
+	public function getParent() {
+		return $this->parent;
+	}
+
+	/**
+	 * Sets the parent
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $parent
+	 * @return void
+	 */
+	public function setParent(\Famelo\MelosRtb\Domain\Model\Component $parent) {
+		$this->parent = $parent;
+	}
+
+	/**
+	 * Adds a Component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $child
+	 * @return void
+	 */
+	public function addChild(\Famelo\MelosRtb\Domain\Model\Component $child) {
+		$this->children->attach($child);
+	}
+
+	/**
+	 * Removes a Component
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $childToRemove The Component to be removed
+	 * @return void
+	 */
+	public function removeChild(\Famelo\MelosRtb\Domain\Model\Component $childToRemove) {
+		$this->children->detach($childToRemove);
+	}
+
+	/**
+	 * Returns the children
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $children
+	 */
+	public function getChildren() {
+		return $this->children;
+	}
+
+	/**
+	 * Sets the children
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $children
+	 * @return void
+	 */
+	public function setChildren(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $children) {
+		$this->children = $children;
 	}
 
 }
