@@ -1,5 +1,10 @@
-<f:render partial="Component/HeaderImage" arguments="{applications: applications, currentApplication: currentApplication}" />
-
-<_f:render partial="Component/MobileNavigation" arguments="{applications: applications}" />
-
-<_f:render partial="Component/Systems" arguments="{currentApplication: currentApplication}" />
+<f:if condition="{currentComponent}">
+	<f:then>
+		<f:render partial="Component/HeaderImage" arguments="{components: components, currentComponent: currentComponent}" />
+		<_f:render partial="Component/MobileNavigation" arguments="{components: components}" />
+		<_f:render partial="Component/Systems" arguments="{currentComponent: currentComponent}" />
+	</f:then>
+	<f:else>
+		<f:render partial="Component/CategorySelector" arguments="{components: components}" />
+	</f:else>
+</f:if>

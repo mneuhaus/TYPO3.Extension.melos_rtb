@@ -337,4 +337,56 @@ class SystemTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 		$this->subject->removeApplication($application);
 
 	}
+
+	/**
+	 * @test
+	 */
+	public function getArticlesReturnsInitialValueForArticle() {
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->subject->getArticles()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setArticlesForObjectStorageContainingArticleSetsArticles() {
+		$article = new \Famelo\MelosRtb\Domain\Model\Article();
+		$objectStorageHoldingExactlyOneArticles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$objectStorageHoldingExactlyOneArticles->attach($article);
+		$this->subject->setArticles($objectStorageHoldingExactlyOneArticles);
+
+		$this->assertAttributeEquals(
+			$objectStorageHoldingExactlyOneArticles,
+			'articles',
+			$this->subject
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function addArticleToObjectStorageHoldingArticles() {
+		$article = new \Famelo\MelosRtb\Domain\Model\Article();
+		$articlesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
+		$articlesObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($article));
+		$this->inject($this->subject, 'articles', $articlesObjectStorageMock);
+
+		$this->subject->addArticle($article);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeArticleFromObjectStorageHoldingArticles() {
+		$article = new \Famelo\MelosRtb\Domain\Model\Article();
+		$articlesObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
+		$articlesObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($article));
+		$this->inject($this->subject, 'articles', $articlesObjectStorageMock);
+
+		$this->subject->removeArticle($article);
+
+	}
 }

@@ -16,7 +16,7 @@ plugin.tx_melosrtb {
 	settings {
 		applicationPage = 6
 		systemPage = 7
-		compomentPage = 8
+		componentPage = 8
 	}
 }
 

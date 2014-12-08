@@ -1,33 +1,28 @@
-<div class="content">
-	<div class="container">
-		<div id="passendeKomponenten" class="row">
-			<div class="col-sm-6">
-				<h2>Empfohlene Komponenten</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<!-- gradienten für pfeile der Navigation-->
-				<div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
-				<div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
+<div id="passendeKomponenten" class="row">
+	<div class="col-sm-6">
+		<h2>Empfohlene Komponenten</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<!-- gradienten für pfeile der Navigation-->
+		<div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
+		<div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
 
-				<div id="owlCarouselQuadsRelatedSystems" class="owl-carousel relatedObjects">
-					<f:for each="{currentSystem.components}" as="component">
-						<div class="item">
-							<div class="owlQuad onePxPadding">
-								<div class="owlQuadText">
-									<h4 class="owlQuadTextHeadline">{component.name}</h4>
-									<p>{component.teaser}</p>
-								</div>
-								<f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}">
-                 	<f:image src="{component.thumbnail.uid}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                 	asdasd
-								</f:link>
-							</div>
+		<div id="owlCarouselQuadsRelatedSystems" class="owl-carousel relatedObjects">
+			<f:for each="{currentSystem.components}" as="component">
+				<div class="item">
+					<div class="owlQuad onePxPadding">
+						<div class="owlQuadText">
+							<h4 class="owlQuadTextHeadline">{component.name}</h4>
+							<p>{component.teaser}</p>
 						</div>
-					</f:for>
+						<f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component}">
+             	<f:image src="{component.thumbnail.uid}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+						</f:link.action>
+					</div>
 				</div>
-			</div>
+			</f:for>
 		</div>
 	</div>
 </div>

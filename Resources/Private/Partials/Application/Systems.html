@@ -20,7 +20,7 @@
                                     <h4 class="owlQuadTextHeadline">{system.name}</h4>
                                     <p>{system.teaser}</p>
                                 </div>
-                                <f:link.action action="index" controller="System" pluginName="Systems" pageUid="{settings.systemPage}">
+                                <f:link.action action="index" controller="System" pluginName="Systems" pageUid="{settings.systemPage}" arguments="{item: system}">
                                     <f:if condition="{system.thumbnail}">
                                         <f:then><f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" /></f:then>
                                         <f:else><f:image src="{f:uri.resource(path: 'art/content-quad-systems.png', extensionName: 'template')}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" /></f:else>

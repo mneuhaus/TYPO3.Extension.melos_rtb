@@ -3,10 +3,16 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="headerimageBackground">
-
           <div class="row">
             <div class="col-xs-12">
-          		<f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive" />
+              <f:if condition="{system.thumbnail}">
+                  <f:then>
+                    <f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                  </f:then>
+                  <f:else>
+                    <f:image src="{f:uri.resource(path: 'art/headerimage-komponente.jpg', extensionName: 'template')}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                  </f:else>
+              </f:if>
             </div>
           </div>
 
@@ -31,13 +37,13 @@
               </div>
 
               <div class="col-sm-7 onePxPadding">
-                <f:render partial="HeaderCarousel" arguments="{items: applications, currentItem: currentComponent, fallbackImage: 'art/system-bilderheader.png'}" />
+                <f:render partial="HeaderCarousel" arguments="{items: components, currentItem: currentComponent, fallbackImage: 'art/system-bilderheader.png'}" />
           		</div>
 
           		<div class="row">
               	<div class="col-sm-3 onePxPadding">&nbsp;</div>
               	<div class="col-sm-4 onePxPadding">
-                  <h2 class="mainSummary">{currentComponent.teaser -> f:format.nl2br()}</h2>
+                  <h2 class="mainSummary">{currentComponent.name -> f:format.nl2br()}{currentComponent.teaser -> f:format.nl2br()}</h2>
               	</div>
           		</div>
 

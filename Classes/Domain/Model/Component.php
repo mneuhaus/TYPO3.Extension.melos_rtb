@@ -55,7 +55,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * image
 	 *
-	 * @var string
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image = '';
 
@@ -194,7 +194,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		if ($this->thumbnail !== NULL) {
 			return $this->thumbnail;
 		}
-
 		if ($this->parent !== NULL) {
 			return $this->parent->getThumbnail();
 		}
@@ -208,25 +207,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setThumbnail(\TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail) {
 		$this->thumbnail = $thumbnail;
-	}
-
-	/**
-	 * Returns the image
-	 *
-	 * @return string $image
-	 */
-	public function getImage() {
-		return $this->image;
-	}
-
-	/**
-	 * Sets the image
-	 *
-	 * @param string $image
-	 * @return void
-	 */
-	public function setImage($image) {
-		$this->image = $image;
 	}
 
 	/**
@@ -459,6 +439,25 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setChildren(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $children) {
 		$this->children = $children;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference image
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param string $image
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference image
+	 */
+	public function setImage($image) {
+		$this->image = $image;
 	}
 
 }

@@ -111,7 +111,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	thumbnail int(11) unsigned NOT NULL default '0',
-	image varchar(255) DEFAULT '' NOT NULL,
+	image int(11) unsigned NOT NULL default '0',
 	teaser text NOT NULL,
 	description text NOT NULL,
 	sorting text NOT NULL,
@@ -439,9 +439,76 @@ CREATE TABLE tx_melosrtb_system_article_mm (
 );
 
 #
+# Table structure for table 'tx_melosrtb_domain_model_article'
+#
+CREATE TABLE tx_melosrtb_domain_model_article (
+
+	component  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_component'
+#
+CREATE TABLE tx_melosrtb_domain_model_component (
+
+	component3  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
 # Table structure for table 'tx_melosrtb_system_component_mm'
 #
 CREATE TABLE tx_melosrtb_system_component_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_article'
+#
+CREATE TABLE tx_melosrtb_domain_model_article (
+
+	color  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_article'
+#
+CREATE TABLE tx_melosrtb_domain_model_article (
+
+	kerning  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_component'
+#
+CREATE TABLE tx_melosrtb_domain_model_component (
+
+	kerning  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_melosrtb_domain_model_attribute'
+#
+CREATE TABLE tx_melosrtb_domain_model_attribute (
+
+	article  int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_melosrtb_system_article_mm'
+#
+CREATE TABLE tx_melosrtb_system_article_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

@@ -1,0 +1,54 @@
+<div class="content">
+
+    <div class="container">
+        <div id="weitereInformationen" class="row">
+            <div class="col-sm-6">
+                <h2>Details zu Laufbahn</h2>
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="tabCarousel" class="tabCarousel">
+                <div class="col-xs-12">
+                    <ul class="triggerTabCarousel">
+                        <li class="active"><a class="active" href="">Beschreibung</a></li>
+                        <li><a href="">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12">
+                    <div id="owlCarouselTabs" class="owl-carousel">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>{application.name}</h4>
+                                </div>
+                            </div>
+                            <p class="text-columns-2">{application.description -> f:format.nl2br()}</p>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>{application.name}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="download-list">
+                                    <f:for each="{application.downloads}" as="download">
+                                        <li>
+                                            <a href="{download.originalResource.publicUrl}" target="_blank">
+                                                {download.originalResource.name}
+                                            </a>
+                                        </li>
+                                    </f:for>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

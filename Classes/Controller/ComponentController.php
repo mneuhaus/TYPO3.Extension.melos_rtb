@@ -46,11 +46,11 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 * @return void
 	 */
 	public function indexAction(\Famelo\MelosRtb\Domain\Model\Component $item = NULL) {
-		if ($item === NULL) {
-			$item = $this->componentRepository->findAll()->getFirst();
+		if ($item !== NULL) {
+			// $item = $this->componentRepository->findAll()->getFirst();
+			$this->view->assign('currentComponent', $item);
 		}
-		$this->view->assign('currentComponent', $item);
-		$this->view->assign('components', $this->componentRepository->findAll());
+		$this->view->assign('components', $this->componentRepository->findByParent(NULL));
 	}
 
 }
