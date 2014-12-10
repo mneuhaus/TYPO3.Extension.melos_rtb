@@ -96,6 +96,20 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $system = NULL;
 
 	/**
+	 * image
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $image = NULL;
+
+	/**
+	 * detail
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $detail = NULL;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -326,6 +340,44 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSystem(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $system) {
 		$this->system = $system;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @return void
+	 */
+	public function setImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $image) {
+		$this->image = $image;
+	}
+
+	/**
+	 * Returns the detail
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $detail
+	 */
+	public function getDetail() {
+		return $this->detail;
+	}
+
+	/**
+	 * Sets the detail
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $detail
+	 * @return void
+	 */
+	public function setDetail(\TYPO3\CMS\Extbase\Domain\Model\FileReference $detail) {
+		$this->detail = $detail;
 	}
 
 }

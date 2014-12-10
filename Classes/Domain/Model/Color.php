@@ -68,6 +68,13 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $articles = NULL;
 
 	/**
+	 * image
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $image = NULL;
+
+	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -200,6 +207,25 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setArticles(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $articles) {
 		$this->articles = $articles;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 * @return void
+	 */
+	public function setImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $image) {
+		$this->image = $image;
 	}
 
 }

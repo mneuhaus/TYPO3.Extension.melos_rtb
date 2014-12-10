@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-01T11:06:32Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-10T13:53:17Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -129,6 +129,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_color.l10n_parent">
 				<source>L10n Parent</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.image">
+				<source>Image</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color.articles">
 				<source>Articles</source>
 			</trans-unit>
@@ -182,6 +185,12 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.l10n_parent">
 				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.detail">
+				<source>Detail</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.kerning">
 				<source>Kerning</source>

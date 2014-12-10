@@ -156,7 +156,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_color'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,sorting,l10n_parent,articles,',
+		'searchFields' => 'name,code,sorting,l10n_parent,image,articles,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Color.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_color.gif'
 	),
@@ -243,7 +243,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,number,specification,l10n_parent,kerning,color,attributes,component,system,',
+		'searchFields' => 'name,number,specification,l10n_parent,image,detail,kerning,color,attributes,component,system,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Article.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_article.gif'
 	),

@@ -163,6 +163,7 @@ CREATE TABLE tx_melosrtb_domain_model_color (
 	code varchar(255) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	image int(11) unsigned NOT NULL default '0',
 	articles int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -299,6 +300,8 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	number varchar(255) DEFAULT '' NOT NULL,
 	specification varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	image int(11) unsigned NOT NULL default '0',
+	detail int(11) unsigned NOT NULL default '0',
 	kerning int(11) unsigned DEFAULT '0',
 	color int(11) unsigned DEFAULT '0',
 	attributes int(11) unsigned DEFAULT '0' NOT NULL,

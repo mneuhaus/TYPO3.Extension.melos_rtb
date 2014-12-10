@@ -3,7 +3,7 @@
         {
             "config": {
                 "position": [
-                    37,
+                    36,
                     56
                 ]
             },
@@ -146,7 +146,7 @@
         {
             "config": {
                 "position": [
-                    337,
+                    336,
                     56
                 ]
             },
@@ -299,7 +299,7 @@
         {
             "config": {
                 "position": [
-                    652,
+                    651,
                     32
                 ]
             },
@@ -541,6 +541,16 @@
                             "propertyName": "l10nParent",
                             "propertyType": "Integer",
                             "uid": "821269656573"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "image",
+                            "propertyType": "Image",
+                            "uid": "689905679662"
                         }
                     ]
                 },
@@ -563,7 +573,7 @@
         {
             "config": {
                 "position": [
-                    1146,
+                    1145,
                     459
                 ]
             },
@@ -664,7 +674,7 @@
         {
             "config": {
                 "position": [
-                    246,
+                    245,
                     487
                 ]
             },
@@ -813,6 +823,26 @@
                             "propertyName": "l10nParent",
                             "propertyType": "Integer",
                             "uid": "393266187206"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "image",
+                            "propertyType": "Image",
+                            "uid": "1256201506125"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "detail",
+                            "propertyType": "Image",
+                            "uid": "483030651722"
                         }
                     ]
                 },
@@ -875,7 +905,7 @@
         {
             "config": {
                 "position": [
-                    1147,
+                    1146,
                     678
                 ]
             },
@@ -1230,7 +1260,7 @@
         }
     ],
     "log": {
-        "last_modified": "2014-12-01 04:48",
+        "last_modified": "2014-12-10 01:53",
         "extension_builder_version": "6.2.0",
         "be_user": "Marc Neuhaus (3)"
     }
