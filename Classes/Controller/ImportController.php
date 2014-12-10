@@ -69,8 +69,8 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function importAction($file) {
-		$this->importEntities($file);
-		// $this->importRelations($file);
+		// $this->importEntities($file);
+		$this->importRelations($file);
 	}
 
 	public function getEntityIndex($className) {
@@ -331,28 +331,26 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			}
 		}
 
-		return;
+		// foreach ($relations['rel2']['rows'] as $row) {
+		// 	$system = $systems[$row['Systeme']];
+		// 	$article = $this->getObject($row, '\Famelo\MelosRtb\Domain\Model\Article', FALSE);
 
-		foreach ($relations['rel2']['rows'] as $row) {
-			$system = $systems[$row['Systeme']];
-			$article = $this->getObject($row, '\Famelo\MelosRtb\Domain\Model\Article', FALSE);
+		// 	$query = $this->createQuery($row, array(
+		// 		'articleGroup' => 'Art',
+		// 		'kerning' => 'Koernung',
+		// 		'color' => 'Farbe',
+		// 		'specification' => 'Spezifikation'
+		// 	), '\Famelo\MelosRtb\Domain\Model\Article');
 
-			$query = $this->createQuery($row, array(
-				'articleGroup' => 'Art',
-				'kerning' => 'Koernung',
-				'color' => 'Farbe',
-				'specification' => 'Spezifikation'
-			), '\Famelo\MelosRtb\Domain\Model\Article');
+		// 	foreach ($query->execute() as $article) {
+		// 		$system->addArticle($article);
 
-			foreach ($query->execute() as $article) {
-				$system->addArticle($article);
-
-				if ($article->getComponent() !== NULL && !$system->hasComponent($article->getComponent())) {
-					$system->addComponent($article->getComponent());
-				}
-			}
-			$this->addOrUpdate($system);
-		}
+		// 		if ($article->getComponent() !== NULL && !$system->hasComponent($article->getComponent())) {
+		// 			$system->addComponent($article->getComponent());
+		// 		}
+		// 	}
+		// 	$this->addOrUpdate($system);
+		// }
 	}
 
 	public function getObject($row, $className, $autoCreate = TRUE) {

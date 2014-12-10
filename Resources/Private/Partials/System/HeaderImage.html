@@ -124,13 +124,15 @@
 
                 <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
                     <f:for each="{currentSystem.colors}" as="color">
-                        <div class="item">
-                            <div class="owlQuad onePxPadding">
-                                <a href="" class="">
-                                    <img class="img-responsive" src="art/farben/farbe-460000.jpg">
-                                </a>
+                        <f:if condition="{color.image.originalResource}">
+                            <div class="item">
+                                <div class="owlQuad onePxPadding">
+                                    <a href="" class="">
+                                        <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </f:if>
                     </f:for>
                 </div>
             </div>
