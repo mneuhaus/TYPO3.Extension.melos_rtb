@@ -15,7 +15,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 				color,
 				attributes,
 				component,
-				system',
+				system,
+				code',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
@@ -27,7 +28,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 			color,
 			attributes,
 			component,
-			system, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+			system,
+			code, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -241,6 +243,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_article'] = array(
 						'script' => 'wizard_add.php',
 					),
 				),
+			),
+		),
+		'code' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_color.code',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
 			),
 		),
 	),

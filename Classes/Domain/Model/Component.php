@@ -460,4 +460,11 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->image = $image;
 	}
 
+	public function getColors() {
+		$colors = array();
+		foreach ($this->articles as $article) {
+			$colors[] = $article->getColor();
+		}
+		return $colors;
+	}
 }

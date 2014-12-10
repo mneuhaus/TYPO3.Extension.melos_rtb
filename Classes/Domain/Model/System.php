@@ -414,10 +414,13 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	public function getColors() {
-		foreach ($this->children as $system) {
-			var_dump($system);
-			exit();
+		$colors = array();
+		foreach ($this->components as $component) {
+			foreach ($component->getColors() as $color) {
+				$colors[$color->getCode()] = $color;
+			}
 		}
+		return $colors;
 	}
 
 }
