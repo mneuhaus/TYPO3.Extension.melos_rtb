@@ -33,7 +33,7 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 	/**
 	 * systemRepository
-	 *
+	 * 
 	 * @var \Famelo\MelosRtb\Domain\Repository\SystemRepository
 	 * @inject
 	 */
@@ -41,7 +41,7 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 	/**
 	 * action index
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\System $item
 	 * @return void
 	 */

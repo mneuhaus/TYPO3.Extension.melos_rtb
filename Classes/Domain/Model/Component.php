@@ -33,63 +33,63 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * name
-	 *
+	 * 
 	 * @var string
 	 */
 	protected $name = '';
 
 	/**
 	 * code
-	 *
+	 * 
 	 * @var string
 	 */
 	protected $code = '';
 
 	/**
 	 * thumbnail
-	 *
+	 * 
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $thumbnail = NULL;
 
 	/**
 	 * image
-	 *
+	 * 
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image = '';
 
 	/**
 	 * teaser
-	 *
+	 * 
 	 * @var string
 	 */
 	protected $teaser = '';
 
 	/**
 	 * description
-	 *
+	 * 
 	 * @var string
 	 */
 	protected $description = '';
 
 	/**
 	 * sorting
-	 *
+	 * 
 	 * @var string
 	 */
 	protected $sorting = '';
 
 	/**
 	 * l10nParent
-	 *
+	 * 
 	 * @var integer
 	 */
 	protected $l10nParent = 0;
 
 	/**
 	 * systems
-	 *
+	 * 
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
 	 * @cascade remove
 	 */
@@ -97,7 +97,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * articles
-	 *
+	 * 
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
 	 * @cascade remove
 	 */
@@ -105,25 +105,32 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * kerning
-	 *
+	 * 
 	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
 	 */
 	protected $kerning = NULL;
 
 	/**
 	 * parent
-	 *
+	 * 
 	 * @var \Famelo\MelosRtb\Domain\Model\Component
 	 */
 	protected $parent = NULL;
 
 	/**
 	 * children
-	 *
+	 * 
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
 	 * @cascade remove
 	 */
 	protected $children = NULL;
+
+	/**
+	 * imageMobile
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $imageMobile = NULL;
 
 	/**
 	 * __construct
@@ -138,7 +145,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Do not modify this method!
 	 * It will be rewritten on each save in the extension builder
 	 * You may modify the constructor of this class instead
-	 *
+	 * 
 	 * @return void
 	 */
 	protected function initStorageObjects() {
@@ -149,7 +156,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the name
-	 *
+	 * 
 	 * @return string $name
 	 */
 	public function getName() {
@@ -158,7 +165,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the name
-	 *
+	 * 
 	 * @param string $name
 	 * @return void
 	 */
@@ -168,7 +175,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the code
-	 *
+	 * 
 	 * @return string $code
 	 */
 	public function getCode() {
@@ -177,7 +184,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the code
-	 *
+	 * 
 	 * @param string $code
 	 * @return void
 	 */
@@ -187,7 +194,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the thumbnail
-	 *
+	 * 
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail
 	 */
 	public function getThumbnail() {
@@ -201,7 +208,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the thumbnail
-	 *
+	 * 
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail
 	 * @return void
 	 */
@@ -211,7 +218,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the teaser
-	 *
+	 * 
 	 * @return string $teaser
 	 */
 	public function getTeaser() {
@@ -220,7 +227,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the teaser
-	 *
+	 * 
 	 * @param string $teaser
 	 * @return void
 	 */
@@ -230,7 +237,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the description
-	 *
+	 * 
 	 * @return string $description
 	 */
 	public function getDescription() {
@@ -239,7 +246,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the description
-	 *
+	 * 
 	 * @param string $description
 	 * @return void
 	 */
@@ -249,7 +256,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a ComponentUse
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\System $system
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> systems
 	 */
@@ -259,7 +266,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a ComponentUse
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\System $systemToRemove The System to be removed
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> systems
 	 */
@@ -269,7 +276,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the systems
-	 *
+	 * 
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> systems
 	 */
 	public function getSystems() {
@@ -278,7 +285,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the systems
-	 *
+	 * 
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> $systems
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> systems
 	 */
@@ -288,7 +295,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the sorting
-	 *
+	 * 
 	 * @return string $sorting
 	 */
 	public function getSorting() {
@@ -297,7 +304,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the sorting
-	 *
+	 * 
 	 * @param string $sorting
 	 * @return void
 	 */
@@ -307,7 +314,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the l10nParent
-	 *
+	 * 
 	 * @return integer $l10nParent
 	 */
 	public function getL10nParent() {
@@ -316,7 +323,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the l10nParent
-	 *
+	 * 
 	 * @param integer $l10nParent
 	 * @return void
 	 */
@@ -326,7 +333,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a Article
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Article $article
 	 * @return void
 	 */
@@ -336,7 +343,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a Article
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Article $articleToRemove The Article to be removed
 	 * @return void
 	 */
@@ -346,7 +353,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the articles
-	 *
+	 * 
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
 	 */
 	public function getArticles() {
@@ -355,7 +362,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the articles
-	 *
+	 * 
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
 	 * @return void
 	 */
@@ -365,7 +372,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the kerning
-	 *
+	 * 
 	 * @return \Famelo\MelosRtb\Domain\Model\Kerning $kerning
 	 */
 	public function getKerning() {
@@ -374,7 +381,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the kerning
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Kerning $kerning
 	 * @return void
 	 */
@@ -384,7 +391,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the parent
-	 *
+	 * 
 	 * @return \Famelo\MelosRtb\Domain\Model\Component $parent
 	 */
 	public function getParent() {
@@ -393,7 +400,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the parent
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $parent
 	 * @return void
 	 */
@@ -403,7 +410,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a Component
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $child
 	 * @return void
 	 */
@@ -414,7 +421,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a Component
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $childToRemove The Component to be removed
 	 * @return void
 	 */
@@ -424,7 +431,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the children
-	 *
+	 * 
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $children
 	 */
 	public function getChildren() {
@@ -433,7 +440,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the children
-	 *
+	 * 
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $children
 	 * @return void
 	 */
@@ -443,7 +450,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the image
-	 *
+	 * 
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference image
 	 */
 	public function getImage() {
@@ -452,7 +459,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the image
-	 *
+	 * 
 	 * @param string $image
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference image
 	 */
@@ -466,6 +473,25 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 			$colors[] = $article->getColor();
 		}
 		return $colors;
+	}
+
+	/**
+	 * Returns the imageMobile
+	 * 
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
+	 */
+	public function getImageMobile() {
+		return $this->imageMobile;
+	}
+
+	/**
+	 * Sets the imageMobile
+	 * 
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
+	 * @return void
+	 */
+	public function setImageMobile(\TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile) {
+		$this->imageMobile = $imageMobile;
 	}
 
 }

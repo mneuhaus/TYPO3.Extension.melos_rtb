@@ -69,7 +69,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,description,teaser,thumbnail,image,downloads,code,sorting,l10n_parent,systems,',
+		'searchFields' => 'name,description,teaser,thumbnail,image,image_mobile,downloads,code,sorting,l10n_parent,systems,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Application.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_application.gif'
 	),
@@ -98,7 +98,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,description,image,thumbnail,teaser,sorting,l10n_parent,components,applications,articles,',
+		'searchFields' => 'name,code,description,image,mobile_image,cross_section,cross_section_mobile,thumbnail,teaser,sorting,l10n_parent,components,applications,articles,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/System.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_system.gif'
 	),
@@ -127,7 +127,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,thumbnail,image,teaser,description,sorting,l10n_parent,systems,articles,kerning,parent,children,',
+		'searchFields' => 'name,code,thumbnail,image,image_mobile,teaser,description,sorting,l10n_parent,systems,articles,kerning,parent,children,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Component.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_component.gif'
 	),

@@ -33,7 +33,7 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
 	/**
 	 * componentRepository
-	 *
+	 * 
 	 * @var \Famelo\MelosRtb\Domain\Repository\ComponentRepository
 	 * @inject
 	 */
@@ -47,7 +47,7 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
 	/**
 	 * action index
-	 *
+	 * 
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $item
 	 * @return void
 	 */
@@ -56,7 +56,6 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 			if ($item->getParent() == NULL) {
 				$item = current($item->getChildren()->toArray());
 			}
-
 			// $query = $this->systemRepository->createQuery();
 			// $query->matching($query->contains('components', $item));
 			// $applications = array();

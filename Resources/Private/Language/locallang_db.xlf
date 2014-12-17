@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-10T13:53:17Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-17T11:15:39Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -20,6 +20,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.image_mobile">
+				<source>Image Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.downloads">
 				<source>Downloads</source>
@@ -50,6 +53,15 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.mobile_image">
+				<source>Mobile Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cross_section">
+				<source>Cross Section</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cross_section_mobile">
+				<source>Cross Section Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.thumbnail">
 				<source>Thumbnail</source>
@@ -86,6 +98,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.image_mobile">
+				<source>Image Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.teaser">
 				<source>Teaser</source>

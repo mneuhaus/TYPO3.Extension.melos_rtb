@@ -6,40 +6,44 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_component']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
-				name,
-				code,
-				thumbnail,
-				image,
-				teaser,
-				description,
-				sorting,
-				systems,
-				articles,
-				kerning,
-				parent,
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
+				name, 
+				code, 
+				thumbnail, 
+				image, 
+				image_mobile, 
+				teaser, 
+				description, 
+				sorting, 
+				l10n_parent, 
+				systems, 
+				articles, 
+				kerning, 
+				parent, 
 				children',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
-			name,
-			code,
-			thumbnail,
-			image,
-			teaser,
-			description,
-			sorting,
-			systems,
-			articles,
-			kerning,
-			parent,
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+			name, 
+			code, 
+			thumbnail, 
+			image, 
+			image_mobile, 
+			teaser, 
+			description, 
+			sorting, 
+			l10n_parent, 
+			systems, 
+			articles, 
+			kerning, 
+			parent, 
 			children, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-
+	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -80,7 +84,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'max' => 255,
 			)
 		),
-
+	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -153,6 +157,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image',
+				array('maxitems' => 1),
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+		),
+		'image_mobile' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.image_mobile',
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'imageMobile',
 				array('maxitems' => 1),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
