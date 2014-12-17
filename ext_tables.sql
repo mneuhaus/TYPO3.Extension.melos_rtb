@@ -306,6 +306,7 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	specification varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
+	image_mobile int(11) unsigned NOT NULL default '0',
 	detail int(11) unsigned NOT NULL default '0',
 	kerning int(11) unsigned DEFAULT '0',
 	color int(11) unsigned DEFAULT '0',

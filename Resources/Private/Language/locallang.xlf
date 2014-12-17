@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-17T11:15:39Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-17T11:41:25Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -203,6 +203,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.image_mobile">
+				<source>Image Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.detail">
 				<source>Detail</source>
