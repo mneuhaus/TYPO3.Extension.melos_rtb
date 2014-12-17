@@ -69,8 +69,8 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function importAction($file) {
-		// $this->importEntities($file);
-		$this->importRelations($file);
+		$this->importEntities($file);
+		// $this->importRelations($file);
 	}
 
 	public function getEntityIndex($className) {
@@ -305,7 +305,7 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		}
 		$components = $this->getEntityIndex('\Famelo\MelosRtb\Domain\Model\Component');
 		foreach ($components as $component) {
-			$component->setArticles(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
+			// $component->setArticles(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
 			$component->setSystems(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
 		}
 		foreach ($relations['rel1']['rows'] as $row) {

@@ -20,27 +20,16 @@
 
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-5 onePxPadding">&nbsp;</div>
-                            <f:for each="{components}" as="component">
-                                <div class="quad col-sm-1 onePxPadding" style="height: 142px;">
-                                    <a class="" href="systeme.html">{component.name}</a>
-                                </div>
-                            </f:for>
-                            <div class="quad col-sm-1 onePxPadding" style="height: 143px;">
-                                <a class="" href="systeme.html">Reciycling Granules</a>
+                        <f:for each="{rows}" as="components">
+                            <div class="row">
+                                <div class="col-sm-5 onePxPadding">&nbsp;</div>
+                                <f:for each="{components}" as="component">
+                                    <div class="quad col-sm-1 onePxPadding" style="height: 142px;">
+                                        <f:link.action action="index" arguments="{item: component}">{component.name}</f:link.action>
+                                    </div>
+                                </f:for>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-5 onePxPadding">&nbsp;</div>
-                            <div class="quad col-sm-1 onePxPadding" style="height: 142px;">
-                                <a class="" href="systeme.html">Polyurethane</a>
-                            </div>
-                            <div class="quad col-sm-1 onePxPadding" style="height: 143px;">
-                                <a class="" href="systeme.html">Landscaping</a>
-                            </div>
-
-                        </div>
+                        </f:for>
                     </div>
 
                 </div>

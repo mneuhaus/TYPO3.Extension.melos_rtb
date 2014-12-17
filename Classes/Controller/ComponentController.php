@@ -40,6 +40,12 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	protected $componentRepository = NULL;
 
 	/**
+	 * @var \Famelo\MelosRtb\Domain\Repository\SystemRepository
+	 * @inject
+	 */
+	protected $systemRepository = NULL;
+
+	/**
 	 * action index
 	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $item
@@ -47,10 +53,37 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 */
 	public function indexAction(\Famelo\MelosRtb\Domain\Model\Component $item = NULL) {
 		if ($item !== NULL) {
-			// $item = $this->componentRepository->findAll()->getFirst();
+			if ($item->getParent() == NULL) {
+				$item = current($item->getChildren()->toArray());
+			}
+
+			// $query = $this->systemRepository->createQuery();
+			// $query->matching($query->contains('components', $item));
+			// $applications = array();
+			// $components = array();
+			// foreach ($query->execute() as $system) {
+			// 	foreach ($system->getApplications() as $application) {
+			// 		$applications[$application->getCode()] = $application;
+			// 	}
+			// }
+			// $this->view->assign('applications', $applications);
 			$this->view->assign('currentComponent', $item);
 		}
-		$this->view->assign('components', $this->componentRepository->findByParent(NULL));
+		$rows = array();
+		$row = array();
+		foreach ($this->componentRepository->findAll() as $component) {
+			if ($component->getParent() == NULL) {
+				if (count($row) == 2) {
+					$rows[] = $row;
+					$row = array();
+				}
+				$row[] = $component;
+			}
+		}
+		if (count($row) > 0) {
+			$rows[] = $row;
+		}
+		$this->view->assign('rows', $rows);
 	}
 
 }

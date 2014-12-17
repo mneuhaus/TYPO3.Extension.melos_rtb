@@ -194,6 +194,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_system',
 				'MM' => 'tx_melosrtb_system_component_mm',
+				'MM_opposite_field' => 'components',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,

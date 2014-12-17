@@ -4,15 +4,7 @@
             <div class="col-sm-12">
 
                 <!-- Video-->
-                <div id="videoControls" class="hidden-xs videoControls">
-                    <a id="videoPlayerOpen" class="btn btn-default videoPlayerOpen" href=""></a>
-                </div>
-                <div id="videoWrapper" class="hidden- xs videoWrapper">
-                    <video id="videoFrame" class="videoFrame" autoplay poster="{f:uri.resource(path: 'art/headerimage-system.jpg', extensionName: 'template')}">
-                        <source src="{f:uri.resource(path: 'filme/melos_kreisel_kurztrailermp4.mp4', extensionName: 'template')}" type="video/mp4">
-                            dein browser unterstützt kein html5!
-                    </video>
-                </div>
+                <f:render partial="System/HeaderVideo.html" />
 
                 <div class="headerimageBackground">
 
@@ -20,8 +12,17 @@
                         <div class="col-xs-12">
                             <div id="owlCarouselHeaderImages" class="owl-carousel">
                                 <div class="item">
-                                    <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system.jpg', extensionName: 'template')}">
-                                    <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-mobile.jpg', extensionName: 'template')}">
+
+                                    <f:if condition="{currentSystem.image}">
+                                        <f:then>
+                                            <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                        </f:then>
+                                        <f:else>
+                                            <f:image src="{f:uri.resource(path: 'art/headerimage-komponente.jpg', extensionName: 'template')}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                        </f:else>
+                                    </f:if>
+                                    <!-- <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system.jpg', extensionName: 'template')}"> -->
+                                    <!-- <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-mobile.jpg', extensionName: 'template')}"> -->
                                 </div>
                                 <div class="item">
                                     <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-querschnitt.jpg', extensionName: 'template')}">
@@ -31,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
+                    <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground"S>
 
                         <!-- Toolbuttons für das System-->
                         <div class="headerimageToolbar">
@@ -112,22 +113,19 @@
                     </div>
 
                     <!-- Headiung mobile-->
-                    <h1 class="mainHeadline subpage visible-xs">System Typ A</h1>
-<!--                        <h2 class="mainSummary visible-xs">System des Typ A <br>lorem ipsum und so weiter ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</h2>-->
-
+                    <h1 class="mainHeadline subpage visible-xs">{currentSystem.name}</h1>
 
                 </div>
             </div>
 
             <!-- Farbauswahl-->
             <div class="col-sm-12">
-
                 <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
                     <f:for each="{currentSystem.colors}" as="color">
                         <f:if condition="{color.image.originalResource}">
                             <div class="item">
                                 <div class="owlQuad onePxPadding">
-                                    <a href="" class="">
+                                    <a href="#quadsOnHeaderimageBackground" class="">
                                         <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
                                     </a>
                                 </div>

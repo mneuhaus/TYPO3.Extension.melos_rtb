@@ -1,56 +1,78 @@
 <div class="headerimage">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="headerimageBackground">
-          <div class="row">
-            <div class="col-xs-12">
-              <f:if condition="{system.thumbnail}">
-                  <f:then>
-                    <f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                  </f:then>
-                  <f:else>
-                    <f:image src="{f:uri.resource(path: 'art/headerimage-komponente.jpg', extensionName: 'template')}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                  </f:else>
-              </f:if>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="headerimageBackground">
+                    <div class="row">
+                        <div class="col-xs-12">
+                          <f:if condition="{currentComponent.image}">
+                              <f:then>
+                                <f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                              </f:then>
+                              <f:else>
+                                <f:image src="{f:uri.resource(path: 'art/headerimage-komponente.jpg', extensionName: 'template')}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                              </f:else>
+                          </f:if>
+                        </div>
+                    </div>
+
+                    <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
+                        <div class="headerimageToolbar">
+                            <a class="headerimageToolbarBTN col-05" href="#weitereInformationen">
+                              <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}">
+                            </a>
+
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="art/quad-bilderheader-blind.png"></a>
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="art/quad-bilderheader-blind.png"></a>
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="art/quad-bilderheader-blind.png"></a>
+                            <a class="headerimageToolbarBTN col-4 unvisible" href=""><img class="img-responsive" src="art/quad-bilderheader-blind.png"></a>
+                            <a class="headerimageToolbarBTN col-4 unvisible" href=""><img class="img-responsive" src="art/quad-bilderheader-blind.png"></a>
+                            <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten">
+                              <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}">
+                              <span>Komponenten anfragen</span>
+                            </a>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1 onePxPadding">
+                              <img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
+                            </div>
+                            <div class="col-sm-7 onePxPadding">
+
+                              <f:render partial="HeaderCarousel" arguments="{items: currentComponent.parent.children, currentItem: currentComponent, fallbackImage: 'art/quad-bilderheader-komponente.png'}" />
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 onePxPadding">&nbsp;</div>
+                            <div class="col-sm-4 onePxPadding">
+                                <h2 class="mainSummary">
+                                  {currentComponent.name -> f:format.nl2br()}{currentComponent.teaser -> f:format.nl2br()}
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- RTB Logo Mobile-->
+                    <div class="readyToBuildLogo visible-xs">
+                        <div class="row">
+                            <div class="col-sm-1 onePxPadding"><img class="img-responsive" src="art-global/logo-readytobuild-var.png"></div>
+                        </div>
+                    </div>
+
+                    <!-- Toolbar Mobile -->
+                    <div class="headerimageToolbar visible-xs">
+                        <a class="headerimageToolbarBTN col-4" href="#weitereInformationen"><img class="img-responsive" src="art/icon-toolbar-info.png"><span>Details</span></a>
+                        <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten"><img class="img-responsive" src="art/icon-toolbar-anfrage.png"><span>Komponente anfragen</span></a>
+
+                    </div>
+
+                    <!-- Headiung mobile-->
+                    <h1 class="mainHeadline subpage visible-xs">{currentComponent.name -> f:format.nl2br()}</h1>
+
+                </div>
+
             </div>
-          </div>
-
-          <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
-
-            <div class="headerimageToolbar">
-
-              <a class="headerimageToolbarBTN col-05" href="#passendeSysteme">
-        				<img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-system.png', extensionName: 'template')}">
-              </a>
-
-              <a class="headerimageToolbarBTN col-05" href="#weitereInformationen">
-								<img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}">
-        			</a>
-
-            </div>
-
-            <div class="row">
-
-              <div class="col-sm-1 onePxPadding">
-              	<img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
-              </div>
-
-              <div class="col-sm-7 onePxPadding">
-                <f:render partial="HeaderCarousel" arguments="{items: components, currentItem: currentComponent, fallbackImage: 'art/system-bilderheader.png'}" />
-          		</div>
-
-          		<div class="row">
-              	<div class="col-sm-3 onePxPadding">&nbsp;</div>
-              	<div class="col-sm-4 onePxPadding">
-                  <h2 class="mainSummary">{currentComponent.name -> f:format.nl2br()}{currentComponent.teaser -> f:format.nl2br()}</h2>
-              	</div>
-          		</div>
-
-        		</div>
-        	</div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

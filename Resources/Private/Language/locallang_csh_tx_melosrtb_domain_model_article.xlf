@@ -17,6 +17,7 @@
 			</trans-unit>
 			<trans-unit id="article_group.description">
 				<source>articleGroup</source>
+			</trans-unit>
 			<trans-unit id="image.description">
 				<source>image</source>
 			</trans-unit>

@@ -6,36 +6,36 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_system']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
-				name, 
-				code, 
-				description, 
-				image, 
-				thumbnail, 
-				teaser, 
-				sorting, 
-				components, 
-				applications, 
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
+				name,
+				code,
+				description,
+				teaser,
+				image,
+				thumbnail,
+				sorting,
+				components,
+				applications,
 				articles',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-			name, 
-			code, 
-			description, 
-			image, 
-			thumbnail, 
-			teaser, 
-			sorting, 
-			components, 
-			applications, 
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
+			name,
+			code,
+			description,
+			teaser,
+			image,
+			thumbnail,
+			sorting,
+			components,
+			applications,
 			articles, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -76,7 +76,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -228,6 +228,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'foreign_table' => 'tx_melosrtb_domain_model_application',
 				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'MM' => 'tx_melosrtb_application_system_mm',
+				'MM_opposite_field' => 'systems',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -293,6 +294,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				),
 			),
 		),
-		
+
 	),
 );

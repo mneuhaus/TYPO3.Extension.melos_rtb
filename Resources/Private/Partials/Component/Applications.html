@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Diese Anwendungen könnten Sie auch interessieren</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+         <!-- gradienten für pfeile der Navigation-->
+        <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span>
+        </div>
+        <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span>
+        </div>
+
+        <div id="owlCarouselQuadsRelatedApplications" class="owl-carousel relatedObjects relatedObjectsApplications ">
+            <f:for each="{applications}" as="application">
+            <div class="item">
+                <div class="owlQuad onePxPadding">
+                    <div class="owlQuadText">
+                        <h4 class="owlQuadTextHeadline">{application.name}</h4>
+                        <p>{application.teaser}</p>
+                    </div>
+                    <a href="" class="">
+                        <f:if condition="{application.image}">
+                            <f:then>
+                                <f:image src="{application.image.uid}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" height="256c" width="256c"/>
+                            </f:then>
+                            <f:else>
+                                <f:image src="{f:uri.resource(path: 'art/thumb-anwendung-laufbauhn.png', extensionName: 'template')}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                            </f:else>
+                        </f:if>
+                    </a>
+                </div>
+            </div>
+            </f:for>
+        </div>
+    </div>
+</div>
