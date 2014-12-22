@@ -12,7 +12,6 @@ if (!defined('TYPO3_MODE')) {
 	),
 	// non-cacheable actions
 	array(
-		'Application' => 'index',
 
 	)
 );
@@ -21,12 +20,12 @@ if (!defined('TYPO3_MODE')) {
 	'Famelo.' . $_EXTKEY,
 	'Systems',
 	array(
-		'System' => 'index',
+		'System' => 'index, contact',
 
 	),
 	// non-cacheable actions
 	array(
-		'System' => 'index',
+		'System' => 'contact',
 
 	)
 );
@@ -35,12 +34,12 @@ if (!defined('TYPO3_MODE')) {
 	'Famelo.' . $_EXTKEY,
 	'Components',
 	array(
-		'Component' => 'index',
+		'Component' => 'index, contact',
 
 	),
 	// non-cacheable actions
 	array(
-		'Component' => 'index',
+		'Component' => 'contact',
 
 	)
 );

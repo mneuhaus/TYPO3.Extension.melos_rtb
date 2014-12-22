@@ -3,7 +3,7 @@
     <div class="container">
         <div id="passendeSysteme" class="row">
             <div class="col-sm-6">
-                <h2>Passende Systeme zu Laufbahnen</h2>
+                <h2>Passende Systeme zu {currentApplication.name}</h2>
             </div>
         </div>
         <div class="row">
@@ -18,7 +18,7 @@
                             <div class="owlQuad onePxPadding">
                                 <div class="owlQuadText">
                                     <h4 class="owlQuadTextHeadline">{system.name}</h4>
-                                    <p>{system.teaser}</p>
+                                    <p>{system.subtitle}</p>
                                 </div>
                                 <f:link.action action="index" controller="System" pluginName="Systems" pageUid="{settings.systemPage}" arguments="{item: system}">
                                     <f:if condition="{system.thumbnail}">

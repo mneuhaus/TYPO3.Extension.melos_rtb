@@ -3,12 +3,15 @@
     <div class="item">
       <div class="owlQuad onePxPadding">
         <f:link.action action="index" arguments="{item: item}" class="{f:if(condition: '{item}=={currentItem}', then: 'active')}">
+          <f:if condition="{variablePosImg}">
+            <img class="img-responsive blind" src="{f:uri.resource(path: 'art-global/blind.png', extensionName: 'template')}">
+          </f:if>
           <f:if condition="{item.thumbnail}">
             <f:then>
-              <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive" />
+              <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
             </f:then>
             <f:else>
-              <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive" />
+              <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
             </f:else>
           </f:if>
           <span>{item.name}</span>

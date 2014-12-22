@@ -7,6 +7,7 @@ CREATE TABLE tx_melosrtb_domain_model_application (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	subtitle text NOT NULL,
 	description text NOT NULL,
 	teaser text NOT NULL,
 	thumbnail int(11) unsigned NOT NULL default '0',
@@ -57,6 +58,7 @@ CREATE TABLE tx_melosrtb_domain_model_system (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	subtitle text NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
@@ -114,6 +116,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	kerning int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	subtitle text NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
 	thumbnail int(11) unsigned NOT NULL default '0',
 	image int(11) unsigned NOT NULL default '0',

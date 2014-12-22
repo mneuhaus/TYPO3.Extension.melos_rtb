@@ -17,6 +17,14 @@ plugin.tx_melosrtb {
 		applicationPage = 6
 		systemPage = 7
 		componentPage = 8
+
+		mail {
+			defaultFromName = Melos
+			defaultFromEmail = info@melos-gmbh.com
+
+			contactRecipientName = Marc
+			contactRecipientEmail = mneuhaus@famelo.com
+		}
 	}
 }
 

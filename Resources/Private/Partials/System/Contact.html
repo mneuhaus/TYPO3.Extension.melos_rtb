@@ -92,7 +92,7 @@
     <div class="anfrage-step-1">
         <div class="row">
             <div class="col-sm-6">
-                <h2>Ihre persönlichen Daten</h2>
+                <h2 id="form-contact">Ihre persönlichen Daten</h2>
             </div>
         </div>
         <div class="row">
@@ -101,19 +101,40 @@
             </div>
         </div>
         <div class="row">
-            <form id="kontakt-formular" role="form" method="post" accept-charset="utf-8">
+            <f:form action="contact" additionalAttributes="{role: 'form'}" class="main-contact" section="form-contact" >
+                <f:form.hidden name="system" value="{currentSystem}" />
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="clientName" placeholder="Ihre Name *" aria-required="true">
-                        <input type="text" class="form-control" id="clientCompany" placeholder="Firma">
-                        <input type="email" class="form-control" id="clientEmail" placeholder="Ihre E-Mail *" aria-required="true">
-                        <input type="tel" class="form-control" id="clientPhone" placeholder="Telefon">
+
+                        <f:form.validationResults for="clientName">
+                            <f:form.textfield name="clientName" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="Ihre Name *" />
+                            <f:if condition="{validationResults.flattenedErrors}">
+                                <p class="text-danger">Bitte gib deinen Namen ein!</p>
+                            </f:if>
+                        </f:form.validationResults>
+
+                        <f:form.textfield name="clientCompany" class="form-control" id="clientCompany" placeholder="Firma" />
+
+                        <f:form.validationResults for="clientEmail">
+                            <f:form.textfield name="clientEmail" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientEmail" placeholder="Ihre E-Mail *" />
+                            <f:if condition="{validationResults.flattenedErrors}">
+                                <p class="text-danger">Bitte gib eine richtige E-Mail ein!</p>
+                            </f:if>
+                        </f:form.validationResults>
+
+                        <f:form.textfield name="clientPhone" class="form-control" id="clientPhone" placeholder="Telefon" />
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="squareMeasure" placeholder="Gewünschte Fläche in m² *" aria-required="true">
-                        <textarea class="form-control" id="clientCompany" rows="3" placeholder="Bemerkungen"></textarea>
+                        <f:form.validationResults for="squareMeasure">
+                            <f:form.textfield name="squareMeasure" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="Gewünschte Fläche in m² *" />
+                            <f:if condition="{validationResults.flattenedErrors}">
+                                <p class="text-danger">Bitte gib eine Fläche an!</p>
+                            </f:if>
+                        </f:form.validationResults>
+
+                        <f:form.textarea name="clientMessage" class="form-control" id="clientMessage" rows="3" placeholder="Bemerkungen" />
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-6">
                                 <button id="submit-formular" type="submit" class="btn btn-default">Anfrage jetzt senden</button>
@@ -121,9 +142,8 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </f:form>
         </div>
     </div>
-
 
 </div>

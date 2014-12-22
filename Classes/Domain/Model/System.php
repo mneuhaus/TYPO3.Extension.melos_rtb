@@ -139,6 +139,13 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $crossSections = NULL;
 
 	/**
+	 * subtitle
+	 * 
+	 * @var string
+	 */
+	protected $subtitle = '';
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -549,6 +556,25 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setCrossSections(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $crossSections) {
 		$this->crossSections = $crossSections;
+	}
+
+	/**
+	 * Returns the subtitle
+	 * 
+	 * @return string $subtitle
+	 */
+	public function getSubtitle() {
+		return $this->subtitle;
+	}
+
+	/**
+	 * Sets the subtitle
+	 * 
+	 * @param string $subtitle
+	 * @return void
+	 */
+	public function setSubtitle($subtitle) {
+		$this->subtitle = $subtitle;
 	}
 
 }

@@ -8,6 +8,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
 				name,
+				subtitle,
 				code,
 				thumbnail,
 				image,
@@ -25,6 +26,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
 			name,
+			subtitle,
 			code,
 			thumbnail,
 			image,
@@ -133,6 +135,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'size' => 30,
 				'eval' => 'trim'
 			),
+		),
+		'subtitle' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.subtitle',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			)
 		),
 		'code' => array(
 			'exclude' => 1,

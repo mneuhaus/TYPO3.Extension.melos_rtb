@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-22T11:31:04Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-22T13:17:49Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -8,6 +8,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.name">
 				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.subtitle">
+				<source>Subtitle</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.description">
 				<source>Description</source>
@@ -44,6 +47,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.name">
 				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.subtitle">
+				<source>Subtitle</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.code">
 				<source>Code</source>
@@ -92,6 +98,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.name">
 				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.subtitle">
+				<source>Subtitle</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.code">
 				<source>Code</source>

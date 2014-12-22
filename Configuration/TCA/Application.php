@@ -6,36 +6,38 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_application']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
-				name, 
-				description, 
-				teaser, 
-				thumbnail, 
-				image, 
-				image_mobile, 
-				downloads, 
-				code, 
-				sorting, 
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
+				name,
+				subtitle,
+				description,
+				teaser,
+				thumbnail,
+				image,
+				image_mobile,
+				downloads,
+				code,
+				sorting,
 				systems',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-			name, 
-			description, 
-			teaser, 
-			thumbnail, 
-			image, 
-			image_mobile, 
-			downloads, 
-			code, 
-			sorting, 
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
+			name,
+			subtitle,
+			description,
+			teaser,
+			thumbnail,
+			image,
+			image_mobile,
+			downloads,
+			code,
+			sorting,
 			systems, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -76,7 +78,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -125,6 +127,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 				'size' => 30,
 				'eval' => 'trim'
 			),
+		),
+		'subtitle' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_application.subtitle',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			)
 		),
 		'description' => array(
 			'exclude' => 1,
@@ -176,7 +187,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 		'downloads' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_application.downloads',
-			'config' => 
+			'config' =>
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'downloads',
 				array('maxitems' => 10)
@@ -237,6 +248,6 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_application'] = array(
 				),
 			),
 		),
-		
+
 	),
 );

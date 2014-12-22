@@ -33,7 +33,7 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
 	/**
 	 * componentRepository
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Repository\ComponentRepository
 	 * @inject
 	 */
@@ -47,7 +47,7 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 
 	/**
 	 * action index
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $item
 	 * @return void
 	 */
@@ -83,6 +83,38 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 			$rows[] = $row;
 		}
 		$this->view->assign('rows', $rows);
+	}
+
+	/**
+	 * action index
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @param string $clientName
+	 * @param string $clientEmail
+	 * @param string $squareMeasure
+	 * @param string $clientCompany
+	 * @param string $clientPhone
+	 * @param string $clientMessage
+	 * @validate $clientName notEmpty;
+	 * @validate $clientEmail notEmpty;
+	 * @validate $clientEmail emailAddress;
+	 * @validate $squareMeasure notEmpty;
+	 * @return void
+	 */
+	public function contactAction(\Famelo\MelosRtb\Domain\Model\Component $component, $clientName, $clientEmail, $squareMeasure, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL) {
+		$mail = new \Famelo\MelosRtb\Services\Mail();
+		$mail->setFrom(array($clientEmail => $clientName));
+		$mail->setTo(array($this->settings['mail']['contactRecipientEmail'] => $this->settings['mail']['contactRecipientName']));
+		$mail->setSubject('Anfrage zur Komponente: ' . $component->getName() . ' ' . $component->getSubtitle());
+		$mail->setMessage('melos_rtb:ComponentInquiry');
+		$mail->assign('component', $component);
+		$mail->assign('clientName', $clientName);
+		$mail->assign('clientCompany', $clientCompany);
+		$mail->assign('clientEmail', $clientEmail);
+		$mail->assign('clientPhone', $clientPhone);
+		$mail->assign('squareMeasure', $squareMeasure);
+		$mail->assign('clientMessage', $clientMessage);
+		$mail->send();
 	}
 
 }

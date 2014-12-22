@@ -33,7 +33,7 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 	/**
 	 * systemRepository
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Repository\SystemRepository
 	 * @inject
 	 */
@@ -41,7 +41,7 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 	/**
 	 * action index
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\System $item
 	 * @return void
 	 */
@@ -51,6 +51,38 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		}
 		$this->view->assign('currentSystem', $item);
 		$this->view->assign('systems', $this->systemRepository->findAll());
+	}
+
+	/**
+	 * action index
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\System $system
+	 * @param string $clientName
+	 * @param string $clientEmail
+	 * @param string $squareMeasure
+	 * @param string $clientCompany
+	 * @param string $clientPhone
+	 * @param string $clientMessage
+	 * @validate $clientName notEmpty;
+	 * @validate $clientEmail notEmpty;
+	 * @validate $clientEmail emailAddress;
+	 * @validate $squareMeasure notEmpty;
+	 * @return void
+	 */
+	public function contactAction(\Famelo\MelosRtb\Domain\Model\System $system, $clientName, $clientEmail, $squareMeasure, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL) {
+		$mail = new \Famelo\MelosRtb\Services\Mail();
+		$mail->setFrom(array($clientEmail => $clientName));
+		$mail->setTo(array($this->settings['mail']['contactRecipientEmail'] => $this->settings['mail']['contactRecipientName']));
+		$mail->setSubject('Anfrage zum System: ' . $system->getName() . ' ' . $system->getSubtitle());
+		$mail->setMessage('melos_rtb:SystemInquiry');
+		$mail->assign('system', $system);
+		$mail->assign('clientName', $clientName);
+		$mail->assign('clientCompany', $clientCompany);
+		$mail->assign('clientEmail', $clientEmail);
+		$mail->assign('clientPhone', $clientPhone);
+		$mail->assign('squareMeasure', $squareMeasure);
+		$mail->assign('clientMessage', $clientMessage);
+		$mail->send();
 	}
 
 }

@@ -3,7 +3,7 @@
     <div class="container">
         <div id="weitereInformationen" class="row">
             <div class="col-sm-6">
-                <h2>Details zu Laufbahn</h2>
+                <h2>Details zu {currentApplication.name}</h2>
             </div>
         </div>
         <div class="row">
@@ -12,7 +12,9 @@
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
                         <li class="active"><a class="active" href="">Beschreibung</a></li>
+                        <f:if condition="{application.downloads}">
                         <li><a href="">Downloads</a></li>
+                        </f:if>
                     </ul>
                 </div>
                 <div class="col-xs-12">
@@ -25,6 +27,7 @@
                             </div>
                             <p class="text-columns-2">{application.description -> f:format.nl2br()}</p>
                         </div>
+                        <f:if condition="{application.downloads}">
                         <div class="item">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -45,6 +48,7 @@
                                 </div>
                             </div>
                         </div>
+                        </f:if>
                     </div>
                 </div>
             </div>

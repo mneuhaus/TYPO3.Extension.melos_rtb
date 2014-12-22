@@ -12,19 +12,24 @@
                         <div class="col-xs-12">
                             <div id="owlCarouselHeaderImages" class="owl-carousel">
                                 <div class="item">
-
                                     <f:if condition="{currentSystem.image}">
                                         <f:then>
-                                            <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                            <f:if condition="{currentSystem.mobileImage.uid}">
+                                                <f:then>
+                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs " />
+                                                    <f:image src="{currentSystem.mobileImage.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive visible-xs" />
+                                                </f:then>
+                                                <f:else>
+                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive " />
+                                                </f:else>
+                                            </f:if>
                                         </f:then>
                                         <f:else>
                                             <f:image src="{f:uri.resource(path: 'art/headerimage-komponente.jpg', extensionName: 'template')}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive" />
                                         </f:else>
                                     </f:if>
-                                    <!-- <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system.jpg', extensionName: 'template')}"> -->
-                                    <!-- <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-mobile.jpg', extensionName: 'template')}"> -->
                                 </div>
-                                <div class="item">
+                                <div class="item cross-sections">
                                     <f:for each="{currentSystem.crossSections}" as="crossSection">
                                         <f:if condition="{crossSection.image}">
                                             <f:image src="{crossSection.image.uid}" alt="{crossSection.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
@@ -78,7 +83,7 @@
                               <img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
                             </div>
                             <div class="col-sm-7 onePxPadding">
-                              <f:render partial="HeaderCarousel" arguments="{items: systems, currentItem: currentSystem, fallbackImage: 'art/system-bilderheader.png'}" />
+                              <f:render partial="HeaderCarousel" arguments="{items: systems, currentItem: currentSystem, fallbackImage: 'art/system-bilderheader.png', variablePosImg: 1}" />
                             </div>
                         </div>
                         <!-- ENDE Slider mit Systemen-->

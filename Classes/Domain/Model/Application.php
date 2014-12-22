@@ -67,6 +67,13 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $image = NULL;
 
 	/**
+	 * imageMobile
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $imageMobile = NULL;
+
+	/**
 	 * downloads
 	 * 
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
@@ -104,11 +111,11 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $systems = NULL;
 
 	/**
-	 * imageMobile
+	 * subtitle
 	 * 
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @var string
 	 */
-	protected $imageMobile = NULL;
+	protected $subtitle = '';
 
 	/**
 	 * __construct
@@ -378,6 +385,25 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setImageMobile(\TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile) {
 		$this->imageMobile = $imageMobile;
+	}
+
+	/**
+	 * Returns the subtitle
+	 * 
+	 * @return string $subtitle
+	 */
+	public function getSubtitle() {
+		return $this->subtitle;
+	}
+
+	/**
+	 * Sets the subtitle
+	 * 
+	 * @param string $subtitle
+	 * @return void
+	 */
+	public function setSubtitle($subtitle) {
+		$this->subtitle = $subtitle;
 	}
 
 }
