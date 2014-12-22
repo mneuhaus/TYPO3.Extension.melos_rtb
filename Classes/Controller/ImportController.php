@@ -69,8 +69,8 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function importAction($file) {
-		// $this->importEntities($file);
-		$this->importRelations($file);
+		$this->importEntities($file);
+		// $this->importRelations($file);
 	}
 
 	public function getEntityIndex($className) {
@@ -151,20 +151,28 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			// 	'name' => 'Komponenten',
 			// 	'parentField' => 'Spezifi. 1'
 			// ),
+			// array(
+			// 	'sheet' => 'Artikel',
+			// 	'tableIdentifier' => 'Artikel CGR',
+			// 	'table' => 'tx_melosrtb_domain_model_article',
+			// 	'mode' => 'tce',
+			// 	'codeParts' => array('Art', 'Körnung', 'Farbe'),
+			// 	'implementation' => '\Famelo\MelosRtb\Import\ArticleImport',
+			// 	'relations' => array(
+			// 		array(
+			// 			'className' => '\Famelo\MelosRtb\Domain\Model\Kerning',
+			// 			'codeField' => 'Körnung',
+			// 			'method' => 'setKerning'
+			// 		)
+			// 	)
+			// ),
 			array(
 				'sheet' => 'Artikel',
 				'tableIdentifier' => 'Artikel CGR',
-				'table' => 'tx_melosrtb_domain_model_article',
+				'table' => 'tx_melosrtb_domain_model_crosssection',
 				'mode' => 'tce',
 				'codeParts' => array('Art', 'Körnung', 'Farbe'),
-				'implementation' => '\Famelo\MelosRtb\Import\ArticleImport',
-				'relations' => array(
-					array(
-						'className' => '\Famelo\MelosRtb\Domain\Model\Kerning',
-						'codeField' => 'Körnung',
-						'method' => 'setKerning'
-					)
-				)
+				'implementation' => '\Famelo\MelosRtb\Import\CrossSectionImport'
 			),
 			// array(
 			// 	'sheet' => 'Artikel',

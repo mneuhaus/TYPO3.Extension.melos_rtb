@@ -98,7 +98,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,code,description,image,mobile_image,cross_section,cross_section_mobile,thumbnail,teaser,sorting,l10n_parent,components,applications,articles,',
+		'searchFields' => 'name,code,description,image,mobile_image,cross_section,cross_section_mobile,thumbnail,teaser,sorting,l10n_parent,components,applications,articles,cross_sections,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/System.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_system.gif'
 	),
@@ -275,5 +275,34 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_attribute'] = array(
 		'searchFields' => 'name,value,article,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Attribute.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_attribute.gif'
+	),
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_melosrtb_domain_model_crosssection', 'EXT:melos_rtb/Resources/Private/Language/locallang_csh_tx_melosrtb_domain_model_crosssection.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_melosrtb_domain_model_crosssection');
+$GLOBALS['TCA']['tx_melosrtb_domain_model_crosssection'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_crosssection',
+		'label' => 'name',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'name,code,image,image_mobile,system,color,',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/CrossSection.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_melosrtb_domain_model_crosssection.gif'
 	),
 );

@@ -9,17 +9,17 @@
 			<trans-unit id="code.description">
 				<source>code</source>
 			</trans-unit>
-			<trans-unit id="sorting.description">
-				<source>sorting</source>
-			</trans-unit>
-			<trans-unit id="l10n_parent.description">
-				<source>l10nParent</source>
-			</trans-unit>
 			<trans-unit id="image.description">
 				<source>image</source>
 			</trans-unit>
-			<trans-unit id="articles.description">
-				<source>articles</source>
+			<trans-unit id="image_mobile.description">
+				<source>imageMobile</source>
+			</trans-unit>
+			<trans-unit id="system.description">
+				<source>system</source>
+			</trans-unit>
+			<trans-unit id="color.description">
+				<source>color</source>
 			</trans-unit>
 		</body>
 	</file>
