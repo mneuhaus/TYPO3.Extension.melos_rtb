@@ -69,8 +69,8 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function importAction($file) {
-		$this->importEntities($file);
-		// $this->importRelations($file);
+		// $this->importEntities($file);
+		$this->importRelations($file);
 	}
 
 	public function getEntityIndex($className) {
@@ -308,12 +308,25 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			// $component->setArticles(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
 			$component->setSystems(new \TYPO3\CMS\Extbase\Persistence\ObjectStorage());
 		}
+
+		// $GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_melosrtb_application_system_mm', '1=1');
+		// $GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_melosrtb_system_component_mm', '1=1');
+
 		foreach ($relations['rel1']['rows'] as $row) {
 			$application = $applications[$row['Anwendung']];
 			$system = $systems[$row['Systeme']];
 			if ($row['Systeme'] !== NULL) {
-				$application->addSystem($system);
-				$this->addOrUpdate($application);
+				// $application->addSystem($system);
+				// $this->addOrUpdate($application);
+
+				$GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_melosrtb_application_system_mm', 'uid_local = ' . $application->getUid() . ' AND uid_foreign = ' . $system->getUid());
+				$res=$GLOBALS['TYPO3_DB']->exec_INSERTquery(
+					'tx_melosrtb_application_system_mm',
+					array(
+						'uid_local' => $application->getUid(),
+						'uid_foreign' => $system->getUid()
+					)
+				);
 			}
 
 			$keys = array();
@@ -326,10 +339,22 @@ class ImportController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			$key = implode('.', $keys);
 			$component = $components[$key];
 			if ($component !== NULL) {
-				$system->addComponent($component);
-				$this->addOrUpdate($system);
+				// $system->addComponent($component);
+				// $this->addOrUpdate($system);
+
+				$GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_melosrtb_system_component_mm', 'uid_local = ' . $system->getUid() . ' AND uid_foreign = ' . $component->getUid());
+				$res=$GLOBALS['TYPO3_DB']->exec_INSERTquery(
+					'tx_melosrtb_system_component_mm',
+					array(
+						'uid_local' => $system->getUid(),
+						'uid_foreign' => $component->getUid()
+					)
+				);
 			}
 		}
+
+		var_dump($data);
+		exit();
 
 		// foreach ($relations['rel2']['rows'] as $row) {
 		// 	$system = $systems[$row['Systeme']];

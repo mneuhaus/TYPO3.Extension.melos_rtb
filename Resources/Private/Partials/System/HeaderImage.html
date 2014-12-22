@@ -25,8 +25,15 @@
                                     <!-- <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-mobile.jpg', extensionName: 'template')}"> -->
                                 </div>
                                 <div class="item">
-                                    <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-querschnitt.jpg', extensionName: 'template')}">
-                                    <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-querschnitt-mobile.jpg', extensionName: 'template')}">
+                                    <f:for each="{currentSystem.components}" as="component">
+                                        <f:for each="{component.articles}" as="article">
+                                            <f:if condition="{article.image}">
+                                                <f:image src="{article.image.uid}" alt="{article.name}" treatIdAsReference="TRUE" class="img-responsive cross-section" style="display: none;" id="cross-section{article.uid}" />
+                                            </f:if>
+                                        </f:for>
+                                    </f:for>
+                                    <!-- <img class="hidden-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-querschnitt.jpg', extensionName: 'template')}">
+                                    <img class="visible-xs img-responsive" src="{f:uri.resource(path: 'art/headerimage-system-querschnitt-mobile.jpg', extensionName: 'template')}"> -->
                                 </div>
                             </div>
                         </div>
@@ -64,7 +71,6 @@
                             <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten">
                                 <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}"><span>Komponenten anfragen</span>
                             </a>
-
 
                         </div>
                         <!-- ENDE Toolbuttons -->
@@ -121,16 +127,18 @@
             <!-- Farbauswahl-->
             <div class="col-sm-12">
                 <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
-                    <f:for each="{currentSystem.colors}" as="color">
-                        <f:if condition="{color.image.originalResource}">
-                            <div class="item">
-                                <div class="owlQuad onePxPadding">
-                                    <a href="#quadsOnHeaderimageBackground" class="">
-                                        <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                                    </a>
+                    <f:for each="{currentSystem.components}" as="component">
+                        <f:for each="{component.articles}" as="article">
+                            <f:if condition="{article.color.image.originalResource}">
+                                <div class="item">
+                                    <div class="owlQuad onePxPadding">
+                                        <a href="" data-cross-section="cross-section{article.uid}" class="cross-section-link">
+                                            <f:image src="{article.color.image.originalResource.publicUrl}" alt="{article.color.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </f:if>
+                            </f:if>
+                        </f:for>
                     </f:for>
                 </div>
             </div>
