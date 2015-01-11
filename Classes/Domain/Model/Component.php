@@ -530,4 +530,31 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->subtitle = $subtitle;
 	}
 
+	public function getRelatedComponents() {
+		$components = array();
+		foreach ($this->getChildren() as $childComponent) {
+			foreach ($childComponent->getSystems() as $system) {
+				foreach ($system->getComponents() as $component) {
+					if ($component->getKerning() !== NULL) {
+						$component = $component->getParent();
+					}
+					$components[$component->getCode()] = $component;
+				}
+			}
+		}
+		return $components;
+	}
+
+	public function getApplications() {
+		$applications = array();
+		foreach ($this->getChildren() as $childComponent) {
+			foreach ($childComponent->getSystems() as $system) {
+				foreach ($system->getApplications() as $application) {
+					$applications[$application->getCode()] = $application;
+				}
+			}
+		}
+		return $applications;
+	}
+
 }

@@ -15,7 +15,6 @@ CREATE TABLE tx_melosrtb_domain_model_application (
 	image_mobile int(11) unsigned NOT NULL default '0',
 	downloads int(11) unsigned DEFAULT '0' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
 
@@ -67,7 +66,6 @@ CREATE TABLE tx_melosrtb_domain_model_system (
 	cross_section_mobile int(11) unsigned NOT NULL default '0',
 	thumbnail int(11) unsigned NOT NULL default '0',
 	teaser text NOT NULL,
-	sorting text NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	components int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
@@ -123,7 +121,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	image_mobile int(11) unsigned NOT NULL default '0',
 	teaser text NOT NULL,
 	description text NOT NULL,
-	sorting text NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
 	articles int(11) unsigned DEFAULT '0' NOT NULL,
@@ -170,7 +168,6 @@ CREATE TABLE tx_melosrtb_domain_model_color (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
 	articles int(11) unsigned DEFAULT '0' NOT NULL,
@@ -215,7 +212,6 @@ CREATE TABLE tx_melosrtb_domain_model_kerning (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	articles int(11) unsigned DEFAULT '0' NOT NULL,
 	components int(11) unsigned DEFAULT '0' NOT NULL,
@@ -260,7 +256,6 @@ CREATE TABLE tx_melosrtb_domain_model_packagesize (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	code varchar(255) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Komponenten die mit {currentComponent.name} harmonieren</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+          <!-- gradienten für pfeile der Navigation-->
+        <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span>
+        </div>
+        <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span>
+        </div>
+
+        <div id="owlCarouselQuadsRelatedKomponents" class="owl-carousel relatedObjects">
+            <f:for each="{components}" as="component">
+                <div class="item">
+                    <div class="owlQuad onePxPadding">
+                        <div class="owlQuadText">
+                            <h4 class="owlQuadTextHeadline">{component.name}</h4>
+                            <p>{component.subtitle}</p>
+                        </div>
+
+                        <f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component}">
+                            <f:if condition="{component.thumbnail}">
+                                <f:then>
+                                    <f:image src="{component.thumbnail.uid}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" height="283c" width="283c"/>
+                                </f:then>
+                                <f:else>
+                                    <f:image src="{f:uri.resource(path: 'art/thumb-anwendung-laufbauhn.png', extensionName: 'template')}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                </f:else>
+                            </f:if>
+                        </f:link.action>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </div>
+</div>

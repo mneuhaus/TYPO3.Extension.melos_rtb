@@ -205,10 +205,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.sorting',
 			'config' => array(
-				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim'
+				'type' => 'passthrough',
 			)
 		),
 		'systems' => array(
@@ -219,6 +216,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'foreign_table' => 'tx_melosrtb_domain_model_system',
 				'MM' => 'tx_melosrtb_system_component_mm',
 				'MM_opposite_field' => 'components',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -255,6 +253,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_article',
 				'foreign_field' => 'component',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'size' => 10,
 				'maxitems'      => 9999,
 				'multiple' => 1,
@@ -290,6 +289,9 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_kerning',
+				'items' => array(
+					array('', 0),
+				),
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
@@ -300,6 +302,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'items' => array(
 					array('', 0),
 				),
@@ -311,9 +314,11 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.children',
 			'config' => array(
+				// 'type' => 'passthrough',
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_component',
 				'foreign_field' => 'parent',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
 				'size' => 10,
 				'maxitems'      => 9999,
 				'multiple' => 1,

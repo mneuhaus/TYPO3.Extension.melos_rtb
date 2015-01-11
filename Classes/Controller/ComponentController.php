@@ -52,20 +52,30 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 * @return void
 	 */
 	public function indexAction(\Famelo\MelosRtb\Domain\Model\Component $item = NULL) {
+		// $nextSorting = 256 * 2;
+		// foreach ($this->componentRepository->findAll() as $component) {
+		// 	if ($component->getParent() == NULL) {
+		// 		$component->setSorting($nextSorting);
+		// 		foreach ($component->getChildren() as $firstLevelChild) {
+		// 			$nextSorting = $nextSorting + 256;
+		// 			$firstLevelChild->setSorting($nextSorting);
+		// 			$this->componentRepository->update($firstLevelChild);
+		// 			foreach ($firstLevelChild->getChildren() as $secondLevelChild) {
+		// 				$nextSorting = $nextSorting + 256;
+		// 				$secondLevelChild->setSorting($nextSorting);
+		// 				$this->componentRepository->update($secondLevelChild);
+		// 			}
+		// 		}
+		// 	}
+		// 	$this->componentRepository->update($component);
+		// }
+
 		if ($item !== NULL) {
 			if ($item->getParent() == NULL) {
 				$item = current($item->getChildren()->toArray());
 			}
-			// $query = $this->systemRepository->createQuery();
-			// $query->matching($query->contains('components', $item));
-			// $applications = array();
-			// $components = array();
-			// foreach ($query->execute() as $system) {
-			// 	foreach ($system->getApplications() as $application) {
-			// 		$applications[$application->getCode()] = $application;
-			// 	}
-			// }
-			// $this->view->assign('applications', $applications);
+
+			$this->view->assign('applications', $item->getApplications());
 			$this->view->assign('currentComponent', $item);
 		}
 		$rows = array();

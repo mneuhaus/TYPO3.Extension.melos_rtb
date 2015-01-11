@@ -33,7 +33,7 @@ if (TYPO3_MODE === 'BE') {
 		'',						// Position
 		array(
 			'Import' => 'index, import',
-			
+
 		),
 		array(
 			'access' => 'user,group',
@@ -110,10 +110,14 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component',
 		'label' => 'name',
+		'label_alt' => 'subtitle',
+		'label_alt_force' => 1,
+		// 'label_userFunc' => 'Famelo\MelosRtb\Domain\Model->getComponentTitle',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
+		'sortby' => 'sorting',
 
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
