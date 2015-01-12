@@ -6,46 +6,50 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_component']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
-				name,
-				subtitle,
-				code,
-				thumbnail,
-				image,
-				image_mobile,
-				teaser,
-				description,
-				sorting,
-				l10n_parent,
-				systems,
-				articles,
-				kerning,
-				parent,
-				children',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
+				name, 
+				subtitle, 
+				code, 
+				thumbnail, 
+				image, 
+				image_mobile, 
+				teaser, 
+				description_header, 
+				description, 
+				sorting, 
+				l10n_parent, 
+				systems, 
+				articles, 
+				kerning, 
+				parent, 
+				children, 
+				colors',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
-			name,
-			subtitle,
-			code,
-			thumbnail,
-			image,
-			image_mobile,
-			teaser,
-			description,
-			sorting,
-			l10n_parent,
-			systems,
-			articles,
-			kerning,
-			parent,
-			children, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+			name, 
+			subtitle, 
+			code, 
+			thumbnail, 
+			image, 
+			image_mobile, 
+			teaser, 
+			description_header, 
+			description, 
+			sorting, 
+			l10n_parent, 
+			systems, 
+			articles, 
+			kerning, 
+			parent, 
+			children, 
+			colors, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-
+	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -86,7 +90,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'max' => 255,
 			)
 		),
-
+	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -190,6 +194,15 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'rows' => 15,
 				'eval' => 'trim'
 			)
+		),
+		'description_header' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.description_header',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
 		),
 		'description' => array(
 			'exclude' => 1,
@@ -348,6 +361,23 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			),
 
 		),
+		'colors' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.colors',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_melosrtb_domain_model_color',
+				'foreign_field' => 'component',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'useSortable' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
 
 	),
 );

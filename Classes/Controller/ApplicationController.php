@@ -33,7 +33,7 @@ class ApplicationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 	/**
 	 * applicationRepository
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Repository\ApplicationRepository
 	 * @inject
 	 */
@@ -41,7 +41,7 @@ class ApplicationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 	/**
 	 * action index
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Application $item
 	 * @return void
 	 */

@@ -60,19 +60,19 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $l10nParent = 0;
 
 	/**
+	 * image
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $image = NULL;
+
+	/**
 	 * articles
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
 	 * @cascade remove
 	 */
 	protected $articles = NULL;
-
-	/**
-	 * image
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected $image = NULL;
 
 	/**
 	 * Returns the name

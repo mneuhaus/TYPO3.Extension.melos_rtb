@@ -33,63 +33,70 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * name
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $name = '';
 
 	/**
 	 * number
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $number = '';
 
 	/**
 	 * specification
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $specification = '';
 
 	/**
 	 * l10nParent
-	 * 
+	 *
 	 * @var integer
 	 */
 	protected $l10nParent = 0;
 
 	/**
 	 * image
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image = NULL;
 
 	/**
+	 * imageMobile
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $imageMobile = NULL;
+
+	/**
 	 * detail
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $detail = NULL;
 
 	/**
 	 * kerning
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
 	 */
 	protected $kerning = NULL;
 
 	/**
 	 * color
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Color
 	 */
 	protected $color = NULL;
 
 	/**
 	 * attributes
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute>
 	 * @cascade remove
 	 */
@@ -97,24 +104,17 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * component
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Component
 	 */
 	protected $component = NULL;
 
 	/**
 	 * system
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
 	 */
 	protected $system = NULL;
-
-	/**
-	 * imageMobile
-	 * 
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected $imageMobile = NULL;
 
 	/**
 	 * __construct
@@ -129,7 +129,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Do not modify this method!
 	 * It will be rewritten on each save in the extension builder
 	 * You may modify the constructor of this class instead
-	 * 
+	 *
 	 * @return void
 	 */
 	protected function initStorageObjects() {
@@ -139,7 +139,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the name
-	 * 
+	 *
 	 * @return string $name
 	 */
 	public function getName() {
@@ -148,7 +148,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the name
-	 * 
+	 *
 	 * @param string $name
 	 * @return void
 	 */
@@ -158,7 +158,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the number
-	 * 
+	 *
 	 * @return string $number
 	 */
 	public function getNumber() {
@@ -167,7 +167,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the number
-	 * 
+	 *
 	 * @param string $number
 	 * @return void
 	 */
@@ -177,7 +177,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the specification
-	 * 
+	 *
 	 * @return string $specification
 	 */
 	public function getSpecification() {
@@ -186,7 +186,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the specification
-	 * 
+	 *
 	 * @param string $specification
 	 * @return void
 	 */
@@ -196,7 +196,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the kerning
-	 * 
+	 *
 	 * @return \Famelo\MelosRtb\Domain\Model\Kerning $kerning
 	 */
 	public function getKerning() {
@@ -205,7 +205,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the kerning
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Kerning $kerning
 	 * @return void
 	 */
@@ -215,7 +215,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the color
-	 * 
+	 *
 	 * @return \Famelo\MelosRtb\Domain\Model\Color $color
 	 */
 	public function getColor() {
@@ -224,7 +224,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the color
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Color $color
 	 * @return void
 	 */
@@ -234,7 +234,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a Attribute
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Attribute $attribute
 	 * @return void
 	 */
@@ -245,7 +245,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a Attribute
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Attribute $attributeToRemove The Attribute to be removed
 	 * @return void
 	 */
@@ -255,7 +255,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the attributes
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
 	 */
 	public function getAttributes() {
@@ -264,7 +264,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the attributes
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
 	 * @return void
 	 */
@@ -274,7 +274,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the l10nParent
-	 * 
+	 *
 	 * @return integer $l10nParent
 	 */
 	public function getL10nParent() {
@@ -283,7 +283,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the l10nParent
-	 * 
+	 *
 	 * @param integer $l10nParent
 	 * @return void
 	 */
@@ -293,7 +293,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the component
-	 * 
+	 *
 	 * @return \Famelo\MelosRtb\Domain\Model\Component $component
 	 */
 	public function getComponent() {
@@ -302,7 +302,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the component
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
 	 * @return void
 	 */
@@ -312,7 +312,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a System
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\System $system
 	 * @return void
 	 */
@@ -322,7 +322,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a System
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\System $systemToRemove The System to be removed
 	 * @return void
 	 */
@@ -332,7 +332,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the system
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> $system
 	 */
 	public function getSystem() {
@@ -341,7 +341,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the system
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> $system
 	 * @return void
 	 */
@@ -351,7 +351,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the image
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 */
 	public function getImage() {
@@ -360,7 +360,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the image
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 * @return void
 	 */
@@ -370,7 +370,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the detail
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $detail
 	 */
 	public function getDetail() {
@@ -379,7 +379,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the detail
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $detail
 	 * @return void
 	 */
@@ -389,7 +389,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the imageMobile
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
 	 */
 	public function getImageMobile() {
@@ -398,7 +398,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the imageMobile
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
 	 * @return void
 	 */

@@ -1,7 +1,6 @@
 <?php
 namespace Famelo\MelosRtb\Domain\Model;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -34,49 +33,49 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * name
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $name = '';
 
 	/**
 	 * code
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $code = '';
 
 	/**
 	 * image
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image = NULL;
 
 	/**
 	 * imageMobile
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $imageMobile = NULL;
 
 	/**
 	 * system
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\System
 	 */
 	protected $system = NULL;
 
 	/**
 	 * color
-	 * 
+	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Color
 	 */
 	protected $color = NULL;
 
 	/**
 	 * Returns the name
-	 * 
+	 *
 	 * @return string $name
 	 */
 	public function getName() {
@@ -85,7 +84,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the name
-	 * 
+	 *
 	 * @param string $name
 	 * @return void
 	 */
@@ -95,7 +94,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the code
-	 * 
+	 *
 	 * @return string $code
 	 */
 	public function getCode() {
@@ -104,7 +103,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the code
-	 * 
+	 *
 	 * @param string $code
 	 * @return void
 	 */
@@ -114,7 +113,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the image
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 */
 	public function getImage() {
@@ -123,7 +122,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the image
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 * @return void
 	 */
@@ -133,7 +132,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the imageMobile
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
 	 */
 	public function getImageMobile() {
@@ -142,7 +141,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the imageMobile
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $imageMobile
 	 * @return void
 	 */
@@ -152,7 +151,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the system
-	 * 
+	 *
 	 * @return \Famelo\MelosRtb\Domain\Model\System $system
 	 */
 	public function getSystem() {
@@ -161,7 +160,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the system
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\System $system
 	 * @return void
 	 */
@@ -171,7 +170,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the color
-	 * 
+	 *
 	 * @return \Famelo\MelosRtb\Domain\Model\Color $color
 	 */
 	public function getColor() {
@@ -180,7 +179,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the color
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Color $color
 	 * @return void
 	 */

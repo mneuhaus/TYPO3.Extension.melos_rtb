@@ -69,12 +69,10 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 		// 	}
 		// 	$this->componentRepository->update($component);
 		// }
-
 		if ($item !== NULL) {
 			if ($item->getParent() == NULL) {
 				$item = current($item->getChildren()->toArray());
 			}
-
 			$this->view->assign('applications', $item->getApplications());
 			$this->view->assign('currentComponent', $item);
 		}

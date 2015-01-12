@@ -39,6 +39,13 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $name = '';
 
 	/**
+	 * subtitle
+	 *
+	 * @var string
+	 */
+	protected $subtitle = '';
+
+	/**
 	 * code
 	 *
 	 * @var string
@@ -83,7 +90,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * sorting
 	 *
-	 * @var string
+	 * @var integer
 	 */
 	protected $sorting = '';
 
@@ -133,11 +140,19 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $children = NULL;
 
 	/**
-	 * subtitle
+	 * descriptionHeader
 	 *
 	 * @var string
 	 */
-	protected $subtitle = '';
+	protected $descriptionHeader = '';
+
+	/**
+	 * colors
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Color>
+	 * @cascade remove
+	 */
+	protected $colors = NULL;
 
 	/**
 	 * __construct
@@ -159,6 +174,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->systems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->children = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->colors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -298,25 +314,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSystems(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $systems) {
 		$this->systems = $systems;
-	}
-
-	/**
-	 * Returns the sorting
-	 *
-	 * @return string $sorting
-	 */
-	public function getSorting() {
-		return $this->sorting;
-	}
-
-	/**
-	 * Sets the sorting
-	 *
-	 * @param string $sorting
-	 * @return void
-	 */
-	public function setSorting($sorting) {
-		$this->sorting = $sorting;
 	}
 
 	/**
@@ -479,6 +476,9 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->image = $image;
 	}
 
+	/**
+	 * Returns the colors
+	 */
 	public function getColors() {
 		$colors = array();
 		foreach ($this->articles as $article) {
@@ -555,6 +555,74 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 			}
 		}
 		return $applications;
+	}
+
+	/**
+	 * Returns the sorting
+	 *
+	 * @return integer sorting
+	 */
+	public function getSorting() {
+		return $this->sorting;
+	}
+
+	/**
+	 * Sets the sorting
+	 *
+	 * @param string $sorting
+	 * @return integer sorting
+	 */
+	public function setSorting($sorting) {
+		$this->sorting = $sorting;
+	}
+
+	/**
+	 * Returns the descriptionHeader
+	 *
+	 * @return string $descriptionHeader
+	 */
+	public function getDescriptionHeader() {
+		return $this->descriptionHeader;
+	}
+
+	/**
+	 * Sets the descriptionHeader
+	 *
+	 * @param string $descriptionHeader
+	 * @return void
+	 */
+	public function setDescriptionHeader($descriptionHeader) {
+		$this->descriptionHeader = $descriptionHeader;
+	}
+
+	/**
+	 * Adds a Color
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Color $color
+	 * @return void
+	 */
+	public function addColor(\Famelo\MelosRtb\Domain\Model\Color $color) {
+		$this->colors->attach($color);
+	}
+
+	/**
+	 * Removes a Color
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Color $colorToRemove The Color to be removed
+	 * @return void
+	 */
+	public function removeColor(\Famelo\MelosRtb\Domain\Model\Color $colorToRemove) {
+		$this->colors->detach($colorToRemove);
+	}
+
+	/**
+	 * Sets the colors
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Color> $colors
+	 * @return void
+	 */
+	public function setColors(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $colors) {
+		$this->colors = $colors;
 	}
 
 }

@@ -33,84 +33,91 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * name
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $name = '';
 
 	/**
+	 * subtitle
+	 *
+	 * @var string
+	 */
+	protected $subtitle = '';
+
+	/**
 	 * code
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $code = '';
 
 	/**
 	 * description
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $description = '';
 
 	/**
 	 * image
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $image = NULL;
 
 	/**
 	 * mobileImage
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $mobileImage = NULL;
 
 	/**
 	 * crossSection
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $crossSection = NULL;
 
 	/**
 	 * crossSectionMobile
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $crossSectionMobile = NULL;
 
 	/**
 	 * thumbnail
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $thumbnail = NULL;
 
 	/**
 	 * teaser
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $teaser = '';
 
 	/**
 	 * sorting
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $sorting = '';
 
 	/**
 	 * l10nParent
-	 * 
+	 *
 	 * @var integer
 	 */
 	protected $l10nParent = 0;
 
 	/**
 	 * components
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
 	 * @cascade remove
 	 */
@@ -118,32 +125,74 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * applications
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application>
 	 */
 	protected $applications = NULL;
 
 	/**
 	 * articles
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
 	 */
 	protected $articles = NULL;
 
 	/**
 	 * crossSections
-	 * 
+	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\CrossSection>
 	 * @cascade remove
 	 */
 	protected $crossSections = NULL;
 
 	/**
-	 * subtitle
-	 * 
+	 * descriptionHeader
+	 *
 	 * @var string
 	 */
-	protected $subtitle = '';
+	protected $descriptionHeader = '';
+
+	/**
+	 * requirement
+	 *
+	 * @var integer
+	 */
+	protected $requirement = 0;
+
+	/**
+	 * cost
+	 *
+	 * @var integer
+	 */
+	protected $cost = 0;
+
+	/**
+	 * synonm
+	 *
+	 * @var string
+	 */
+	protected $synonm = '';
+
+	/**
+	 * featureDescription
+	 *
+	 * @var string
+	 */
+	protected $featureDescription = '';
+
+	/**
+	 * application
+	 *
+	 * @var string
+	 */
+	protected $application = '';
+
+	/**
+	 * standard
+	 *
+	 * @var string
+	 */
+	protected $standard = '';
 
 	/**
 	 * __construct
@@ -158,7 +207,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Do not modify this method!
 	 * It will be rewritten on each save in the extension builder
 	 * You may modify the constructor of this class instead
-	 * 
+	 *
 	 * @return void
 	 */
 	protected function initStorageObjects() {
@@ -170,7 +219,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the name
-	 * 
+	 *
 	 * @return string $name
 	 */
 	public function getName() {
@@ -179,7 +228,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the name
-	 * 
+	 *
 	 * @param string $name
 	 * @return void
 	 */
@@ -189,7 +238,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the code
-	 * 
+	 *
 	 * @return string $code
 	 */
 	public function getCode() {
@@ -198,7 +247,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the code
-	 * 
+	 *
 	 * @param string $code
 	 * @return void
 	 */
@@ -208,7 +257,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the description
-	 * 
+	 *
 	 * @return string $description
 	 */
 	public function getDescription() {
@@ -217,7 +266,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the description
-	 * 
+	 *
 	 * @param string $description
 	 * @return void
 	 */
@@ -227,7 +276,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the image
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 */
 	public function getImage() {
@@ -236,7 +285,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the image
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
 	 * @return void
 	 */
@@ -246,7 +295,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the thumbnail
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail
 	 */
 	public function getThumbnail() {
@@ -255,7 +304,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the thumbnail
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $thumbnail
 	 * @return void
 	 */
@@ -265,7 +314,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the teaser
-	 * 
+	 *
 	 * @return string $teaser
 	 */
 	public function getTeaser() {
@@ -274,7 +323,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the teaser
-	 * 
+	 *
 	 * @param string $teaser
 	 * @return void
 	 */
@@ -284,7 +333,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a ComponentUse
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
@@ -297,7 +346,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a ComponentUse
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $componentToRemove The Component to be removed
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
@@ -307,7 +356,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a ComponentUse
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $component The Component to be removed
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
@@ -317,7 +366,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the components
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
 	public function getComponents() {
@@ -326,7 +375,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the components
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> $components
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
@@ -336,7 +385,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a Application
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Application $application
 	 * @return void
 	 */
@@ -346,7 +395,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a Application
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Application $applicationToRemove The Application to be removed
 	 * @return void
 	 */
@@ -356,7 +405,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the applications
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application> $applications
 	 */
 	public function getApplications() {
@@ -365,7 +414,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the applications
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application> $applications
 	 * @return void
 	 */
@@ -375,7 +424,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the sorting
-	 * 
+	 *
 	 * @return string $sorting
 	 */
 	public function getSorting() {
@@ -384,7 +433,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the sorting
-	 * 
+	 *
 	 * @param string $sorting
 	 * @return void
 	 */
@@ -394,7 +443,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the l10nParent
-	 * 
+	 *
 	 * @return integer $l10nParent
 	 */
 	public function getL10nParent() {
@@ -403,7 +452,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the l10nParent
-	 * 
+	 *
 	 * @param integer $l10nParent
 	 * @return void
 	 */
@@ -413,7 +462,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a Article
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Article $article
 	 * @return void
 	 */
@@ -423,7 +472,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a Article
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Article $articleToRemove The Article to be removed
 	 * @return void
 	 */
@@ -433,7 +482,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the articles
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
 	 */
 	public function getArticles() {
@@ -442,7 +491,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the articles
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
 	 * @return void
 	 */
@@ -464,7 +513,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the mobileImage
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $mobileImage
 	 */
 	public function getMobileImage() {
@@ -473,7 +522,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the mobileImage
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $mobileImage
 	 * @return void
 	 */
@@ -483,7 +532,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the crossSection
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $crossSection
 	 */
 	public function getCrossSection() {
@@ -492,7 +541,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the crossSection
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $crossSection
 	 * @return void
 	 */
@@ -502,7 +551,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the crossSectionMobile
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $crossSectionMobile
 	 */
 	public function getCrossSectionMobile() {
@@ -511,7 +560,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the crossSectionMobile
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $crossSectionMobile
 	 * @return void
 	 */
@@ -521,7 +570,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Adds a CrossSection
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\CrossSection $crossSection
 	 * @return void
 	 */
@@ -531,7 +580,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Removes a CrossSection
-	 * 
+	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\CrossSection $crossSectionToRemove The CrossSection to be removed
 	 * @return void
 	 */
@@ -541,7 +590,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the crossSections
-	 * 
+	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\CrossSection> $crossSections
 	 */
 	public function getCrossSections() {
@@ -550,7 +599,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the crossSections
-	 * 
+	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\CrossSection> $crossSections
 	 * @return void
 	 */
@@ -560,7 +609,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Returns the subtitle
-	 * 
+	 *
 	 * @return string $subtitle
 	 */
 	public function getSubtitle() {
@@ -569,12 +618,145 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * Sets the subtitle
-	 * 
+	 *
 	 * @param string $subtitle
 	 * @return void
 	 */
 	public function setSubtitle($subtitle) {
 		$this->subtitle = $subtitle;
+	}
+
+	/**
+	 * Returns the descriptionHeader
+	 *
+	 * @return string $descriptionHeader
+	 */
+	public function getDescriptionHeader() {
+		return $this->descriptionHeader;
+	}
+
+	/**
+	 * Sets the descriptionHeader
+	 *
+	 * @param string $descriptionHeader
+	 * @return void
+	 */
+	public function setDescriptionHeader($descriptionHeader) {
+		$this->descriptionHeader = $descriptionHeader;
+	}
+
+	/**
+	 * Returns the requirement
+	 *
+	 * @return integer $requirement
+	 */
+	public function getRequirement() {
+		return $this->requirement;
+	}
+
+	/**
+	 * Sets the requirement
+	 *
+	 * @param integer $requirement
+	 * @return void
+	 */
+	public function setRequirement($requirement) {
+		$this->requirement = $requirement;
+	}
+
+	/**
+	 * Returns the cost
+	 *
+	 * @return integer $cost
+	 */
+	public function getCost() {
+		return $this->cost;
+	}
+
+	/**
+	 * Sets the cost
+	 *
+	 * @param integer $cost
+	 * @return void
+	 */
+	public function setCost($cost) {
+		$this->cost = $cost;
+	}
+
+	/**
+	 * Returns the synonm
+	 *
+	 * @return string $synonm
+	 */
+	public function getSynonm() {
+		return $this->synonm;
+	}
+
+	/**
+	 * Sets the synonm
+	 *
+	 * @param string $synonm
+	 * @return void
+	 */
+	public function setSynonm($synonm) {
+		$this->synonm = $synonm;
+	}
+
+	/**
+	 * Returns the featureDescription
+	 *
+	 * @return string $featureDescription
+	 */
+	public function getFeatureDescription() {
+		return $this->featureDescription;
+	}
+
+	/**
+	 * Sets the featureDescription
+	 *
+	 * @param string $featureDescription
+	 * @return void
+	 */
+	public function setFeatureDescription($featureDescription) {
+		$this->featureDescription = $featureDescription;
+	}
+
+	/**
+	 * Returns the application
+	 *
+	 * @return string $application
+	 */
+	public function getApplication() {
+		return $this->application;
+	}
+
+	/**
+	 * Sets the application
+	 *
+	 * @param string $application
+	 * @return void
+	 */
+	public function setApplication($application) {
+		$this->application = $application;
+	}
+
+	/**
+	 * Returns the standard
+	 *
+	 * @return string $standard
+	 */
+	public function getStandard() {
+		return $this->standard;
+	}
+
+	/**
+	 * Sets the standard
+	 *
+	 * @param string $standard
+	 * @return void
+	 */
+	public function setStandard($standard) {
+		$this->standard = $standard;
 	}
 
 }
