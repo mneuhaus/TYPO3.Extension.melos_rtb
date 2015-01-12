@@ -641,7 +641,7 @@
                             "propertyIsExcludeField": true,
                             "relationDescription": "",
                             "relationName": "colors",
-                            "relationType": "zeroToMany",
+                            "relationType": "manyToMany",
                             "relationWire": "[wired]",
                             "uid": "866267492222"
                         }
@@ -1599,7 +1599,7 @@
         }
     ],
     "log": {
-        "last_modified": "2015-01-12 10:39",
+        "last_modified": "2015-01-12 02:25",
         "extension_builder_version": "6.2.0",
         "be_user": "Marc Neuhaus (3)"
     }

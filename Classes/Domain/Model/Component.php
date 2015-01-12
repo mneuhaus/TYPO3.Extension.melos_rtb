@@ -81,6 +81,13 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $teaser = '';
 
 	/**
+	 * descriptionHeader
+	 *
+	 * @var string
+	 */
+	protected $descriptionHeader = '';
+
+	/**
 	 * description
 	 *
 	 * @var string
@@ -138,13 +145,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @cascade remove
 	 */
 	protected $children = NULL;
-
-	/**
-	 * descriptionHeader
-	 *
-	 * @var string
-	 */
-	protected $descriptionHeader = '';
 
 	/**
 	 * colors

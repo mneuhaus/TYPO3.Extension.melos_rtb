@@ -378,19 +378,14 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.colors',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_color',
-				'foreign_field' => 'component',
-				'maxitems'      => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'useSortable' => 1,
-					'showAllLocalizationLink' => 1
-				),
+				'MM' => 'tx_melosrtb_component_color_mm',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
 			),
-
+		)
 	),
 );

@@ -18,3 +18,7 @@ Tests/Unit/Domain/Model/ColorTest.php
 Tests/Unit/Domain/Model/ComponentTest.php
 Tests/Unit/Domain/Model/CrossSectionTest.php
 Tests/Unit/Domain/Model/SystemTest.php
+Tests/Unit/Controller
+Tests/Unit/Domain/Model/AttributeTest.php
+Tests/Unit/Domain/Model/KerningTest.php
+Tests/Unit/Domain/Model/PackageSizeTest.php
