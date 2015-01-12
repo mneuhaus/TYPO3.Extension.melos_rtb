@@ -1,21 +1,22 @@
 <f:if condition="{currentComponent}">
 	<f:then>
 		<f:render partial="Component/HeaderImage" arguments="{components: components, currentComponent: currentComponent}" />
+
 		<!-- <_f:render partial="Component/MobileNavigation" arguments="{components: components}" /> -->
+
 		<f:render partial="Component/Details" arguments="{component: currentComponent}" />
 
 		<f:render partial="Component/Components" arguments="{components: currentComponent.relatedComponents, currentComponent: currentComponent}" />
 
 		<div id="weitereInformationen" class="row">
 		    <div class="col-sm-6">
-		        <h2>{component.teaser}</h2>
+		        <h2>{component.descriptionHeader}</h2>
 		    </div>
 		</div>
 		<p class="text-columns-2">{component.description}</p>
 
 		<f:render partial="Component/Applications" arguments="{applications: applications}" />
 
-		<f:render partial="Component/DummyContent" />
 		<f:render partial="Component/Contact" arguments="{currentComponent: currentComponent}" />
 	</f:then>
 	<f:else>

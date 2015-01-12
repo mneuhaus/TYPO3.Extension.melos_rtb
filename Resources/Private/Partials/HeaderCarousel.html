@@ -1,22 +1,35 @@
 <div id="owlCarouselQuadsNavigation" class="owl-carousel">
-  <f:for each="{items}" as="item">
-    <div class="item">
+  <f:for each="{items}" as="item" iteration="iteration">
+    <div class="item" additionalAttributes="{data-hash: item.uid}">
       <div class="owlQuad onePxPadding">
-        <f:link.action action="index" arguments="{item: item}" class="{f:if(condition: '{item}=={currentItem}', then: 'active')}">
-          <f:if condition="{variablePosImg}">
-            <img class="img-responsive blind" src="{f:uri.resource(path: 'art-global/blind.png', extensionName: 'template')}">
-          </f:if>
-          <f:if condition="{item.thumbnail}">
-            <f:then>
-              <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
-            </f:then>
-            <f:else>
-              <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
-            </f:else>
-          </f:if>
-          <span>{item.name}</span>
-        </f:link.action>
+        <f:if condition="{item}=={currentItem}">
+          <f:then>
+            <f:link.action action="index" arguments="{item: item}" class="active">
+              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage}" />
+            </f:link.action>
+          </f:then>
+          <f:else>
+            <f:link.action action="index" arguments="{item: item}" id="#item-{uid}">
+              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage}" />
+            </f:link.action>
+          </f:else>
+        </f:if>
       </div>
     </div>
   </f:for>
 </div>
+
+<f:section name="image">
+  <f:if condition="{variablePosImg}">
+    <img class="img-responsive blind" src="{f:uri.resource(path: 'art-global/blind.png', extensionName: 'template')}">
+  </f:if>
+  <f:if condition="{item.thumbnail}">
+    <f:then>
+      <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
+    </f:then>
+    <f:else>
+      <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
+    </f:else>
+  </f:if>
+  <span>{item.name}</span>
+</f:section>

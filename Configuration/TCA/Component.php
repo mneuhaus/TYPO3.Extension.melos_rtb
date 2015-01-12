@@ -381,10 +381,13 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_melosrtb_domain_model_color',
 				'MM' => 'tx_melosrtb_component_color_mm',
+				'foreign_table_where' => ' AND sys_language_uid = 0',
+				'MM_opposite_field' => 'components',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
 				'multiple' => 0,
+				// 'renderMode' => 'checkbox'
 			),
 		)
 	),
