@@ -1,3 +1,4 @@
+{namespace m=Famelo\MelosRtb\ViewHelpers}
 <div id="anfrageKomponenten" class="anfrageKomponenten">
 
     <!-- Anfrage Step 1 -->
@@ -25,57 +26,29 @@
                     <tr>
                         <td>
                             <ul class="status statusStars">
-                                <li class="active">&nbsp;</li>
-                                <li class="active">&nbsp;</li>
-                                <li class="active">&nbsp;</li>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
+                            <m:star active="{currentSystem.requirement}" total="5">
+                                <f:for each="{stars}" as="star">
+                                    <li {f:if(condition: star.active, then: 'class="active"')}>&nbsp;</li>
+                                </f:for>
+                            </m:star>
                             </ul>
                         </td>
                         <td>
-                            <ul class="status statusQuadrate">
-                                <li class="active">&nbsp;</li>
-                                <li class="active">&nbsp;</li>
-                                <li class="active">&nbsp;</li>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
-                            </ul>
+                            {currentSystem.cost}
                         </td>
-                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</td>
-                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</td>
+                        <td>{currentSystem.synonym}</td>
+                        <td>{currentSystem.application -> f:format.raw()}</td>
                     </tr>
                 </table>
                 <table>
                     <colgroup width="50%" span="2"></colgroup>
                     <tr>
                         <td>Systembeschreibung</td>
-                        <td>Typ nach DIN V 18035 6</td>
+                        <td>Typ nach {currentSystem.standard}</td>
                     </tr>
                     <tr>
                         <td>
-                            <ul>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                                <li>
-                                    <p>Lorem ipsum dolor est sitem amet</p>
-                                </li>
-                            </ul>
+                            {currentSystem.featureDescription -> f:format.raw()}
                         </td>
                         <td>
                             <h1 class="typoInitial">B</h1>

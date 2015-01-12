@@ -162,16 +162,16 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * cost
 	 *
-	 * @var integer
+	 * @var string
 	 */
-	protected $cost = 0;
+	protected $cost = '';
 
 	/**
-	 * synonm
+	 * synonym
 	 *
 	 * @var string
 	 */
-	protected $synonm = '';
+	protected $synonym = '';
 
 	/**
 	 * featureDescription
@@ -667,7 +667,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the cost
 	 *
-	 * @return integer $cost
+	 * @return string $cost
 	 */
 	public function getCost() {
 		return $this->cost;
@@ -676,7 +676,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the cost
 	 *
-	 * @param integer $cost
+	 * @param string $cost
 	 * @return void
 	 */
 	public function setCost($cost) {
@@ -684,22 +684,22 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the synonm
+	 * Returns the synonym
 	 *
-	 * @return string $synonm
+	 * @return string $synonym
 	 */
-	public function getSynonm() {
-		return $this->synonm;
+	public function getSynonym() {
+		return $this->synonym;
 	}
 
 	/**
-	 * Sets the synonm
+	 * Sets the synonym
 	 *
-	 * @param string $synonm
+	 * @param string $synonym
 	 * @return void
 	 */
-	public function setSynonm($synonm) {
-		$this->synonm = $synonm;
+	public function setSynonym($synonym) {
+		$this->synonym = $synonym;
 	}
 
 	/**

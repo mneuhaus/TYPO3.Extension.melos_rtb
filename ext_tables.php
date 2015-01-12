@@ -150,6 +150,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_color'] = array(
 		'sortby' => 'sorting',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
+		'selicon_field' => 'image',
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',

@@ -84,8 +84,8 @@
 			<trans-unit id="tx_melosrtb_domain_model_system.cost">
 				<source>Cost</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_system.synonm">
-				<source>Synonm</source>
+			<trans-unit id="tx_melosrtb_domain_model_system.synonym">
+				<source>Synonym</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.feature_description">
 				<source>Feature Description</source>

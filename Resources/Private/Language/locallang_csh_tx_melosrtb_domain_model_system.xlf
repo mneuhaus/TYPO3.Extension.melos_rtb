@@ -42,8 +42,8 @@
 			<trans-unit id="cost.description">
 				<source>cost</source>
 			</trans-unit>
-			<trans-unit id="synonm.description">
-				<source>synonm</source>
+			<trans-unit id="synonym.description">
+				<source>synonym</source>
 			</trans-unit>
 			<trans-unit id="feature_description.description">
 				<source>featureDescription</source>

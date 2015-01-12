@@ -6,62 +6,76 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_system']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, 
-				name, 
-				subtitle, 
-				code, 
-				description_header, 
-				description, 
-				teaser, 
-				image, 
-				mobile_image, 
-				cross_section, 
-				cross_section_mobile, 
-				thumbnail, 
-				requirement, 
-				cost, 
-				synonm, 
-				feature_description, 
-				application, 
-				standard, 
-				l10n_parent, 
-				sorting, 
-				components, 
-				applications, 
-				articles, 
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
+				name,
+				subtitle,
+				code,
+				description_header,
+				description,
+				teaser,
+				image,
+				mobile_image,
+				cross_section,
+				cross_section_mobile,
+				thumbnail,
+				requirement,
+				cost,
+				synonym,
+				feature_description,
+				application,
+				standard,
+				l10n_parent,
+				sorting,
+				components,
+				applications,
+				articles,
 				cross_sections',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-			name, 
-			subtitle, 
-			code, 
-			description_header, 
-			description, 
-			teaser, 
-			image, 
-			mobile_image, 
-			cross_section, 
-			cross_section_mobile, 
-			thumbnail, 
-			requirement, 
-			cost, 
-			synonm, 
-			feature_description, 
-			application, 
-			standard, 
-			l10n_parent, 
-			sorting, 
-			components, 
-			applications, 
-			articles, 
-			cross_sections, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => '
+			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:general,
+
+				sys_language_uid;;;;1-1-1,
+				l10n_parent,
+				l10n_diffsource,
+				hidden;;1,
+				name,
+				subtitle,
+				code,
+				description_header,
+				description,
+				teaser,
+
+			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:media,
+				image,
+				mobile_image,
+				thumbnail,
+
+
+			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:details,
+				requirement,
+				cost,
+				synonym,
+				feature_description;;;richtext:rte_transform[mode=ts_links],
+				application;;;richtext:rte_transform[mode=ts_links],
+				standard,
+
+			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:relations,
+				components,
+				applications,
+				articles,
+				cross_sections,
+
+			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
+				starttime,
+				endtime
+		'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -102,7 +116,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -185,7 +199,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 8,
 				'eval' => 'trim'
 			)
 		),
@@ -195,7 +209,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 5,
 				'eval' => 'trim'
 			)
 		),
@@ -250,7 +264,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('-- Label --', 0),
+					array('0/5 Sterne', 0),
+					array('1/5 Sterne', 1),
+					array('2/5 Sterne', 2),
+					array('3/5 Sterne', 3),
+					array('4/5 Sterne', 4),
+					array('5/5 Sterne', 5)
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -263,20 +282,22 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('-- Label --', 0),
+					array('Niedrig', 'Niedrig'),
+					array('Mittel', 'Mittel'),
+					array('Hoch', 'Hoch')
 				),
 				'size' => 1,
 				'maxitems' => 1,
 				'eval' => ''
 			),
 		),
-		'synonm' => array(
+		'synonym' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.synonm',
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.synonym',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 3,
 				'eval' => 'trim'
 			)
 		),
@@ -286,8 +307,19 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim'
+				'rows' => 5,
+				'eval' => 'trim',
+				'wizards' => array(
+					'RTE' => array(
+						'icon' => 'wizard_rte2.gif',
+						'notNewRecords'=> 1,
+						'RTEonly' => 1,
+						'script' => 'wizard_rte.php',
+						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+						'type' => 'script'
+					)
+				),
+				'defaultExtras' => 'richtext[bold|unorderedlist]:rte_transform[mode=css]'
 			)
 		),
 		'application' => array(
@@ -296,7 +328,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 5,
 				'eval' => 'trim'
 			)
 		),
