@@ -1,16 +1,16 @@
 <div id="owlCarouselQuadsNavigation" class="owl-carousel">
   <f:for each="{items}" as="item" iteration="iteration">
-    <div class="item" additionalAttributes="{data-hash: item.uid}">
+    <div class="item">
       <div class="owlQuad onePxPadding">
         <f:if condition="{item}=={currentItem}">
           <f:then>
             <f:link.action action="index" arguments="{item: item}" class="active">
-              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage}" />
+              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage, variablePosImg: variablePosImg}" />
             </f:link.action>
           </f:then>
           <f:else>
             <f:link.action action="index" arguments="{item: item}" id="#item-{uid}">
-              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage}" />
+              <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage, variablePosImg: variablePosImg}" />
             </f:link.action>
           </f:else>
         </f:if>

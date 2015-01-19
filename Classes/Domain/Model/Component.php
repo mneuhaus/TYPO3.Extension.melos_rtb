@@ -402,6 +402,14 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		return $this->parent;
 	}
 
+	public function getRootParent() {
+		if ($this->parent === NULL) {
+			return $this;
+		}
+
+		return $this->parent->getRootParent();
+	}
+
 	/**
 	 * Sets the parent
 	 *

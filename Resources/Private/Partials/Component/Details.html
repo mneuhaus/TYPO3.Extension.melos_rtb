@@ -6,60 +6,96 @@
                 <h2>Details zur Komponente {component.name}</h2>
             </div>
         </div>
+
         <div class="row">
 
             <div id="tabCarousel" class="tabCarousel">
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
-                        <li class="active"><a class="active" href="">Körnung</a></li>
-                        <li><a href="">Farben</a></li>
+                        <f:if condition="{component.rootParent.code} == 'CGR'">
+                            <li class="active"><a class="active" href="">Körnung</a></li>
+                        </f:if>
+                        <f:if condition="{component.rootParent.code} == 'PUR'">
+                            <li class="active"><a class="active" href="">Varianten</a></li>
+                        </f:if>
+                        <f:if condition="{component.colors}">
+                            <li><a href="">Farben</a></li>
+                        </f:if>
                         <li><a href="">Sonderaustattungen</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12">
 
                     <div id="owlCarouselTabs" class="owl-carousel">
-                        <div class="item">
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table class="firstTable">
-                                        <colspan width="50%"></colspan>
-                                        <colspan width="37.5%"></colspan>
-                                        <colspan width="12.5%"></colspan>
-                                        <tr>
-                                            <td>Bezeichnung</td>
-                                            <td>Körnung</td>
-                                        </tr>
-                                        <f:for each="{component.children}" as="childComponent">
-	                                        <tr>
-	                                            <td>{childComponent.name} {childComponent.subtitle}</td>
-	                                            <td>
-	                                                {childComponent.kerning.name}
-	                                            </td>
-	                                        </tr>
-                                        </f:for>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
-                                        <f:for each="{component.colors}" as="color">
-                                            <f:if condition="{color.image.originalResource}">
-                                                <div class="item">
-                                                    <div class="owlQuad onePxPadding">
-                                                        <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                                                    </div>
-                                                </div>
-                                            </f:if>
-                                        </f:for>
+                        <f:if condition="{component.rootParent.code} == 'CGR'">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="firstTable">
+                                            <colspan width="50%"></colspan>
+                                            <colspan width="37.5%"></colspan>
+                                            <colspan width="12.5%"></colspan>
+                                            <tr>
+                                                <td>Bezeichnung</td>
+                                                <td>Körnung</td>
+                                            </tr>
+                                            <f:for each="{component.children}" as="childComponent">
+    	                                        <tr>
+    	                                            <td>{childComponent.name} {childComponent.subtitle}</td>
+    	                                            <td>
+    	                                                {childComponent.kerning.name}
+    	                                            </td>
+    	                                        </tr>
+                                            </f:for>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </f:if>
+                        <f:if condition="{component.rootParent.code} == 'PUR'">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="firstTable">
+                                            <colspan width="50%"></colspan>
+                                            <colspan width="37.5%"></colspan>
+                                            <colspan width="12.5%"></colspan>
+                                            <tr>
+                                                <td>Bezeichnung</td>
+                                                <td>Eigentschaften</td>
+                                            </tr>
+                                            <f:for each="{component.children}" as="childComponent">
+                                                <tr>
+                                                    <td>{childComponent.name} {childComponent.subtitle}</td>
+                                                    <td>
+                                                        {childComponent.kerning.name}
+                                                    </td>
+                                                </tr>
+                                            </f:for>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
+                        <f:if condition="{component.colors}">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
+                                            <f:for each="{component.colors}" as="color">
+                                                <f:if condition="{color.image.originalResource}">
+                                                    <div class="item">
+                                                        <div class="owlQuad onePxPadding">
+                                                            <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                                                        </div>
+                                                    </div>
+                                                </f:if>
+                                            </f:for>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
                         <div class="item">
                             <div class="row">
                                 <div class="col-sm-6">

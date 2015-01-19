@@ -1,3 +1,14 @@
+<f:if condition="{currentComponent.parent}">
+
+	<ul class="mainnavigation">
+		<f:for each="{mainComponents}" as="mainComponent" iteration="iteration">
+			<li class="{item.class}">
+				<a href="{item.link}" class="{item.class}">{mainComponent.name}</a>
+			</li>
+		</f:for>
+	</ul>
+</f:if>
+
 <f:if condition="{currentComponent}">
 	<f:then>
 		<f:render partial="Component/HeaderImage" arguments="{components: components, currentComponent: currentComponent}" />
