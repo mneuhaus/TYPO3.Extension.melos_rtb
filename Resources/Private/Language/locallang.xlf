@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-12T10:39:09Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="melos_rtb" date="2015-01-19T15:02:17+01:00">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -168,6 +168,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.colors">
 				<source>Colors</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
+				<source>Attributes</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
 			</trans-unit>
@@ -255,9 +258,6 @@
 			<trans-unit id="tx_melosrtb_domain_model_article.color">
 				<source>Color</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_article.attributes">
-				<source>Attributes</source>
-			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.component">
 				<source>Component</source>
 			</trans-unit>
@@ -272,9 +272,6 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.value">
 				<source>Value</source>
-			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_attribute.article">
-				<source>Article</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_crosssection">
 				<source>Cross Section</source>
@@ -296,6 +293,156 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_crosssection.color">
 				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="detailsOf">
+				<source>Details of</source>
+			</trans-unit>
+			<trans-unit id="description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="Downloads">
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="matchingSystemsFor">
+				<source>Matching Systems for</source>
+			</trans-unit>
+			<trans-unit id="inquiryReceived">
+				<source>We've received your inquiry and will get back to you as soon as possible.</source>
+			</trans-unit>
+
+			<trans-unit id="relatedApplications">
+				<source>These applications could also be of interest</source>
+				<target>These applications could also be of interest</target>
+			</trans-unit>
+			<trans-unit id="components">
+				<source>Components</source>
+			</trans-unit>
+			<trans-unit id="fittingComponents" xml:space="preserve">
+				<source>Components that harmonize with %s</source>
+				<target>Components that harmonize with %s</target>
+			</trans-unit>
+			<trans-unit id="personalInformation">
+				<source>Your personal information</source>
+				<target>Your personal data</target>
+			</trans-unit>
+
+			<trans-unit id="extras" xml:space="preserve">
+				<source>extras</source>
+			</trans-unit>
+			<trans-unit id="name" xml:space="preserve">
+				<source>name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="kerning" xml:space="preserve">
+				<source>kerning</source>
+				<target>kerning</target>
+			</trans-unit>
+			<trans-unit id="color" xml:space="preserve">
+				<source>color</source>
+				<target>color</target>
+			</trans-unit>
+			<trans-unit id="variants" xml:space="preserve">
+				<source>variants</source>
+				<target>variants</target>
+			</trans-unit>
+			<trans-unit id="placeholderName" xml:space="preserve">
+				<source>your name *</source>
+				<target>your name *</target>
+			</trans-unit>
+			<trans-unit id="placeholderEmail" xml:space="preserve">
+				<source>your e-mail *</source>
+				<target>your e-mail *</target>
+			</trans-unit>
+			<trans-unit id="placeholderSquareMeasure" xml:space="preserve">
+				<source>area in m² *</source>
+				<target>area in m² *</target>
+			</trans-unit>
+			<trans-unit id="placeholderClientMessage" xml:space="preserve">
+				<source>comments</source>
+				<target>comments</target>
+			</trans-unit>
+			<trans-unit id="inquireSend" xml:space="preserve">
+				<source>send inquiry</source>
+				<target>send inquiry</target>
+			</trans-unit>
+			<trans-unit id="inquireComponent" xml:space="preserve">
+				<source>request component</source>
+				<target>request component</target>
+			</trans-unit>
+			<trans-unit id="inquireComponents" xml:space="preserve">
+				<source>request components</source>
+				<target>request components</target>
+			</trans-unit>
+			<trans-unit id="recommendedComponents" xml:space="preserve">
+				<source>recommended components</source>
+				<target>recommended components</target>
+			</trans-unit>
+
+
+			<trans-unit id="claimToTheSurface" xml:space="preserve">
+				<source>Claim to the surface</source>
+				<target>Claim to the surface</target>
+			</trans-unit>
+			<trans-unit id="costs" xml:space="preserve">
+				<source>Costs</source>
+				<target>Costs</target>
+			</trans-unit>
+			<trans-unit id="synonyms" xml:space="preserve">
+				<source>synonyms</source>
+				<target>synonyms</target>
+			</trans-unit>
+			<trans-unit id="fieldsOfApplication" xml:space="preserve">
+				<source>field of application</source>
+				<target>field of application</target>
+			</trans-unit>
+			<trans-unit id="systemDescription" xml:space="preserve">
+				<source>system description</source>
+				<target>system description</target>
+			</trans-unit>
+			<trans-unit id="typePer" xml:space="preserve">
+				<source>type per</source>
+				<target>type per</target>
+			</trans-unit>
+
+			<trans-unit id="areaIn" xml:space="preserve">
+				<source>area in m²</source>
+				<target>area in m²</target>
+			</trans-unit>
+			<trans-unit id="recommendedFor" xml:space="preserve">
+				<source>Recommended for</source>
+				<target>Recommended for</target>
+			</trans-unit>
+			<trans-unit id="particularlySuitable" xml:space="preserve">
+				<source>Particularly suitable for</source>
+				<target>Particularly suitable for</target>
+			</trans-unit>
+			<trans-unit id="availableWidth" xml:space="preserve">
+				<source>Available width (m)</source>
+				<target>Available width (m)</target>
+			</trans-unit>
+			<trans-unit id="lengthPer" xml:space="preserve">
+				<source>Length per roll (m)</source>
+				<target>Length per roll (m)</target>
+			</trans-unit>
+			<trans-unit id="pileHeight" xml:space="preserve">
+				<source>Pile height (mm)</source>
+				<target>Pile height (mm)</target>
+			</trans-unit>
+			<trans-unit id="viscosityIn" xml:space="preserve">
+				<source>Viscosity in MPas (at 20°C)</source>
+				<target>Viscosity in MPas (at 20°C)</target>
+			</trans-unit>
+			<trans-unit id="density" xml:space="preserve">
+				<source>Density (g/cm³)</source>
+				<target>Density (g/cm³)</target>
+			</trans-unit>
+			<trans-unit id="cureTime" xml:space="preserve">
+				<source>Cure Time in h (at 20°C; 50% relative himidity)</source>
+				<target>Cure Time in h (at 20°C; 50% relative himidity)</target>
+			</trans-unit>
+			<trans-unit id="mixingRatio" xml:space="preserve">
+				<source>Mixing Ratio (Part A:PartB)</source>
+				<target>Mixing Ratio (Part A:PartB)</target>
 			</trans-unit>
 		</body>
 	</file>

@@ -23,7 +23,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				kerning,
 				parent,
 				children,
-				colors',
+				colors,
+				attributes',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
@@ -47,6 +48,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				description,
 				kerning,
 				colors,
+				attributes,
 
 			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:relations,
 				systems,
@@ -389,6 +391,24 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'multiple' => 0,
 				// 'renderMode' => 'checkbox'
 			),
+		),
+		'attributes' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.attributes',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_melosrtb_domain_model_attribute',
+				'foreign_field' => 'component',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+
 		)
 	),
 );

@@ -37,7 +37,7 @@
                             <a class="headerimageToolbarBTN col-4 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
                             <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten">
                               <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}">
-                              <span>Komponenten anfragen</span>
+                              <span>{f:translate(key: 'inquireComponent', default: 'inquire component')}</span>
                             </a>
 
                         </div>
@@ -55,7 +55,8 @@
                             <div class="col-sm-4 onePxPadding">&nbsp;</div>
                             <div class="col-sm-4 onePxPadding">
                                 <h2 class="mainSummary">
-                                  {currentComponent.name -> f:format.nl2br()}{currentComponent.teaser -> f:format.nl2br()}
+                                  {currentComponent.name -> f:format.nl2br()} <br />
+                                  {currentComponent.teaser -> f:format.nl2br()}
                                 </h2>
                             </div>
                         </div>
@@ -71,7 +72,7 @@
                     <!-- Toolbar Mobile -->
                     <div class="headerimageToolbar visible-xs">
                         <a class="headerimageToolbarBTN col-4" href="#weitereInformationen"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}"><span>Details</span></a>
-                        <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}"><span>Komponente anfragen</span></a>
+                        <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}"><span>{f:translate(key: 'inquireComponent', default: 'inquire component')}</span></a>
 
                     </div>
 

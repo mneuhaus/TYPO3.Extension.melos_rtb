@@ -3,7 +3,8 @@
 
         <div id="weitereInformationen" class="row">
             <div class="col-sm-6">
-                <h2>Details zur Komponente {component.name}</h2>
+                <h2>
+                {f:translate(key: 'componentDetails', default: 'Details zur Komponente %s', arguments: {0: component.name})}</h2>
             </div>
         </div>
 
@@ -13,15 +14,18 @@
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
                         <f:if condition="{component.rootParent.code} == 'CGR'">
-                            <li class="active"><a class="active" href="">Körnung</a></li>
+                            <li class="active"><a class="active" href="">{f:translate(key: 'kerning', default: 'Kerning')}</a></li>
                         </f:if>
                         <f:if condition="{component.rootParent.code} == 'PUR'">
-                            <li class="active"><a class="active" href="">Varianten</a></li>
+                            <li class="active"><a class="active" href="">{f:translate(key: 'variants', default: 'Variants')}</a></li>
+                        </f:if>
+                        <f:if condition="{component.rootParent.code} == 'ATL'">
+                            <li class="active"><a href="" class="active">{f:translate(key: 'details', default: 'Details')}</a></li>
                         </f:if>
                         <f:if condition="{component.colors}">
-                            <li><a href="">Farben</a></li>
+                            <li><a href="">{f:translate(key: 'color', default: 'Color')}</a></li>
                         </f:if>
-                        <li><a href="">Sonderaustattungen</a></li>
+                        <li><a href="">{f:translate(key: 'extras', default: 'Extras')}</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12">
@@ -36,8 +40,8 @@
                                             <colspan width="37.5%"></colspan>
                                             <colspan width="12.5%"></colspan>
                                             <tr>
-                                                <td>Bezeichnung</td>
-                                                <td>Körnung</td>
+                                                <td>{f:translate(key: 'name', default: 'Name')}</td>
+                                                <td>{f:translate(key: 'kerning', default: 'Kerning')}</td>
                                             </tr>
                                             <f:for each="{component.children}" as="childComponent">
     	                                        <tr>
@@ -61,17 +65,39 @@
                                             <colspan width="37.5%"></colspan>
                                             <colspan width="12.5%"></colspan>
                                             <tr>
-                                                <td>Bezeichnung</td>
-                                                <td>Eigentschaften</td>
+                                                <td>{f:translate(key: 'name', default: 'Name')}</td>
+                                                <f:for each="{component.children.0.attributes}" as="attribute">
+                                                    <td>{f:translate(key: attribute.translationKey, default: attribute.name)}</td>
+                                                </f:for>
                                             </tr>
                                             <f:for each="{component.children}" as="childComponent">
                                                 <tr>
                                                     <td>{childComponent.name} {childComponent.subtitle}</td>
-                                                    <td>
-                                                        {childComponent.kerning.name}
-                                                    </td>
+                                                    <f:for each="{childComponent.attributes}" as="attribute">
+                                                        <td>{attribute.value}</td>
+                                                    </f:for>
                                                 </tr>
                                             </f:for>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
+                        <f:if condition="{component.rootParent.code} == 'ATL'">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="firstTable">
+                                            <tr>
+                                                <f:for each="{component.attributes}" as="attribute">
+                                                    <td>{f:translate(key: attribute.translationKey, default: attribute.name)}</td>
+                                                </f:for>
+                                            </tr>
+                                            <tr>
+                                                <f:for each="{component.attributes}" as="attribute">
+                                                    <td>{attribute.value}</td>
+                                                </f:for>
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>

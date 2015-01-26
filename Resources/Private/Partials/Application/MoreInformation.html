@@ -3,7 +3,7 @@
     <div class="container">
         <div id="weitereInformationen" class="row">
             <div class="col-sm-6">
-                <h2>Details zu {application.name}</h2>
+                <h2><f:translate key="detailsOf" default="Details of"/> {application.name}</h2>
             </div>
         </div>
         <div class="row">
@@ -11,9 +11,9 @@
             <div id="tabCarousel" class="tabCarousel">
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
-                        <li class="active"><a class="active" href="">Beschreibung</a></li>
+                        <li class="active"><a class="active" href=""><f:translate key="description" default="Description" /></a></li>
                         <f:if condition="{application.downloads}">
-                        <li><a href="">Downloads</a></li>
+                        <li><a href=""><f:translate key="downloads" default="Downloads" /></a></li>
                         </f:if>
                     </ul>
                 </div>

@@ -137,6 +137,7 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	parent int(11) unsigned DEFAULT '0',
 	children int(11) unsigned DEFAULT '0' NOT NULL,
 	colors int(11) unsigned DEFAULT '0' NOT NULL,
+	attributes int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -320,7 +321,6 @@ CREATE TABLE tx_melosrtb_domain_model_article (
 	detail int(11) unsigned NOT NULL default '0',
 	kerning int(11) unsigned DEFAULT '0',
 	color int(11) unsigned DEFAULT '0',
-	attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	component int(11) unsigned DEFAULT '0',
 	system int(11) unsigned DEFAULT '0' NOT NULL,
 
@@ -361,11 +361,10 @@ CREATE TABLE tx_melosrtb_domain_model_attribute (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	article int(11) unsigned DEFAULT '0' NOT NULL,
+	component int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	value varchar(255) DEFAULT '' NOT NULL,
-	article int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

@@ -46,13 +46,6 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $value = '';
 
 	/**
-	 * article
-	 *
-	 * @var \Famelo\MelosRtb\Domain\Model\Article
-	 */
-	protected $article = NULL;
-
-	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -90,23 +83,17 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->value = $value;
 	}
 
-	/**
-	 * Returns the article
-	 *
-	 * @return \Famelo\MelosRtb\Domain\Model\Article $article
-	 */
-	public function getArticle() {
-		return $this->article;
-	}
-
-	/**
-	 * Sets the article
-	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\Article $article
-	 * @return void
-	 */
-	public function setArticle(\Famelo\MelosRtb\Domain\Model\Article $article) {
-		$this->article = $article;
+	public function getTranslationKey() {
+		// $key = $this->name;
+		$parts = explode(' ', $this->name);
+		if (substr($parts[1], 0, 1) == '(') {
+			$key = $parts[0];
+		} else {
+			$key = implode(' ', array_slice($parts, 0, 2));
+		}
+		$key = preg_replace('/(?:^| )(.?)/e', "strtoupper('$1')", $key);
+		$key = lcfirst($key);
+		return $key;
 	}
 
 }

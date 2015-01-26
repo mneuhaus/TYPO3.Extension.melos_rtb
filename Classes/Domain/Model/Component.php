@@ -155,6 +155,14 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $colors = NULL;
 
 	/**
+	 * attributes
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute>
+	 * @cascade remove
+	 */
+	protected $attributes = NULL;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -175,6 +183,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->children = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->colors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -406,7 +415,6 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		if ($this->parent === NULL) {
 			return $this;
 		}
-
 		return $this->parent->getRootParent();
 	}
 
@@ -543,7 +551,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		foreach ($this->getChildren() as $childComponent) {
 			foreach ($childComponent->getSystems() as $system) {
 				foreach ($system->getComponents() as $component) {
-					if ($component->getKerning() !== NULL) {
+					if ($component->getKerning() !== NULL && $component->getParent() !== NULL) {
 						$component = $component->getParent();
 					}
 					$components[$component->getCode()] = $component;
@@ -631,6 +639,45 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setColors(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $colors) {
 		$this->colors = $colors;
+	}
+
+	/**
+	 * Adds a Attribute
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Attribute $attribute
+	 * @return void
+	 */
+	public function addAttribute(\Famelo\MelosRtb\Domain\Model\Attribute $attribute) {
+		$this->attributes->attach($attribute);
+	}
+
+	/**
+	 * Removes a Attribute
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Attribute $attributeToRemove The Attribute to be removed
+	 * @return void
+	 */
+	public function removeAttribute(\Famelo\MelosRtb\Domain\Model\Attribute $attributeToRemove) {
+		$this->attributes->detach($attributeToRemove);
+	}
+
+	/**
+	 * Returns the attributes
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
+	 */
+	public function getAttributes() {
+		return $this->attributes;
+	}
+
+	/**
+	 * Sets the attributes
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
+	 * @return void
+	 */
+	public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes) {
+		$this->attributes = $attributes;
 	}
 
 }
