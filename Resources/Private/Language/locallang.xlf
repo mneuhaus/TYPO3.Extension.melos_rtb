@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T13:08:07Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-16T11:07:07Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -330,6 +330,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_layer.products">
 				<source>Products</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_process">
+				<source>Application Process</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_characteristic">
 				<source>Characteristic</source>
 			</trans-unit>
@@ -543,6 +546,18 @@
 			<trans-unit id="sieveCurve">
 				<source>Sieve Curve</source>
 				<target>Sieve Curve</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess">
+				<source>Application Process</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.image">
+				<source>Image</source>
 			</trans-unit>
 		</body>
 	</file>

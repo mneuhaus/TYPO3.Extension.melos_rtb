@@ -339,6 +339,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_layer.products">
 				<source>Products</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_process">
+				<source>Application Process</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_characteristic">
 				<source>Characteristic</source>
 			</trans-unit>
@@ -346,6 +349,18 @@
 				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_characteristic.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess">
+				<source>Application Process</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.image">
 				<source>Image</source>
 			</trans-unit>
 		</body>

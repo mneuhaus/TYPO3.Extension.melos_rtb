@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T13:08:07Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-16T11:01:08Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
@@ -17,6 +17,9 @@
 			</trans-unit>
 			<trans-unit id="products.description">
 				<source>products</source>
+			</trans-unit>
+			<trans-unit id="application_process.description">
+				<source>applicationProcess</source>
 			</trans-unit>
 		</body>
 	</file>

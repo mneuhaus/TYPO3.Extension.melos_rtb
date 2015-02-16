@@ -67,6 +67,13 @@ class Layer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $products = NULL;
 
 	/**
+	 * applicationProcess
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Model\ApplicationProcess
+	 */
+	protected $applicationProcess = NULL;
+
+	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -199,6 +206,25 @@ class Layer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setProducts(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $products) {
 		$this->products = $products;
+	}
+
+	/**
+	 * Returns the applicationProcess
+	 *
+	 * @return \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess
+	 */
+	public function getApplicationProcess() {
+		return $this->applicationProcess;
+	}
+
+	/**
+	 * Sets the applicationProcess
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess
+	 * @return void
+	 */
+	public function setApplicationProcess(\Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess) {
+		$this->applicationProcess = $applicationProcess;
 	}
 
 }
