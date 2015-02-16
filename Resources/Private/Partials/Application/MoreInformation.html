@@ -39,7 +39,7 @@
                                     <ul class="download-list">
                                     <f:for each="{application.downloads}" as="download">
                                         <li>
-                                            <a href="{download.originalResource.publicUrl}" target="_blank">
+                                            <a href="{download.originalResource.publicUrl}" title="{download.originalResource.title}" target="_blank">
                                                 {download.originalResource.name}
                                             </a>
                                         </li>

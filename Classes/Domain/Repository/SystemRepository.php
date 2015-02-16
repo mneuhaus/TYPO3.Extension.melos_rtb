@@ -30,6 +30,7 @@ namespace Famelo\MelosRtb\Domain\Repository;
  * The repository for Systems
  */
 class SystemRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-
-	
+	protected $defaultOrderings = array(
+		'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+	);
 }

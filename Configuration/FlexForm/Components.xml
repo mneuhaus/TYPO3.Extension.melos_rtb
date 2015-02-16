@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <sheets>
+        <general>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Allgemeine Einstellungen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.header>
+                        <TCEforms type="array">
+                            <label>Überschrift auf der Kategorieübersicht</label>
+                            <config type="array">
+                                <type>input</type>
+                            </config>
+                        </TCEforms>
+                    </settings.header>
+                    <settings.teaser>
+                        <TCEforms type="array">
+                            <label>Text auf der Kategorieübersicht</label>
+                            <config type="array">
+                                <type>text</type>
+                                <cols>60</cols>
+                                <rows>8</rows>
+                            </config>
+                        </TCEforms>
+                    </settings.teaser>
+                    <settings.components>
+                        <TCEforms type="array">
+                            <label>Komponenten für die Übersicht</label>
+                            <config type="array">
+                                <type>select</type>
+                                <foreign_table>tx_melosrtb_domain_model_component</foreign_table>
+                                <foreign_table_where> AND tx_melosrtb_domain_model_component.sys_language_uid = 0 AND tx_melosrtb_domain_model_component.parent = ''</foreign_table_where>
+                                <size>10</size>
+                                <maxitems>4</maxitems>
+                                <multiple>1</multiple>
+                            </config>
+                        </TCEforms>
+                    </settings.components>
+                    <settings.image>
+                        <TCEforms type="array">
+                            <label>Bild der Kategorieübersicht</label>
+                            <config type="array">
+                                <type>inline</type>
+                                <maxitems>1</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <!--<foreign_field>uid_foreign</foreign_field>-->
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                        </TCEforms>
+                    </settings.image>
+                    <settings.imageMobile>
+                        <TCEforms type="array">
+                            <label>Bild der Kategorieübersicht (Mobilansicht)</label>
+                            <config type="array">
+                                <type>inline</type>
+                                <maxitems>1</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <!--<foreign_field>uid_foreign</foreign_field>-->
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                        </TCEforms>
+                    </settings.imageMobile>
+                </el>
+            </ROOT>
+        </general>
+    </sheets>
+</T3DataStructure>

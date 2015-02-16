@@ -24,6 +24,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				feature_description,
 				application,
 				standard,
+				standard_description,
 				l10n_parent,
 				sorting,
 				components,
@@ -59,6 +60,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				feature_description;;;richtext:rte_transform[mode=ts_links],
 				application;;;richtext:rte_transform[mode=ts_links],
 				standard,
+				standard_description,
+				layers,
 
 			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:relations,
 				components,
@@ -341,6 +344,16 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 				'eval' => 'trim'
 			),
 		),
+		'standard_description' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.standard_description',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			)
+		),
 		'sorting' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.sorting',
@@ -468,6 +481,25 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_system'] = array(
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_melosrtb_domain_model_crosssection',
+				'foreign_field' => 'system',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 1,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1,
+					'useSortable' => 1
+				),
+			),
+
+		),
+		'layers' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_system.layers',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_melosrtb_domain_model_layer',
 				'foreign_field' => 'system',
 				'maxitems'      => 9999,
 				'appearance' => array(

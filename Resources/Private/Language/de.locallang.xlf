@@ -3,6 +3,18 @@
 	<file source-language="de" datatype="plaintext" original="messages"  date="2015-01-19T10:54:04Z" product-name="melos_rtb">
 		<header/>
 		<body>
+			<trans-unit id="errorName">
+				<source>please enter your name!</source>
+				<target>Bitte geben Sie Ihren Namen ein!</target>
+			</trans-unit>
+			<trans-unit id="errorEmail">
+				<source>please enter a real e-mail address!</source>
+				<target>Bitte geben Sie Ihre E-Mail-Adresse ein!</target>
+			</trans-unit>
+			<trans-unit id="errorSquareMeasure">
+				<source>Please enter a area!</source>
+				<target>Bitte geben Sie Ihre Gewünschte Fläche ein!</target>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application">
 				<source>Anwendung</source>
 			</trans-unit>
@@ -308,7 +320,7 @@
 			</trans-unit>
 			<trans-unit id="matchingSystemsFor">
 				<source>Passende Systeme für</source>
-				<target>Passende Systeme für</target>
+				<target>Systeme, die Sie interessieren könnten</target>
 			</trans-unit>
 			<trans-unit id="inquiryReceived">
 				<source>We've received your inquiry and will get back to you as soon as possible.</source>
@@ -320,11 +332,15 @@
 			</trans-unit>
 			<trans-unit id="components">
 				<source>Components</source>
-				<target>Komponenten</target>
+				<target>Produkte</target>
 			</trans-unit>
 			<trans-unit id="fittingComponents" xml:space="preserve">
 				<source>Components that harmonize with %s</source>
-				<target>Komponenten die mit %s harmonieren</target>
+				<target>Produkte die mit %s harmonieren</target>
+			</trans-unit>
+			<trans-unit id="componentDetails" xml:space="preserve">
+				<source>Details of the product %s</source>
+				<target>Details zur Produkt %s</target>
 			</trans-unit>
 			<trans-unit id="personalInformation">
 				<source>Your personal information</source>
@@ -338,7 +354,7 @@
 				<target>Ihre E-Mail*</target>
 			</trans-unit>
 			<trans-unit id="placeholderSquareMeasure" xml:space="preserve">
-				<target>Gewünschte Fläche in m² *</target>
+				<target>Gewünschte Fläche *</target>
 			</trans-unit>
 			<trans-unit id="placeholderClientMessage" xml:space="preserve">
 				<target>Bemerkungen</target>
@@ -364,15 +380,19 @@
 			</trans-unit>
 			<trans-unit id="inquireComponent" xml:space="preserve">
 				<source>inquire component</source>
-				<target>Komponente anfragen</target>
+				<target>Produkt anfragen</target>
 			</trans-unit>
 			<trans-unit id="inquireComponents" xml:space="preserve">
 				<source>inquire components</source>
-				<target>Komponenten anfragen</target>
+				<target>Produkte anfragen</target>
 			</trans-unit>
 			<trans-unit id="placeholderPhone" xml:space="preserve">
 				<source>phone</source>
 				<target>Telefon</target>
+			</trans-unit>
+			<trans-unit id="placeholderColorSample" xml:space="preserve">
+				<source>Select color sample</source>
+				<target>Auswahl Farbmuster</target>
 			</trans-unit>
 			<trans-unit id="extras" xml:space="preserve">
 				<source>extras</source>
@@ -380,7 +400,7 @@
 			</trans-unit>
 			<trans-unit id="recommendedComponents" xml:space="preserve">
 				<source>recommended components</source>
-				<target>Empfohlene Komponenten</target>
+				<target>Produkte, die Sie interessieren könnten</target>
 			</trans-unit>
 			<trans-unit id="claimToTheSurface" xml:space="preserve">
 				<source>Claim to the surface</source>
@@ -446,6 +466,58 @@
 			<trans-unit id="mixingRatio" xml:space="preserve">
 				<source>Mixing Ratio (Part A:PartB)</source>
 				<target>Mischungsverhältnis (Part A:Part B)</target>
+			</trans-unit>
+			<trans-unit id="systems" xml:space="preserve">
+				<source>Systems</source>
+				<target>Systeme</target>
+			</trans-unit>
+			<trans-unit id="informations" xml:space="preserve">
+				<source>Informations</source>
+				<target>Informationen</target>
+			</trans-unit>
+			<trans-unit id="recommendedSystemStructure" xml:space="preserve">
+				<source>recommended system structure</source>
+				<target>Empfohlener Systemaufbau</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.name">
+				<source>Name</source>
+				<target>Schicht</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.note">
+				<source>Note</source>
+				<target>Anmerkung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_rate">
+				<source>Application Rate</source>
+				<target>Verbrauch</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application">
+				<source>Application</source>
+				<target>Aufbringung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.product">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="infoColorSample">
+				<source>You need the appropriate color sample?</source>
+				<target>Benötigen Sie das passende Farbmuster?</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendMeAColorSample">
+				<source>Select color sample</source>
+				<target>Farbmuster auswählen</target>
+			</trans-unit>
+			<trans-unit id="datasheet">
+				<source>datasheet</source>
+				<target>Datenblatt</target>
+			</trans-unit>
+			<trans-unit id="topview">
+				<source>topview</source>
+				<target>Draufsicht auf das Granulat</target>
+			</trans-unit>
+			<trans-unit id="sieveCurve">
+				<source>Sieve Curve</source>
+				<target>Siebkurve</target>
 			</trans-unit>
 		</body>
 	</file>

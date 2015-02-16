@@ -7,10 +7,8 @@
 <div class="row">
     <div class="col-sm-12">
          <!-- gradienten für pfeile der Navigation-->
-        <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span>
-        </div>
-        <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span>
-        </div>
+        <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
+        <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
 
         <div id="owlCarouselQuadsRelatedApplications" class="owl-carousel relatedObjects relatedObjectsApplications ">
             <f:for each="{applications}" as="application">
@@ -24,7 +22,7 @@
                         <f:link.action action="index" controller="Application" pluginName="Applications" pageUid="{settings.applicationPage}" arguments="{item: application}">
                             <f:if condition="{application.thumbnail}">
                                 <f:then>
-                                    <f:image src="{application.thumbnail.uid}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" height="283c" width="283c"/>
+                                    <f:image src="{application.thumbnail.uid}" alt="{application.thumbnail.title}" treatIdAsReference="TRUE" class="img-responsive" height="283c" width="283c"/>
                                 </f:then>
                                 <f:else>
                                     <f:image src="{f:uri.resource(path: 'art/thumb-anwendung-laufbauhn.png', extensionName: 'template')}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" />

@@ -25,6 +25,7 @@ namespace Famelo\MelosRtb\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * ComponentController
@@ -70,27 +71,39 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 		// 	$this->componentRepository->update($component);
 		// }
 		if ($item !== NULL) {
-			if ($item->getParent() == NULL) {
+			if (!is_object($item->getParent())) {
 				$item = current($item->getChildren()->toArray());
 			}
 			$this->view->assign('applications', $item->getApplications());
 			$this->view->assign('currentComponent', $item);
+
+			$colors = array('' => LocalizationUtility::translate('pleaseSendMeAColorSample', 'MelosRtb'));
+			foreach($item->getColors() as $color) {
+				$colors[] = $color;
+			}
+			$this->view->assign('colors', $colors);
 		}
 		$rows = array();
 		$row = array();
-		foreach ($this->componentRepository->findAll() as $component) {
-			if ($component->getParent() == NULL) {
-				if (count($row) == 2) {
-					$rows[] = $row;
-					$row = array();
+		$components = array();
+		if (isset($this->settings['components']) && !empty($this->settings['components'])) {
+			$componentUids = explode(',', $this->settings['components']);
+			foreach ($this->componentRepository->findAll() as $component) {
+				if (in_array($component->getUid(), $componentUids)) {
+					if (count($row) == 2) {
+						$rows[] = $row;
+						$row = array();
+					}
+					$row[] = $component;
+					$components[] = $component;
 				}
-				$row[] = $component;
+			}
+			if (count($row) > 0) {
+				$rows[] = $row;
 			}
 		}
-		if (count($row) > 0) {
-			$rows[] = $row;
-		}
 		$this->view->assign('rows', $rows);
+		$this->view->assign('components', $components);
 	}
 
 	/**
@@ -100,16 +113,18 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 	 * @param string $clientName
 	 * @param string $clientEmail
 	 * @param string $squareMeasure
+ 	 * @param string $unit
 	 * @param string $clientCompany
 	 * @param string $clientPhone
 	 * @param string $clientMessage
+	 * @param \Famelo\MelosRtb\Domain\Model\Color $colorSample
 	 * @validate $clientName notEmpty;
 	 * @validate $clientEmail notEmpty;
 	 * @validate $clientEmail emailAddress;
 	 * @validate $squareMeasure notEmpty;
 	 * @return void
 	 */
-	public function contactAction(\Famelo\MelosRtb\Domain\Model\Component $component, $clientName, $clientEmail, $squareMeasure, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL) {
+	public function contactAction(\Famelo\MelosRtb\Domain\Model\Component $component, $clientName, $clientEmail, $squareMeasure, $unit, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL, $colorSample) {
 		$mail = new \Famelo\MelosRtb\Services\Mail();
 		$mail->setFrom(array($clientEmail => $clientName));
 		$mail->setTo(array($this->settings['mail']['contactRecipientEmail'] => $this->settings['mail']['contactRecipientName']));
@@ -121,7 +136,9 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 		$mail->assign('clientEmail', $clientEmail);
 		$mail->assign('clientPhone', $clientPhone);
 		$mail->assign('squareMeasure', $squareMeasure);
+		$mail->assign('unit', $unit);
 		$mail->assign('clientMessage', $clientMessage);
+		$mail->assign('colorSample', $colorSample);
 		$mail->send();
 	}
 

@@ -53,11 +53,25 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $code = '';
 
 	/**
+	 * mainFeatureImage
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $mainFeatureImage = NULL;
+
+	/**
 	 * thumbnail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $thumbnail = NULL;
+
+	/**
+	 * mainFeature
+	 *
+	 * @var string
+	 */
+	protected $mainFeature = '';
 
 	/**
 	 * image
@@ -163,6 +177,45 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $attributes = NULL;
 
 	/**
+	 * topviewImage
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $topviewImage = NULL;
+
+	/**
+	 * sieveCurves
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $sieveCurves = NULL;
+
+	/**
+	 * datasheet
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $datasheet = NULL;
+
+	/**
+	 * characteristics
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Characteristic>
+	 */
+	protected $characteristics = NULL;
+
+	/**
+	 * utility propterties for menu rendering
+	 * @var boolean
+	 */
+	public $active = FALSE;
+
+	/**
+	 * @var string
+	 */
+	public $class;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -184,6 +237,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->children = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->colors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->characteristics = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -222,6 +276,49 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setCode($code) {
 		$this->code = $code;
+	}
+
+	/**
+	 * Returns the mainFeatureImage
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $main_feature_image
+	 */
+	public function getMainFeatureImage() {
+		if ($this->mainFeatureImage !== NULL) {
+			return $this->mainFeatureImage;
+		}
+		if ($this->parent !== NULL) {
+			return $this->parent->getMainFeatureImage();
+		}
+	}
+
+	/**
+	 * Sets the mainFeatureImage
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $main_feature_image
+	 * @return void
+	 */
+	public function setMainFeatureImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $mainFeatureImage) {
+		$this->mainFeatureImage = $mainFeatureImage;
+	}
+
+	/**
+	 * Returns the main_feature
+	 *
+	 * @return string $main_feature
+	 */
+	public function getMainFeature() {
+		return $this->mainFeature;
+	}
+
+	/**
+	 * Sets the $mainFeature
+	 *
+	 * @param string $mainFeature
+	 * @return void
+	 */
+	public function setMainFeature($mainFeature) {
+		$this->mainFeature = $mainFeature;
 	}
 
 	/**
@@ -496,6 +593,9 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Returns the colors
 	 */
 	public function getColors() {
+		if (!empty($this->colors)) {
+			return $this->colors;
+		}
 		$colors = array();
 		foreach ($this->articles as $article) {
 			$colors[] = $article->getColor();
@@ -554,10 +654,11 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 					if ($component->getKerning() !== NULL && $component->getParent() !== NULL) {
 						$component = $component->getParent();
 					}
-					$components[$component->getCode()] = $component;
+					$components[$component->getSorting()] = $component;
 				}
 			}
 		}
+		ksort($components, SORT_NUMERIC);
 		return $components;
 	}
 
@@ -566,10 +667,11 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		foreach ($this->getChildren() as $childComponent) {
 			foreach ($childComponent->getSystems() as $system) {
 				foreach ($system->getApplications() as $application) {
-					$applications[$application->getCode()] = $application;
+					$applications[$application->getSorting()] = $application;
 				}
 			}
 		}
+		ksort($applications, SORT_NUMERIC);
 		return $applications;
 	}
 
@@ -678,6 +780,102 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes) {
 		$this->attributes = $attributes;
+	}
+
+	/**
+	 * Returns the topviewImage
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $topviewImage
+	 */
+	public function getTopviewImage() {
+		return $this->topviewImage;
+	}
+
+	/**
+	 * Sets the topviewImage
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $topviewImage
+	 * @return void
+	 */
+	public function setTopviewImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $topviewImage) {
+		$this->topviewImage = $topviewImage;
+	}
+
+	/**
+	 * Returns the sieveCurves
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurves
+	 */
+	public function getSieveCurves() {
+		return $this->sieveCurves;
+	}
+
+	/**
+	 * Sets the sieveCurves
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurves
+	 * @return void
+	 */
+	public function setSieveCurves(\TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurves) {
+		$this->sieveCurves = $sieveCurves;
+	}
+
+	/**
+	 * Returns the datasheet
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $datasheet
+	 */
+	public function getDatasheet() {
+		return $this->datasheet;
+	}
+
+	/**
+	 * Sets the datasheet
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $datasheet
+	 * @return void
+	 */
+	public function setDatasheet(\TYPO3\CMS\Extbase\Domain\Model\FileReference $datasheet) {
+		$this->datasheet = $datasheet;
+	}
+
+	/**
+	 * Adds a Characteristic
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Characteristic $characteristic
+	 * @return void
+	 */
+	public function addCharacteristic(\Famelo\MelosRtb\Domain\Model\Characteristic $characteristic) {
+		$this->characteristics->attach($characteristic);
+	}
+
+	/**
+	 * Removes a Characteristic
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Characteristic $characteristicToRemove The Characteristic to be removed
+	 * @return void
+	 */
+	public function removeCharacteristic(\Famelo\MelosRtb\Domain\Model\Characteristic $characteristicToRemove) {
+		$this->characteristics->detach($characteristicToRemove);
+	}
+
+	/**
+	 * Returns the characteristics
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Characteristic> $characteristics
+	 */
+	public function getCharacteristics() {
+		return $this->characteristics;
+	}
+
+	/**
+	 * Sets the characteristics
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Characteristic> $characteristics
+	 * @return void
+	 */
+	public function setCharacteristics(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $characteristics) {
+		$this->characteristics = $characteristics;
 	}
 
 }

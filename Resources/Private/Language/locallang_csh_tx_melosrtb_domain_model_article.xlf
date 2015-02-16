@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:54:04Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T11:45:28Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
@@ -31,7 +31,7 @@
 				<source>color</source>
 			</trans-unit>
 			<trans-unit id="component.description">
-				<source>component</source>
+				<source>product</source>
 			</trans-unit>
 			<trans-unit id="system.description">
 				<source>system</source>

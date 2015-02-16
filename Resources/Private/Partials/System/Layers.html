@@ -1,0 +1,34 @@
+<f:translate key="recommendedSystemStructure" default="recommended system structure"/>
+
+<table class="firstTable hidden-xs">
+    <tr>
+        <th>&nbsp;</th>
+        <th><f:translate key="tx_melosrtb_domain_model_layer.name" default="layer"/></th>
+        <th><f:translate key="tx_melosrtb_domain_model_layer.product" default="product"/></th>
+        <th><f:translate key="tx_melosrtb_domain_model_layer.application" default="application"/></th>
+    </tr>
+    <f:for each="{currentSystem.layers}" as="layer" iteration="i">
+        <tr>
+            <td>{i.cycle}</td>
+            <td>{layer.name}</td>
+            <td>
+                <f:for each="{layer.products}" as="component">
+                    <f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component.parent}" target="_blank">
+                    <span class="color-square-{component.rootParent.code}"></span>
+                    {component.name} <br />
+                    </f:link.action>
+                </f:for>
+            </td>
+            <td>{layer.application -> f:format.nl2br()}</td>
+        </tr>
+    </f:for>
+</table>
+
+<div class="product-category-legends">
+<f:for each="{currentSystem.layerProductCategories}" as="component">
+    <f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component}" target="_blank" class="product-category-legend">
+        <span class="color-square-{component.code}"></span>
+        {component.name}
+    </f:link.action>
+</f:for>
+</div>

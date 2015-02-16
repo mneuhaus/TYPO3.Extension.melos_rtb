@@ -16,10 +16,20 @@
 
 	          <div class="item">
 	            <div class="owlQuad onePxPadding">
-	            	<f:link.action action="index" arguments="{item: system}" class="{f:if(condition: '{system}=={currentSystem}', then: 'active')}">
-	            		<f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" />
-	            		<span>{system.name}</span>
-	            	</f:link.action>
+                <f:if condition="{system}=={currentSystem}">
+                  <f:then>
+                    <f:link.action action="index" arguments="{item: system}" class="active">
+                      <f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                      <span>{system.name}</span>
+                    </f:link.action>
+                  </f:then>
+                  <f:else>
+                    <f:link.action action="index" arguments="{item: system}">
+                      <f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                      <span>{system.name}</span>
+                    </f:link.action>
+                  </f:else>
+                </f:if>
 	            </div>
 	          </div>
 

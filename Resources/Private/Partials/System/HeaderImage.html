@@ -4,7 +4,7 @@
             <div class="col-sm-12">
 
                 <!-- Video-->
-                <f:render partial="System/HeaderVideo.html" />
+                <!--<f:render partial="System/HeaderVideo.html" />-->
 
                 <div class="headerimageBackground">
 
@@ -16,11 +16,11 @@
                                         <f:then>
                                             <f:if condition="{currentSystem.mobileImage.uid}">
                                                 <f:then>
-                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs " />
-                                                    <f:image src="{currentSystem.mobileImage.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive visible-xs" />
+                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.image.title}" treatIdAsReference="TRUE" class="img-responsive hidden-xs " />
+                                                    <f:image src="{currentSystem.mobileImage.uid}" alt="{currentSystem.mobileImage.title}" treatIdAsReference="TRUE" class="img-responsive visible-xs" />
                                                 </f:then>
                                                 <f:else>
-                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.name}" treatIdAsReference="TRUE" class="img-responsive " />
+                                                    <f:image src="{currentSystem.image.uid}" alt="{currentSystem.image.title}" treatIdAsReference="TRUE" class="img-responsive " />
                                                 </f:else>
                                             </f:if>
                                         </f:then>
@@ -34,11 +34,11 @@
                                         <f:if condition="{crossSection.image}">
                                             <f:if condition="{crossSection.imageMobile.uid}">
                                                 <f:then>
-                                                    <f:image src="{crossSection.image.uid}" alt="{crossSection.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
-                                                    <f:image src="{crossSection.imageMobile.uid}" alt="{crossSection.name}" treatIdAsReference="TRUE" class="img-responsive visible-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
+                                                    <f:image src="{crossSection.image.uid}" alt="{crossSection.image.title}" treatIdAsReference="TRUE" class="img-responsive hidden-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
+                                                    <f:image src="{crossSection.imageMobile.uid}" alt="{crossSection.imageMobile.title}" treatIdAsReference="TRUE" class="img-responsive visible-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
                                                 </f:then>
                                                 <f:else>
-                                                    <f:image src="{crossSection.image.uid}" alt="{crossSection.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
+                                                    <f:image src="{crossSection.image.uid}" alt="{crossSection.image.title}" treatIdAsReference="TRUE" class="img-responsive hidden-xs cross-section" style="display: none;" id="cross-section{crossSection.uid}" />
                                                 </f:else>
                                             </f:if>
                                         </f:if>
@@ -48,13 +48,25 @@
                         </div>
                     </div>
 
-                    <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground"S>
+                    <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
 
                         <!-- Toolbuttons für das System-->
                         <div class="headerimageToolbar">
 
                             <!-- Buttons für Wechsel System/Querschnitt -->
-                            <div id="owlCarousellNavContainerHeaderImages" class="owlCarouselNavHeaderImages"></div>
+                            <f:if condition="{currentSystem.crossSections}">
+                                <f:then>
+                                    <div id="owlCarousellNavContainerHeaderImages" class="owlCarouselNavHeaderImages"></div>
+                                </f:then>
+                                <f:else>
+                                    <a class="headerimageToolbarBTN col-05 unvisible" href="">
+                                        <img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}">
+                                    </a>
+                                    <a class="headerimageToolbarBTN col-05 unvisible" href="">
+                                        <img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}">
+                                    </a>
+                                </f:else>
+                            </f:if>
 
                             <a class="headerimageToolbarBTN col-05 unvisible" href="">
                                 <img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}">
@@ -92,15 +104,20 @@
                             <div class="col-sm-1 onePxPadding">
                               <img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
                             </div>
-                            <div class="col-sm-7 onePxPadding">
+                            <div class="col-sm-7 onePxPadding darkfont">
                               <f:render partial="HeaderCarousel" arguments="{items: systems, currentItem: currentSystem, fallbackImage: 'art/system-bilderheader.png', variablePosImg: 1}" />
                             </div>
                         </div>
                         <!-- ENDE Slider mit Systemen-->
                         <div class="row">
                             <div class="col-sm-4 onePxPadding">&nbsp;</div>
-                            <div class="col-sm-4 onePxPadding">
+                            <div class="col-sm-4 align-left headerImgDescription">
                                 <h2 class="mainSummary">{currentSystem.teaser -> f:format.nl2br()}</h2>
+                                <p>
+                                    <strong>{currentSystem.standard -> f:format.nl2br()}</strong>
+                                    <br>
+                                    {currentSystem.standardDescription -> f:format.nl2br()}
+                                </p>
                             </div>
                         </div>
 

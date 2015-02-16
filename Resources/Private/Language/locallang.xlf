@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" product-name="melos_rtb" date="2015-01-19T15:02:17+01:00">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T13:08:07Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -96,6 +96,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_system.standard">
 				<source>Standard</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.standard_description">
+				<source>Standard Description</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.l10n_parent">
 				<source>L10n Parent</source>
 			</trans-unit>
@@ -103,7 +106,7 @@
 				<source>Sorting</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.components">
-				<source>Components</source>
+				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.applications">
 				<source>Applications</source>
@@ -113,6 +116,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.cross_sections">
 				<source>Cross Sections</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.layers">
+				<source>Layers</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component">
 				<source>Component</source>
@@ -135,6 +141,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.image_mobile">
 				<source>Image Mobile</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.topview_image">
+				<source>Topview Image</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.teaser">
 				<source>Teaser</source>
 			</trans-unit>
@@ -144,11 +153,17 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
-				<source>Sorting</source>
+			<trans-unit id="tx_melosrtb_domain_model_component.sieve_curves">
+				<source>Sieve Curves</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.datasheet">
+				<source>Datasheet</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.l10n_parent">
 				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
+				<source>Sorting</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.systems">
 				<source>Systems</source>
@@ -170,6 +185,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
 				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.characteristics">
+				<source>Characteristics</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
@@ -211,7 +229,7 @@
 				<source>Articles</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_kerning.components">
-				<source>Components</source>
+				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_packagesize">
 				<source>Package Size</source>
@@ -294,6 +312,34 @@
 			<trans-unit id="tx_melosrtb_domain_model_crosssection.color">
 				<source>Color</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer">
+				<source>Layer</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_rate">
+				<source>Application Rate</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application">
+				<source>Application</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic">
+				<source>Characteristic</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.image">
+				<source>Image</source>
+			</trans-unit>
+
 			<trans-unit id="detailsOf">
 				<source>Details of</source>
 			</trans-unit>
@@ -315,17 +361,20 @@
 				<target>These applications could also be of interest</target>
 			</trans-unit>
 			<trans-unit id="components">
-				<source>Components</source>
+				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="fittingComponents" xml:space="preserve">
-				<source>Components that harmonize with %s</source>
-				<target>Components that harmonize with %s</target>
+				<source>Products that harmonize with %s</source>
+				<target>Products that harmonize with %s</target>
+			</trans-unit>
+			<trans-unit id="componentDetails" xml:space="preserve">
+				<source>Details of the product %s</source>
+				<target>Details of the product %s</target>
 			</trans-unit>
 			<trans-unit id="personalInformation">
 				<source>Your personal information</source>
 				<target>Your personal data</target>
 			</trans-unit>
-
 			<trans-unit id="extras" xml:space="preserve">
 				<source>extras</source>
 			</trans-unit>
@@ -354,12 +403,16 @@
 				<target>your e-mail *</target>
 			</trans-unit>
 			<trans-unit id="placeholderSquareMeasure" xml:space="preserve">
-				<source>area in m² *</source>
-				<target>area in m² *</target>
+				<source>area *</source>
+				<target>area *</target>
 			</trans-unit>
 			<trans-unit id="placeholderClientMessage" xml:space="preserve">
 				<source>comments</source>
 				<target>comments</target>
+			</trans-unit>
+			<trans-unit id="placeholderColorSample" xml:space="preserve">
+				<source>Select color sample</source>
+				<target>Select color sample</target>
 			</trans-unit>
 			<trans-unit id="inquireSend" xml:space="preserve">
 				<source>send inquiry</source>
@@ -370,12 +423,12 @@
 				<target>request component</target>
 			</trans-unit>
 			<trans-unit id="inquireComponents" xml:space="preserve">
-				<source>request components</source>
-				<target>request components</target>
+				<source>request Products</source>
+				<target>request Products</target>
 			</trans-unit>
 			<trans-unit id="recommendedComponents" xml:space="preserve">
-				<source>recommended components</source>
-				<target>recommended components</target>
+				<source>recommended Products</source>
+				<target>recommended Products</target>
 			</trans-unit>
 
 
@@ -443,6 +496,53 @@
 			<trans-unit id="mixingRatio" xml:space="preserve">
 				<source>Mixing Ratio (Part A:PartB)</source>
 				<target>Mixing Ratio (Part A:PartB)</target>
+			</trans-unit>
+			<trans-unit id="systems" xml:space="preserve">
+				<source>Systems</source>
+				<target>Systems</target>
+			</trans-unit>
+			<trans-unit id="informations" xml:space="preserve">
+				<source>Informations</source>
+				<target>Informations</target>
+			</trans-unit>
+			<trans-unit id="recommendedSystemStructure" xml:space="preserve">
+				<source>recommended system structure</source>
+				<target>recommended system structure</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_rate">
+				<source>Application Rate</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application">
+				<source>Application</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="infoColorSample">
+				<source>You need the appropriate color sample?</source>
+				<target>You need the appropriate color sample?</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendMeAColorSample">
+				<source>Select color sample</source>
+				<target>Select color sample</target>
+			</trans-unit>
+			<trans-unit id="datasheet">
+				<source>datasheet</source>
+				<target>Datasheet</target>
+			</trans-unit>
+			<trans-unit id="topview">
+				<source>topview</source>
+				<target>Topview</target>
+			</trans-unit>
+			<trans-unit id="sieveCurve">
+				<source>Sieve Curve</source>
+				<target>Sieve Curve</target>
 			</trans-unit>
 		</body>
 	</file>

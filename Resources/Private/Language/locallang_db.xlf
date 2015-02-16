@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:54:04Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T13:08:07Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="tx_melosrtb_domain_model_application">
@@ -41,6 +41,9 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.systems">
 				<source>Systems</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.header_text_alignment">
+				<source>Header text alignment</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system">
 				<source>System</source>
@@ -96,6 +99,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_system.standard">
 				<source>Standard</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.standard_description">
+				<source>Standard Description</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.l10n_parent">
 				<source>L10n Parent</source>
 			</trans-unit>
@@ -103,7 +109,7 @@
 				<source>Sorting</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.components">
-				<source>Components</source>
+				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_system.applications">
 				<source>Applications</source>
@@ -114,8 +120,11 @@
 			<trans-unit id="tx_melosrtb_domain_model_system.cross_sections">
 				<source>Cross Sections</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.layers">
+				<source>Layers</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component">
-				<source>Component</source>
+				<source>Product</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.name">
 				<source>Name</source>
@@ -135,6 +144,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.image_mobile">
 				<source>Image Mobile</source>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.topview_image">
+				<source>Topview Image</source>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.teaser">
 				<source>Teaser</source>
 			</trans-unit>
@@ -144,11 +156,17 @@
 			<trans-unit id="tx_melosrtb_domain_model_component.description">
 				<source>Description</source>
 			</trans-unit>
-			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
-				<source>Sorting</source>
+			<trans-unit id="tx_melosrtb_domain_model_component.sieve_curves">
+				<source>Sieve Curves</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.datasheet">
+				<source>Datasheet</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.l10n_parent">
 				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
+				<source>Sorting</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.systems">
 				<source>Systems</source>
@@ -170,6 +188,15 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
 				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.characteristics">
+				<source>Characteristics</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.main_feature_image">
+				<source>Main Feature Image</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.main_feature">
+				<source>Main Feature</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
@@ -211,7 +238,7 @@
 				<source>Articles</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_kerning.components">
-				<source>Components</source>
+				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_packagesize">
 				<source>Package Size</source>
@@ -259,7 +286,7 @@
 				<source>Color</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.component">
-				<source>Component</source>
+				<source>Product</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_article.system">
 				<source>System</source>
@@ -293,6 +320,33 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_crosssection.color">
 				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer">
+				<source>Layer</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_rate">
+				<source>Application Rate</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application">
+				<source>Application</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic">
+				<source>Characteristic</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.image">
+				<source>Image</source>
 			</trans-unit>
 		</body>
 	</file>

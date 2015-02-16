@@ -60,6 +60,13 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $teaser = '';
 
 	/**
+	 * headerTextAlignment
+	 *
+	 * @var string
+	 */
+	protected $headerTextAlignment = 'left';
+
+	/**
 	 * thumbnail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
@@ -116,6 +123,18 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @cascade remove
 	 */
 	protected $systems = NULL;
+
+	/**
+	 * utility propterties for menu rendering
+	 * @var boolean
+	 */
+	public $active = FALSE;
+
+	/**
+	 * @var string
+	 */
+	public $class;
+
 
 	/**
 	 * __construct
@@ -404,6 +423,20 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSubtitle($subtitle) {
 		$this->subtitle = $subtitle;
+	}
+
+	/**
+	 * @param string $headerTextAlignment
+	 */
+	public function setHeaderTextAlignment($headerTextAlignment) {
+		$this->headerTextAlignment = $headerTextAlignment;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHeaderTextAlignment() {
+		return $this->headerTextAlignment;
 	}
 
 }

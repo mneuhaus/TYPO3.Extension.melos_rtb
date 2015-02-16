@@ -1,0 +1,35 @@
+<!-- mobile navigation einstiege -->
+<div id="mobileNavigationBottom" class="visible-xs mobileNavigationBottom offCanvas">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 onePxPadding">
+        <!-- gradienten für pfeile der Navigation-->
+        <div class="gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
+        <div class="gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
+        <div id="owlCarouselQuadsNavigationMobile" class="owl-carousel">
+        	<f:for each="{components}" as="component">
+	          <div class="item">
+	            <div class="owlQuad onePxPadding">
+                    <f:if condition="{component}=={currentComponent}">
+                      <f:then>
+                        <f:link.action action="index" arguments="{item: component}" class="active">
+                          <f:image src="{component.thumbnail.uid}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                          <span>{component.name}</span>
+                        </f:link.action>
+                      </f:then>
+                      <f:else>
+                        <f:link.action action="index" arguments="{item: component}">
+                          <f:image src="{component.thumbnail.uid}" alt="{component.name}" treatIdAsReference="TRUE" class="img-responsive" />
+                          <span>{component.name}</span>
+                        </f:link.action>
+                      </f:else>
+                    </f:if>
+
+	            </div>
+	          </div>
+        	</f:for>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--ENDE  mobile navigation einstiege -->

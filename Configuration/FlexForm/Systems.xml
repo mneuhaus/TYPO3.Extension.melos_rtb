@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <sheets>
+        <general>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Allgemeine Einstellungen</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.colors>
+                        <TCEforms type="array">
+                            <label>Farben für das Kontaktformular</label>
+                            <config type="array">
+                                <type>select</type>
+                                <foreign_table>tx_melosrtb_domain_model_color</foreign_table>
+                                <foreign_table_where> AND tx_melosrtb_domain_model_color.sys_language_uid = 0</foreign_table_where>
+                                <size>10</size>
+                                <maxitems>999</maxitems>
+                                <multiple>1</multiple>
+                            </config>
+                        </TCEforms>
+                    </settings.colors>
+                </el>
+            </ROOT>
+        </general>
+    </sheets>
+</T3DataStructure>

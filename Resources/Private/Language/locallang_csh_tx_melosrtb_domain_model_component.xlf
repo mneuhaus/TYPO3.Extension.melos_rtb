@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:54:04Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T11:45:28Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
@@ -21,6 +21,9 @@
 			<trans-unit id="image_mobile.description">
 				<source>imageMobile</source>
 			</trans-unit>
+			<trans-unit id="topview_image.description">
+				<source>topviewImage</source>
+			</trans-unit>
 			<trans-unit id="teaser.description">
 				<source>teaser</source>
 			</trans-unit>
@@ -30,11 +33,17 @@
 			<trans-unit id="description.description">
 				<source>description</source>
 			</trans-unit>
-			<trans-unit id="sorting.description">
-				<source>sorting</source>
+			<trans-unit id="sieve_curves.description">
+				<source>sieveCurves</source>
+			</trans-unit>
+			<trans-unit id="datasheet.description">
+				<source>datasheet</source>
 			</trans-unit>
 			<trans-unit id="l10n_parent.description">
 				<source>l10nParent</source>
+			</trans-unit>
+			<trans-unit id="sorting.description">
+				<source>sorting</source>
 			</trans-unit>
 			<trans-unit id="systems.description">
 				<source>systems</source>
@@ -56,6 +65,9 @@
 			</trans-unit>
 			<trans-unit id="attributes.description">
 				<source>attributes</source>
+			</trans-unit>
+			<trans-unit id="characteristics.description">
+				<source>characteristics</source>
 			</trans-unit>
 		</body>
 	</file>

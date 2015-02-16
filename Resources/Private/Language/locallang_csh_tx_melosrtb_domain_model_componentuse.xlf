@@ -10,7 +10,7 @@
 				<source>application</source>
 			</trans-unit>
 			<trans-unit id="component.description">
-				<source>component</source>
+				<source>product</source>
 			</trans-unit>
 		</body>
 	</file>

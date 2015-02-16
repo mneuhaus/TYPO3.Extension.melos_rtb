@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-12T10:39:09Z" product-name="melos_rtb">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T12:06:32Z" product-name="melos_rtb">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
@@ -43,7 +43,7 @@
 				<source>cost</source>
 			</trans-unit>
 			<trans-unit id="synonym.description">
-				<source>synonym</source>
+				<source>Synonym</source>
 			</trans-unit>
 			<trans-unit id="feature_description.description">
 				<source>featureDescription</source>
@@ -54,6 +54,9 @@
 			<trans-unit id="standard.description">
 				<source>standard</source>
 			</trans-unit>
+			<trans-unit id="standard_description.description">
+				<source>standardDescription</source>
+			</trans-unit>
 			<trans-unit id="l10n_parent.description">
 				<source>l10nParent</source>
 			</trans-unit>
@@ -61,7 +64,7 @@
 				<source>sorting</source>
 			</trans-unit>
 			<trans-unit id="components.description">
-				<source>components</source>
+				<source>products</source>
 			</trans-unit>
 			<trans-unit id="applications.description">
 				<source>applications</source>
@@ -71,6 +74,9 @@
 			</trans-unit>
 			<trans-unit id="cross_sections.description">
 				<source>crossSections</source>
+			</trans-unit>
+			<trans-unit id="layers.description">
+				<source>layers</source>
 			</trans-unit>
 		</body>
 	</file>

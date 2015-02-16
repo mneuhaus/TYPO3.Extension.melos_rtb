@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T12:06:32Z" product-name="melos_rtb">
+		<header/>
+		<body>
+			<trans-unit id="tx_melosrtb_domain_model_application">
+				<source>Application</source>
+				<target>Anwendung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.subtitle">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.teaser">
+				<source>Teaser</source>
+				<target>Teasertext</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.thumbnail">
+				<source>Thumbnail</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.image_mobile">
+				<source>Image Mobile</source>
+				<target>Bild für Mobilegeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.downloads">
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.systems">
+				<source>Systems</source>
+				<target>Systeme</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_application.header_text_alignment">
+				<source>Header text alignment</source>
+				<target>Textausrichtung auf dem Headerbild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system">
+				<source>System</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.subtitle">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.description_header">
+				<source>Description Header</source>
+				<target>Überschrift der Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.teaser">
+				<source>Teaser</source>
+				<target>Teasertext</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.mobile_image">
+				<source>Mobile Image</source>
+				<target>Bild für Mobilgeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cross_section">
+				<source>Cross Section</source>
+				<target>Querschnitt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cross_section_mobile">
+				<source>Cross Section Mobile</source>
+				<target>Querschnitt für Mobilgeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.thumbnail">
+				<source>Thumbnail</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.requirement">
+				<source>Requirement</source>
+				<target>Anforderung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cost">
+				<source>Cost</source>
+				<target>Kosten</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.synonym">
+				<source>Synonym</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.feature_description">
+				<source>Feature Description</source>
+				<target>Eigenschaften</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.application">
+				<source>Application</source>
+				<target>Anwendung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.standard">
+				<source>Standard</source>
+				<target>Standart</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.standard_description">
+				<source>Standard Description</source>
+				<target>Beschreibung des Standarts</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.components">
+				<source>Products</source>
+				<target>Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.applications">
+				<source>Applications</source>
+				<target>Anwendungen</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.articles">
+				<source>Articles</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.cross_sections">
+				<source>Cross Sections</source>
+				<target>Querschnitte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_system.layers">
+				<source>Layers</source>
+				<target>Systemaufbau</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.subtitle">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.thumbnail">
+				<source>Thumbnail</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.image_mobile">
+				<source>Image Mobile</source>
+				<target>Bild für Mobilgeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.topview_image">
+				<source>Topview Image</source>
+				<target>Draufsicht des Produktes</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.teaser">
+				<source>Teaser</source>
+				<target>Teasertext</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.description_header">
+				<source>Description Header</source>
+				<target>Überschrift der Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.sieve_curves">
+				<source>Sieve Curves</source>
+				<target>Siebkurve</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.datasheet">
+				<source>Datasheet</source>
+				<target>Datenblatt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.systems">
+				<source>Systems</source>
+				<target>Systeme</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.articles">
+				<source>Articles</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.kerning">
+				<source>Kerning</source>
+				<target>Körnung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.parent">
+				<source>Parent</source>
+				<target>Übergeordnetes Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.children">
+				<source>Children</source>
+				<target>Untergeordnete Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.colors">
+				<source>Colors</source>
+				<target>Farben</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
+				<source>Attributes</source>
+				<target>Attribute</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.characteristics">
+				<source>Characteristics</source>
+				<target>Charakteristika</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.main_feature_image">
+				<source>Main Feature Image</source>
+				<target>Bild für Hauptfunktion</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.main_feature">
+				<source>Main Feature</source>
+				<target>Hauptfunktion</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_color.articles">
+				<source>Articles</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning">
+				<source>Kerning</source>
+				<target>Körnung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.articles">
+				<source>Articles</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_kerning.components">
+				<source>Products</source>
+				<target>Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize">
+				<source>Package Size</source>
+				<target>Packungsgröße</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_packagesize.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article">
+				<source>Article</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.number">
+				<source>Number</source>
+				<target>Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.specification">
+				<source>Specification</source>
+				<target>Spezifikation</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.l10n_parent">
+				<source>L10n Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.image_mobile">
+				<source>Image Mobile</source>
+				<target>Bild für Mobilgeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.detail">
+				<source>Detail</source>
+				<target>Details</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.kerning">
+				<source>Kerning</source>
+				<target>Körnung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.component">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_article.system">
+				<source>System</source>
+				<target>System</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute">
+				<source>Attribute</source>
+				<target>Attribut</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection">
+				<source>Cross Section</source>
+				<target>Querschnitt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.code">
+				<source>Code</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.image_mobile">
+				<source>Image Mobile</source>
+				<target>Bild für Mobilgeräte</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.system">
+				<source>System</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_crosssection.color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer">
+				<source>Layer</source>
+				<target>Systemaufbauschicht</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.note">
+				<source>Note</source>
+				<target>Anmerkung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application_rate">
+				<source>Application Rate</source>
+				<target>Verbrauch</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.application">
+				<source>Application</source>
+				<target>Aufbringung</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_layer.product">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic">
+				<source>Characteristic</source>
+				<target>Charakteristik</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_characteristic.image">
+				<source>Image</source>
+				<target>Farbe</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

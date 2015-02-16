@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-09T11:45:28Z" product-name="melos_rtb">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="note.description">
+				<source>note</source>
+				<target>Anmerkung</target>
+			</trans-unit>
+			<trans-unit id="application_rate.description">
+				<source>applicationRate</source>
+				<target>Verbrauch</target>
+			</trans-unit>
+			<trans-unit id="application.description">
+				<source>application</source>
+				<target>Aufbringung</target>
+			</trans-unit>
+			<trans-unit id="product.description">
+				<source>product</source>
+				<target>Produkt</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

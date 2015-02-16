@@ -30,6 +30,14 @@ namespace Famelo\MelosRtb\Domain\Repository;
  * The repository for Applications
  */
 class ComponentRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+	protected $defaultOrderings = array(
+		'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+	);
 
-
+    // Example for repository wide settings
+    public function initializeObject() {
+        $defaultQuerySettings = $this->objectManager->get('\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings');
+        $defaultQuerySettings->setRespectStoragePage(FALSE);
+        $this->setDefaultQuerySettings($defaultQuerySettings);
+    }
 }

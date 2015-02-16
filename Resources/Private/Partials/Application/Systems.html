@@ -1,9 +1,9 @@
 <div class="content">
-
     <div class="container">
         <div id="passendeSysteme" class="row">
             <div class="col-sm-6">
-                <h2><f:translate key="matchingSystemsFor" default="Matching Systems for" /> {currentApplication.name}</h2>
+                <h2><f:translate key="matchingSystemsFor" default="Matching Systems for" /></h2>
+                <!--<h2><f:translate key="matchingSystemsFor" default="Matching Systems for" /> {currentApplication.name}</h2>-->
             </div>
         </div>
         <div class="row">
@@ -11,7 +11,6 @@
                 <!-- gradienten für pfeile der Navigation-->
                 <div class="visible-xs gradientLeft"><span class="gradientArrow gradientLeftArrow">&nbsp;</span></div>
                 <div class="visible-xs gradientRight"><span class="gradientArrow gradientRightArrow">&nbsp;</span></div>
-
                 <div id="owlCarouselQuadsRelatedSystems" class="owl-carousel relatedObjects">
                     <f:for each="{currentApplication.systems}" as="system">
                         <div class="item">
@@ -22,8 +21,8 @@
                                 </div>
                                 <f:link.action action="index" controller="System" pluginName="Systems" pageUid="{settings.systemPage}" arguments="{item: system}">
                                     <f:if condition="{system.thumbnail}">
-                                        <f:then><f:image src="{system.thumbnail.uid}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" /></f:then>
-                                        <f:else><f:image src="{f:uri.resource(path: 'art/system-bilderheader.png', extensionName: 'template')}" alt="{system.name}" treatIdAsReference="TRUE" class="img-responsive" /></f:else>
+                                        <f:then><f:image src="{system.thumbnail.uid}" alt="{system.thumbnail.originalResource.title}" treatIdAsReference="TRUE" class="img-responsive" /></f:then>
+                                        <f:else><f:image src="{f:uri.resource(path: 'art/system-bilderheader.png', extensionName: 'template')}" alt="{system.thumbnail.originalResource.title}" treatIdAsReference="TRUE" class="img-responsive" /></f:else>
                                     </f:if>
                                 </f:link.action>
                             </div>
@@ -33,5 +32,4 @@
             </div>
         </div>
     </div>
-
 </div>

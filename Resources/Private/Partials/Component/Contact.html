@@ -9,19 +9,25 @@
                 <h2 id="form-contact">{f:translate(key: 'personalInformation')}</h2>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-sm-6">
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div>
-        </div>
-        <div class="row">
-            <f:form action="contact" additionalAttributes="{role: 'form'}" class="main-contact" section="form-contact" >
+            <f:form id="contactForm" action="contact" additionalAttributes="{role: 'form'}" class="main-contact" section="form-contact" >
                 <f:form.hidden name="component" value="{currentComponent}" />
                 <div class="col-sm-6">
                     <div class="form-group">
-
+                        <div class="radio">
+                            <label><f:form.radio name="unit"  value="m²" checked="checked" /> m²</label>
+                            <label><f:form.radio name="unit" value="yards²" /> yards²</label>
+                            <label><f:form.radio name="unit" value="feets²" /> feets²</label>
+                        </div>
+                        <f:form.validationResults for="squareMeasure">
+                            <f:form.textfield name="squareMeasure" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="{f:translate(key: 'placeholderSquareMeasure', default: 'area in m² *')}" />
+                            <f:if condition="{validationResults.flattenedErrors}">
+                                <p class="text-danger"><f:translate key="errorSquareMeasure" default="Please enter a area!"/></p>
+                            </f:if>
+                        </f:form.validationResults>
                         <f:form.validationResults for="clientName">
-                            <f:form.textfield name="clientName" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
+                            <f:form.textfield name="clientName" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
                             <f:if condition="{validationResults.flattenedErrors}">
                                 <p class="text-danger"><f:translate key="errorName" default="please enter your name!"/></p>
                             </f:if>
@@ -30,7 +36,7 @@
                         <f:form.textfield name="clientCompany" class="form-control" id="clientCompany" placeholder="Firma" />
 
                         <f:form.validationResults for="clientEmail">
-                            <f:form.textfield name="clientEmail" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientEmail" placeholder="{f:translate(key: 'placeholderEmail', default: 'your e-mail *')}" />
+                            <f:form.textfield name="clientEmail" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientEmail" placeholder="{f:translate(key: 'placeholderEmail', default: 'your e-mail *')}" />
                             <f:if condition="{validationResults.flattenedErrors}">
                                 <p class="text-danger"><f:translate key="errorEmail" default="please enter a real e-mail address!"/></p>
                             </f:if>
@@ -41,13 +47,8 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <f:form.validationResults for="squareMeasure">
-                            <f:form.textfield name="squareMeasure" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="{f:translate(key: 'placeholderSquareMeasure', default: 'area in m² *')}" />
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <p class="text-danger"><f:translate key="errorSquareMeasure" default="Please enter a area!"/></p>
-                            </f:if>
-                        </f:form.validationResults>
-
+                        <p class="option">{f:translate(key: 'infoColorSample')}</p>
+                        <f:form.select name="colorSample" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="colorSample" options="{colors}" />
                         <f:form.textarea name="clientMessage" class="form-control" id="clientMessage" rows="3" placeholder="{f:translate(key: 'placeholderClientMessage', default: 'comments')}" />
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-6">
@@ -59,6 +60,4 @@
             </f:form>
         </div>
     </div>
-
-
 </div>

@@ -25,6 +25,7 @@ namespace Famelo\MelosRtb\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * SystemController
@@ -40,6 +41,14 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	protected $systemRepository = NULL;
 
 	/**
+	 * colorRepository
+	 *
+	 * @var \Famelo\MelosRtb\Domain\Repository\ColorRepository
+	 * @inject
+	 */
+	protected $colorRepository = NULL;
+
+	/**
 	 * action index
 	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\System $item
@@ -51,6 +60,12 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		}
 		$this->view->assign('currentSystem', $item);
 		$this->view->assign('systems', $this->systemRepository->findAll());
+
+		$colors = array('' => LocalizationUtility::translate('pleaseSendMeAColorSample', 'MelosRtb'));
+		foreach(explode(',',$this->settings['colors']) AS $colorUid) {
+			$colors[] = $this->colorRepository->findByUid($colorUid);
+		}
+		$this->view->assign('colors', $colors);
 	}
 
 	/**
@@ -60,16 +75,18 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @param string $clientName
 	 * @param string $clientEmail
 	 * @param string $squareMeasure
+	 * @param string $unit
 	 * @param string $clientCompany
 	 * @param string $clientPhone
 	 * @param string $clientMessage
+	 * @param \Famelo\MelosRtb\Domain\Model\Color $colorSample
 	 * @validate $clientName notEmpty;
 	 * @validate $clientEmail notEmpty;
 	 * @validate $clientEmail emailAddress;
 	 * @validate $squareMeasure notEmpty;
 	 * @return void
 	 */
-	public function contactAction(\Famelo\MelosRtb\Domain\Model\System $system, $clientName, $clientEmail, $squareMeasure, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL) {
+	public function contactAction(\Famelo\MelosRtb\Domain\Model\System $system, $clientName, $clientEmail, $squareMeasure, $unit, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL, $colorSample) {
 		$mail = new \Famelo\MelosRtb\Services\Mail();
 		$mail->setFrom(array($clientEmail => $clientName));
 		$mail->setTo(array($this->settings['mail']['contactRecipientEmail'] => $this->settings['mail']['contactRecipientName']));
@@ -81,7 +98,9 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		$mail->assign('clientEmail', $clientEmail);
 		$mail->assign('clientPhone', $clientPhone);
 		$mail->assign('squareMeasure', $squareMeasure);
+		$mail->assign('unit', $unit);
 		$mail->assign('clientMessage', $clientMessage);
+		$mail->assign('colorSample', $colorSample);
 		$mail->send();
 	}
 

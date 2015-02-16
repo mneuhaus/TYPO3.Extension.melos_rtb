@@ -9,11 +9,11 @@
                               <f:then>
                                 <f:if condition="{currentComponent.imageMobile.uid}">
                                     <f:then>
-                                        <f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive hidden-xs " />
-                                        <f:image src="{currentComponent.imageMobile.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive visible-xs" />
+                                        <f:image src="{currentComponent.image.uid}"  alt="{currentComponent.image.title}" treatIdAsReference="TRUE" class="img-responsive hidden-xs " />
+                                        <f:image src="{currentComponent.imageMobile.uid}" alt="{currentComponent.imageMobile.title}" treatIdAsReference="TRUE" class="img-responsive visible-xs" />
                                     </f:then>
                                     <f:else>
-                                        <f:image src="{currentComponent.image.uid}" alt="{currentComponent.name}" treatIdAsReference="TRUE" class="img-responsive " />
+                                        <f:image src="{currentComponent.image.uid}" alt="{currentComponent.image.title}" treatIdAsReference="TRUE" class="img-responsive " />
                                     </f:else>
                                 </f:if>
                               </f:then>
@@ -26,61 +26,57 @@
 
                     <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
                         <div class="headerimageToolbar">
-                            <a class="headerimageToolbarBTN col-05" href="#weitereInformationen">
-                              <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}">
+                            <a class="headerimageToolbarBTN col-05" href="#weitereInformationen" {currentComponent.name} Information>
+                              <img class="img-responsive" alt="Icon: Toolbar Info" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}">
                             </a>
-
-                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
-                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
-                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
-                            <a class="headerimageToolbarBTN col-4 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
-                            <a class="headerimageToolbarBTN col-4 unvisible" href=""><img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}"></a>
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}" class="img-responsive" alt="Icon Blind"></a>
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}" class="img-responsive" alt="Icon Blind"></a>
+                            <a class="headerimageToolbarBTN col-05 unvisible" href=""><img src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}" class="img-responsive" alt="Icon Blind"></a>
+                            <a class="headerimageToolbarBTN col-4  unvisible" href=""><img src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}" class="img-responsive" alt="Icon Blind"></a>
+                            <a class="headerimageToolbarBTN col-4  unvisible" href=""><img src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}" class="img-responsive" alt="Icon Blind"></a>
                             <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten">
-                              <img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}">
+                              <img class="img-responsive" alt="Icon: Toolbar {f:translate(key: 'inquireComponent', default: 'inquire component')}" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}">
                               <span>{f:translate(key: 'inquireComponent', default: 'inquire component')}</span>
                             </a>
-
                         </div>
                         <div class="row">
                             <div class="col-sm-1 onePxPadding">
                               <img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}">
                             </div>
-                            <div class="col-sm-7 onePxPadding">
-
+                            <div class="col-sm-7 onePxPadding darkfont">
                               <f:render partial="HeaderCarousel" arguments="{items: currentComponent.parent.children, currentItem: currentComponent, fallbackImage: 'art/quad-bilderheader-komponente.png', variablePosImg: 1}" />
-
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 onePxPadding">&nbsp;</div>
-                            <div class="col-sm-4 onePxPadding">
-                                <h2 class="mainSummary">
-                                  {currentComponent.name -> f:format.nl2br()} <br />
-                                  {currentComponent.teaser -> f:format.nl2br()}
-                                </h2>
+                            <div class="col-sm-4 headerImgDescription">
+                                <h2 class="mainSummary">{currentComponent.name -> f:format.nl2br()}</h2>
+                                <p>{currentComponent.teaser -> f:format.nl2br()}</p>
+                                <f:if condition="{currentComponent.mainFeatureImage.uid}">
+                                    <div class="mainFeature">
+                                        <f:image src="{currentComponent.mainFeatureImage.uid}" alt="{currentComponent.mainFeatureImage.originalResource.title}" width="140" treatIdAsReference="TRUE"/>
+                                        {currentComponent.mainFeature -> f:format.html(parseFuncTSPath: 'lib.parseFunc_RTE')}
+                                    </div>
+                                </f:if>
                             </div>
                         </div>
                     </div>
-
                      <!-- RTB Logo Mobile-->
                     <div class="readyToBuildLogo visible-xs">
                         <div class="row">
-                            <div class="col-sm-1 onePxPadding"><img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}"></div>
+                            <div class="col-sm-1 onePxPadding"><img class="img-responsive" alt="Logo: Ready to build" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}"></div>
                         </div>
                     </div>
 
                     <!-- Toolbar Mobile -->
                     <div class="headerimageToolbar visible-xs">
-                        <a class="headerimageToolbarBTN col-4" href="#weitereInformationen"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}"><span>Details</span></a>
-                        <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}"><span>{f:translate(key: 'inquireComponent', default: 'inquire component')}</span></a>
-
+                        <a class="headerimageToolbarBTN col-4" href="#weitereInformationen" title="Details"><img class="img-responsive" alt="Details" src="{f:uri.resource(path: 'art/icon-toolbar-info.png', extensionName: 'template')}"><span>Details</span></a>
+                        <a class="headerimageToolbarBTN col-4" href="#anfrageKomponenten" title="{f:translate(key: 'inquireComponent', default: 'inquire component')}"><img class="img-responsive" src="{f:uri.resource(path: 'art/icon-toolbar-anfrage.png', extensionName: 'template')}" alt="{f:translate(key: 'inquireComponent', default: 'inquire component')}"><span>{f:translate(key: 'inquireComponent', default: 'inquire component')}</span></a>
                     </div>
 
                     <!-- Headiung mobile-->
                     <h1 class="mainHeadline subpage visible-xs">{currentComponent.name -> f:format.nl2br()}</h1>
-
                 </div>
-
             </div>
         </div>
     </div>

@@ -32,6 +32,13 @@ namespace Famelo\MelosRtb\Domain\Model;
 class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
+	 * synonym
+	 *
+	 * @var string
+	 */
+	protected $synonym = '';
+
+	/**
 	 * name
 	 *
 	 * @var string
@@ -53,11 +60,25 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $code = '';
 
 	/**
+	 * descriptionHeader
+	 *
+	 * @var string
+	 */
+	protected $descriptionHeader = '';
+
+	/**
 	 * description
 	 *
 	 * @var string
 	 */
 	protected $description = '';
+
+	/**
+	 * teaser
+	 *
+	 * @var string
+	 */
+	protected $teaser = '';
 
 	/**
 	 * image
@@ -95,18 +116,39 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $thumbnail = NULL;
 
 	/**
-	 * teaser
+	 * requirement
 	 *
-	 * @var string
+	 * @var integer
 	 */
-	protected $teaser = '';
+	protected $requirement = 0;
 
 	/**
-	 * sorting
+	 * cost
+	 *
+	 * @var integer
+	 */
+	protected $cost = '';
+
+	/**
+	 * featureDescription
 	 *
 	 * @var string
 	 */
-	protected $sorting = '';
+	protected $featureDescription = '';
+
+	/**
+	 * application
+	 *
+	 * @var string
+	 */
+	protected $application = '';
+
+	/**
+	 * standard
+	 *
+	 * @var string
+	 */
+	protected $standard = '';
 
 	/**
 	 * l10nParent
@@ -114,6 +156,13 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var integer
 	 */
 	protected $l10nParent = 0;
+
+	/**
+	 * sorting
+	 *
+	 * @var string
+	 */
+	protected $sorting = '';
 
 	/**
 	 * components
@@ -146,53 +195,37 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $crossSections = NULL;
 
 	/**
-	 * descriptionHeader
+	 * synonm
 	 *
 	 * @var string
 	 */
-	protected $descriptionHeader = '';
+	protected $synonm = '';
 
 	/**
-	 * requirement
+	 * layers
 	 *
-	 * @var integer
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Layer>
+	 * @cascade remove
 	 */
-	protected $requirement = 0;
+	protected $layers = NULL;
 
 	/**
-	 * cost
-	 *
-	 * @var string
-	 */
-	protected $cost = '';
-
-	/**
-	 * synonym
+	 * standardDescription
 	 *
 	 * @var string
 	 */
-	protected $synonym = '';
+	protected $standardDescription = '';
 
 	/**
-	 * featureDescription
-	 *
-	 * @var string
+	 * utility propterties for menu rendering
+	 * @var boolean
 	 */
-	protected $featureDescription = '';
+	public $active = FALSE;
 
 	/**
-	 * application
-	 *
 	 * @var string
 	 */
-	protected $application = '';
-
-	/**
-	 * standard
-	 *
-	 * @var string
-	 */
-	protected $standard = '';
+	public $class;
 
 	/**
 	 * __construct
@@ -215,6 +248,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->applications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->crossSections = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->layers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -499,12 +533,15 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->articles = $articles;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getColors() {
 		$colors = array();
 		foreach ($this->components as $component) {
 			foreach ($component->getColors() as $color) {
 				if (is_object($color)) {
-					$colors[$color->getCode()] = $color;
+					$colors[$color->getColors()] = $color;
 				}
 			}
 		}
@@ -759,4 +796,72 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->standard = $standard;
 	}
 
+	/**
+	 * Adds a Layer
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Layer $layer
+	 * @return void
+	 */
+	public function addLayer(\Famelo\MelosRtb\Domain\Model\Layer $layer) {
+		$this->layers->attach($layer);
+	}
+
+	/**
+	 * Removes a Layer
+	 *
+	 * @param \Famelo\MelosRtb\Domain\Model\Layer $layerToRemove The Layer to be removed
+	 * @return void
+	 */
+	public function removeLayer(\Famelo\MelosRtb\Domain\Model\Layer $layerToRemove) {
+		$this->layers->detach($layerToRemove);
+	}
+
+	/**
+	 * Returns the layers
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Layer> $layers
+	 */
+	public function getLayers() {
+		return $this->layers;
+	}
+
+	/**
+	 * Sets the layers
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Layer> $layers
+	 * @return void
+	 */
+	public function setLayers(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $layers) {
+		$this->layers = $layers;
+	}
+
+	/**
+	 * Returns the standardDescription
+	 *
+	 * @return string $standardDescription
+	 */
+	public function getStandardDescription() {
+		return $this->standardDescription;
+	}
+
+	/**
+	 * Sets the standardDescription
+	 *
+	 * @param string $standardDescription
+	 * @return void
+	 */
+	public function setStandardDescription($standardDescription) {
+		$this->standardDescription = $standardDescription;
+	}
+
+	public function getLayerProductCategories() {
+		$categories = array();
+		foreach ($this->getLayers() as $layer) {
+			foreach ($layer->getProducts() as $component) {
+				$root = $component->getRootParent();
+				$categories[$root->getUid()] = $root;
+			}
+		}
+		return $categories;
+	}
 }

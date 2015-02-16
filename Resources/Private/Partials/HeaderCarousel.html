@@ -4,12 +4,12 @@
       <div class="owlQuad onePxPadding">
         <f:if condition="{item}=={currentItem}">
           <f:then>
-            <f:link.action action="index" arguments="{item: item}" class="active">
+            <f:link.action action="index" arguments="{item: item}" class="active" title="{item.name}">
               <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage, variablePosImg: variablePosImg}" />
             </f:link.action>
           </f:then>
           <f:else>
-            <f:link.action action="index" arguments="{item: item}" id="#item-{uid}">
+            <f:link.action action="index" arguments="{item: item}" id="#item-{uid}" title="{item.name}">
               <f:render section="image" arguments="{item: item, fallbackImage: fallbackImage, variablePosImg: variablePosImg}" />
             </f:link.action>
           </f:else>
@@ -21,14 +21,14 @@
 
 <f:section name="image">
   <f:if condition="{variablePosImg}">
-    <img class="img-responsive blind" src="{f:uri.resource(path: 'art-global/blind.png', extensionName: 'template')}">
+    <img class="img-responsive blind" alt="Blind" src="{f:uri.resource(path: 'art-global/blind.png', extensionName: 'template')}">
   </f:if>
   <f:if condition="{item.thumbnail}">
     <f:then>
-      <f:image src="{item.thumbnail.uid}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
+      <f:image src="{item.thumbnail.uid}" alt="{item.thumbnail.originalResource.title}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
     </f:then>
     <f:else>
-      <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.name}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
+      <f:image src="{f:uri.resource(path: fallbackImage, extensionName: 'template')}" alt="{item.thumbnail.originalResource.title}" treatIdAsReference="TRUE" class="img-responsive {f:if(condition: variablePosImg, then: 'variablePosImg')}" />
     </f:else>
   </f:if>
   <span>{item.name}</span>

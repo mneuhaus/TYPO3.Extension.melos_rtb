@@ -17,7 +17,7 @@
 	          <div class="item">
 	            <div class="owlQuad onePxPadding">
 	            	<f:link.action action="index" arguments="{item: application}" class="{f:if(condition: '{application}=={currentApplication}', then: 'active')}">
-	            		<f:image src="{application.thumbnail.uid}" alt="{application.name}" treatIdAsReference="TRUE" class="img-responsive" />
+	            		<f:image src="{application.thumbnail.uid}" alt="{application.thumbnail.originalResource.title}" treatIdAsReference="TRUE" class="img-responsive" />
 	            		<span>{application.name}</span>
 	            	</f:link.action>
 	            </div>

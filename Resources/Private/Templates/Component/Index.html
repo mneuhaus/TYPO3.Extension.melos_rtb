@@ -12,6 +12,7 @@
 <f:if condition="{currentComponent}">
 	<f:then>
 		<f:render partial="Component/HeaderImage" arguments="{components: components, currentComponent: currentComponent}" />
+		<f:render partial="Component/MobileNavigation" arguments="{components: currentComponent.parent.children, currentComponent:currentComponent}" />
 
 		<!-- <_f:render partial="Component/MobileNavigation" arguments="{components: components}" /> -->
 
@@ -28,9 +29,24 @@
 
 		<f:render partial="Component/Applications" arguments="{applications: applications}" />
 
-		<f:render partial="Component/Contact" arguments="{currentComponent: currentComponent}" />
+		<f:render partial="Component/Contact" arguments="{currentComponent: currentComponent, colors:colors}" />
 	</f:then>
 	<f:else>
-		<f:render partial="Component/CategorySelector" arguments="{rows: rows}" />
+		<f:render partial="Component/CategorySelector" arguments="{rows: rows, settings: settings}" />
+
+		<div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>{settings.header}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-columns-2">{settings.teaser -> f:format.nl2br()}</p>
+                </div>
+            </div>
+        </div>
+
+		<f:render partial="Component/MobileNavigation" arguments="{components: components}" />
 	</f:else>
 </f:if>

@@ -1,3 +1,5 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+
 <div class="content">
     <div class="container">
 
@@ -25,6 +27,9 @@
                         <f:if condition="{component.colors}">
                             <li><a href="">{f:translate(key: 'color', default: 'Color')}</a></li>
                         </f:if>
+                        <f:if condition="{component.characteristics}">
+                            <li><a href="">{f:translate(key: 'characteristics', default: 'Characteristics')}</a></li>
+                        </f:if>
                         <li><a href="">{f:translate(key: 'extras', default: 'Extras')}</a></li>
                     </ul>
                 </div>
@@ -36,20 +41,68 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <table class="firstTable">
-                                            <colspan width="50%"></colspan>
-                                            <colspan width="37.5%"></colspan>
-                                            <colspan width="12.5%"></colspan>
                                             <tr>
-                                                <td>{f:translate(key: 'name', default: 'Name')}</td>
                                                 <td>{f:translate(key: 'kerning', default: 'Kerning')}</td>
+                                                <td>{f:translate(key: 'sieveCurve', default: 'Sieve Curve')}</td>
+                                                <td>{f:translate(key: 'datasheet', default: 'Datasheet')}</td>
+                                                <td>{f:translate(key: 'topview', default: 'Topview')}</td>
                                             </tr>
+
+                                            <f:if condition="{component.kerning}">
+                                                <tr>
+                                                    <td>
+                                                        {component.kerning.name}
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{component.sieveCurves}">
+                                                            <a class="magnific-lightbox" href="{component.sieveCurves.originalResource.publicUrl}" title="{component.sieveCurves.originalResource.title}">
+                                                                <f:image src="{component.sieveCurves.originalResource.publicUrl}" alt="{component.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{component.datasheet}">
+                                                            <a href="{component.datasheet.originalResource.publicUrl}" title="{component.datasheet.originalResource.title}">
+                                                                <v:media.pdfThumbnail path="{component.datasheet.originalResource.forLocalProcessing}" src="{component.datasheet.originalResource.publicUrl}" alt="{component.datasheet.originalResource.title}" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{component.topviewImage}">
+                                                            <a href="{component.topviewImage.originalResource.publicUrl}" title="{component.topviewImage.originalResource.title}" class="magnific-lightbox">
+                                                                <f:image src="{component.topviewImage.originalResource.publicUrl}" alt="{component.topviewImage.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                </tr>
+                                            </f:if>
                                             <f:for each="{component.children}" as="childComponent">
-    	                                        <tr>
-    	                                            <td>{childComponent.name} {childComponent.subtitle}</td>
-    	                                            <td>
-    	                                                {childComponent.kerning.name}
-    	                                            </td>
-    	                                        </tr>
+                                                <tr>
+                                                    <td>
+                                                        {childComponent.kerning.name}
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{childComponent.sieveCurves}">
+                                                            <a class="magnific-lightbox" href="{childComponent.sieveCurves.originalResource.publicUrl}" title="{childComponent.sieveCurves.originalResource.title}">
+                                                                <f:image src="{childComponent.sieveCurves.originalResource.publicUrl}" alt="{childComponent.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{childComponent.datasheet}">
+                                                            <a href="{childComponent.datasheet.originalResource.publicUrl}" title="{childComponent.datasheet.originalResource.title}">
+                                                                <v:media.pdfThumbnail path="{childComponent.datasheet.originalResource.forLocalProcessing}" src="{childComponent.datasheet.originalResource.publicUrl}" alt="{childComponent.name}" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                    <td>
+                                                        <f:if condition="{childComponent.topviewImage}">
+                                                            <a href="{childComponent.topviewImage.originalResource.publicUrl}" title="{childComponent.topviewImage.originalResource.title}"  class="magnific-lightbox">
+                                                                <f:image src="{childComponent.topviewImage.originalResource.publicUrl}" alt="{childComponent.topviewImage.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+                                                </tr>
                                             </f:for>
                                         </table>
                                     </div>
@@ -61,9 +114,6 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <table class="firstTable">
-                                            <colspan width="50%"></colspan>
-                                            <colspan width="37.5%"></colspan>
-                                            <colspan width="12.5%"></colspan>
                                             <tr>
                                                 <td>{f:translate(key: 'name', default: 'Name')}</td>
                                                 <f:for each="{component.children.0.attributes}" as="attribute">
@@ -105,20 +155,36 @@
                         </f:if>
                         <f:if condition="{component.colors}">
                             <div class="item">
+                                <div class="thumbnails">
+                                    <f:for each="{component.colors}" as="color">
+                                        <f:if condition="{color.image.originalResource}">
+                                            <div class="thumbnail">
+                                                <f:image src="{color.image.originalResource.publicUrl}" alt="{color.image.originalResource.title}" treatIdAsReference="TRUE" width="200px" class="img-responsive" />
+                                                <div class="caption">
+                                                    <strong>{color.name}</strong><br />
+                                                    RAL {color.code}
+                                                </div>
+                                            </div>
+                                        </f:if>
+                                    </f:for>
+                                </div>
+                            </div>
+                        </f:if>
+                        <f:if condition="{component.characteristics}">
+                            <div class="item">
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <div id="owlCarouselFarbauswahl" class="owl-carousel owlCarouselFarbauswahl">
-                                            <f:for each="{component.colors}" as="color">
-                                                <f:if condition="{color.image.originalResource}">
-                                                    <div class="item">
-                                                        <div class="owlQuad onePxPadding">
-                                                            <f:image src="{color.image.originalResource.publicUrl}" alt="{color.name}" treatIdAsReference="TRUE" class="img-responsive" />
-                                                        </div>
-                                                    </div>
-                                                </f:if>
-                                            </f:for>
-                                        </div>
-                                    </div>
+                                    <f:for each="{component.characteristics}" as="characteristic">
+                                        <f:if condition="{characteristic.image.originalResource}">
+                                            <div class="media col-xs-6 col-sm-4">
+                                              <div class="media-left">
+                                                <f:image src="{characteristic.image.originalResource.publicUrl}" alt="{characteristic.image.originalResource.title}" treatIdAsReference="TRUE" width="50px" class="media-object" />
+                                              </div>
+                                              <div class="media-body">
+                                                <h4 class="media-heading">{characteristic.name}</h4>
+                                              </div>
+                                            </div>
+                                        </f:if>
+                                    </f:for>
                                 </div>
                             </div>
                         </f:if>

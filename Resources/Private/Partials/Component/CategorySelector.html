@@ -3,46 +3,39 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="headerimageBackground">
-
                     <div class="row">
                         <div class="col-xs-12">
-                            <f:image src="{f:uri.resource(path: 'art/headerimage-background-komponenten.jpg', extensionName: 'template')}" alt="{component.name}" class="hidden-xs img-responsive" />
+                            <f:image src="{settings.image}" treatIdAsReference="TRUE" alt="{settings.image.title}" class="hidden-xs img-responsive" />
+                            <f:image src="{settings.imageMobile}" alt="{settings.imageMobile.title}" class="visible-xs img-responsive" />
                         </div>
                     </div>
-
                     <div id="quadsOnHeaderimageBackground" class="hidden-xs quadsOnHeaderimageBackground">
                         <div class="row">
-
                             <div class="col-sm-1 onePxPadding"><img class="img-responsive" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}"></div>
                             <div class="quad col-sm-1 onePxPadding" style="height: 142px;">
                                 <img class="img-responsive" src="{f:uri.resource(path: 'art/quad-bilderheader-blind.png', extensionName: 'template')}">
                             </div>
-
                         </div>
-
                         <f:for each="{rows}" as="components">
                             <div class="row">
                                 <div class="col-sm-5 onePxPadding">&nbsp;</div>
                                 <f:for each="{components}" as="component">
                                     <div class="quad col-sm-1 onePxPadding" style="height: 142px;">
-                                        <f:link.action action="index" arguments="{item: component}">{component.name}</f:link.action>
+                                        <f:link.action action="index" title="{component.name}" arguments="{item: component}">{component.name}</f:link.action>
                                     </div>
                                 </f:for>
                             </div>
                         </f:for>
                     </div>
-
                 </div>
-
                 <!-- RTB Logo Mobile-->
                 <div class="readyToBuildLogo visible-xs">
                     <div class="row">
-                        <div class="col-sm-1 onePxPadding"><img class="img-responsive" src="art-global/logo-readytobuild-var.png"></div>
+                        <div class="col-sm-1 onePxPadding"><img class="img-responsive" alt="Logo: Ready to build" src="{f:uri.resource(path: 'art-global/logo-readytobuild-var.png', extensionName: 'template')}"></div>
                     </div>
                 </div>
                 <!-- Headiung mobile-->
                 <h1 class="mainHeadline subpage visible-xs"><f:translate key="components" default="Components"/></h1>
-
             </div>
         </div>
     </div>
