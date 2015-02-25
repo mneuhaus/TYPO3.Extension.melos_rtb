@@ -1,0 +1,46 @@
+<h3>Vielen Dank für Ihre Anfrage, {clientTitle} {clientName}!</h3>
+<p>Die Daten wurden erfolgreich an uns übermittelt. Wir werden Ihre Anfrage innerhalb kurzer Zeit bearbeiten.</p>
+<p>Wir bedanken uns für Ihr Interesse an unseren Produkten und freuen uns, mit Ihnen in Kontakt zu treten.</p>
+<p>
+	Mit freundlichen Grüßen<br>
+	Ihr Melos-Team
+</p>
+
+<br>
+
+<p><strong>Sie haben uns folgende Daten übermittelt:</strong></p>
+<table>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Anrede: </th><td> {clientTitle}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Ihr Name: </th><td> {clientName}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Firma: </th><td> {clientCompany}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Ihre E-Mail: </th><td> {clientEmail}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Telefon: </th><td> {clientPhone}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Land: </th><td> {clientCountry}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">System: </th><td> {system.name} {system.subtitle}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Gewünschte Fläche: </th><td> {squareMeasure} {unit}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Muster zusenden: </th><td> {f:if(condition: pleaseSendExampleSystem, then: 'ja', else: 'nein')}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left; padding-right: 10px;">Angebot zusenden: </th><td> {f:if(condition: pleaseSendOfferSystem, then: 'ja', else: 'nein')}</td>
+	</tr>
+	<tr>
+		<th style="text-align: left;padding-right: 10px;vertical-align:top;">Bemerkungen: </th><td style="width:500px;"> {clientMessage}</td>
+	</tr>
+</table>

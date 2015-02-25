@@ -181,7 +181,7 @@
 				<source>Colors</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
-				<source>Attributes</source>
+				<source>Features</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_color">
 				<source>Color</source>
@@ -277,13 +277,27 @@
 				<source>System</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute">
-				<source>Attribute</source>
+				<source>Features</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.name">
 				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.video_link">
+                <source>Videos</source>
+                <target>Videos</target>
+            </trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.standard">
+				<source>Standard</source>
+				<target>Standard</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.value">
 				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.unit">
+				<source>Unit</source>
+				<target>Einheit</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_crosssection">
 				<source>Cross Section</source>
@@ -319,28 +333,28 @@
 				<target>Downloads</target>
 			</trans-unit>
 			<trans-unit id="matchingSystemsFor">
-				<source>Passende Systeme für</source>
-				<target>Systeme, die Sie interessieren könnten</target>
+				<source>Systems that fit the application %s</source>
+				<target>Systeme, die zur Anwendung %s passen</target>
 			</trans-unit>
 			<trans-unit id="inquiryReceived">
 				<source>We've received your inquiry and will get back to you as soon as possible.</source>
 				<target>Vielen Dank für Ihre Anfrage, wir werden uns umgehend bei Ihnen melden.</target>
 			</trans-unit>
 			<trans-unit id="relatedApplications">
-				<source>You could also be interested in these Applications</source>
-				<target>Diese Anwendungen könnten Sie auch interessieren</target>
+				<source>Applications, that fit the product %s</source>
+				<target>Anwendungen, die zum Produkt %s passen</target>
 			</trans-unit>
 			<trans-unit id="components">
 				<source>Components</source>
 				<target>Produkte</target>
 			</trans-unit>
 			<trans-unit id="fittingComponents" xml:space="preserve">
-				<source>Components that harmonize with %s</source>
-				<target>Produkte die mit %s harmonieren</target>
+				<source>Components that fits with %s</source>
+				<target>Produkte die zu %s passen</target>
 			</trans-unit>
 			<trans-unit id="componentDetails" xml:space="preserve">
 				<source>Details of the product %s</source>
-				<target>Details zur Produkt %s</target>
+				<target>Details zum Produkt %s</target>
 			</trans-unit>
 			<trans-unit id="personalInformation">
 				<source>Your personal information</source>
@@ -354,10 +368,13 @@
 				<target>Ihre E-Mail*</target>
 			</trans-unit>
 			<trans-unit id="placeholderSquareMeasure" xml:space="preserve">
-				<target>Gewünschte Fläche *</target>
+				<target>Fläche</target>
 			</trans-unit>
 			<trans-unit id="placeholderClientMessage" xml:space="preserve">
 				<target>Bemerkungen</target>
+			</trans-unit>
+			<trans-unit id="placeholderCountry" xml:space="preserve">
+				<target>Land</target>
 			</trans-unit>
 			<trans-unit id="inquireSend" xml:space="preserve">
 				<target>Anfrage jetzt senden</target>
@@ -382,9 +399,13 @@
 				<source>inquire component</source>
 				<target>Produkt anfragen</target>
 			</trans-unit>
-			<trans-unit id="inquireComponents" xml:space="preserve">
-				<source>inquire components</source>
-				<target>Produkte anfragen</target>
+			<trans-unit id="inquireComponentsSystemBtn" xml:space="preserve">
+				<source>Ask for products that fit</source>
+				<target>Passende Produkte anfragen</target>
+			</trans-unit>
+			<trans-unit id="inquireComponentsSystem" xml:space="preserve">
+				<source>Ask now for the products that fit</source>
+				<target>Fragen Sie jetzt die passenden Produkte an</target>
 			</trans-unit>
 			<trans-unit id="placeholderPhone" xml:space="preserve">
 				<source>phone</source>
@@ -399,8 +420,8 @@
 				<target>Sonderausstattungen</target>
 			</trans-unit>
 			<trans-unit id="recommendedComponents" xml:space="preserve">
-				<source>recommended components</source>
-				<target>Produkte, die Sie interessieren könnten</target>
+				<source>Products that fit the system %s</source>
+				<target>Produkte, die zum System %s passen</target>
 			</trans-unit>
 			<trans-unit id="claimToTheSurface" xml:space="preserve">
 				<source>Claim to the surface</source>
@@ -505,7 +526,7 @@
 			</trans-unit>
 			<trans-unit id="pleaseSendMeAColorSample">
 				<source>Select color sample</source>
-				<target>Farbmuster auswählen</target>
+				<target>Hier können Sie ein Farbmuster auswählen, das wir Ihnen zukommen lassen.</target>
 			</trans-unit>
 			<trans-unit id="datasheet">
 				<source>datasheet</source>
@@ -518,6 +539,58 @@
 			<trans-unit id="sieveCurve">
 				<source>Sieve Curve</source>
 				<target>Siebkurve</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendExampleSystem">
+				<source>Please send me a sample of this system</source>
+				<target>Bitte senden Sie mir ein Muster dieses Systems zu</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendOfferSystem">
+				<source>Please send me an offer about the required products</source>
+				<target>Bitte senden Sie mir ein Angebot über die erforderlichen Produkte zu</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendExampleProduct">
+				<source>Please send me a sample of this Product</source>
+				<target>Bitte senden Sie mir ein Muster dieses Systems zu</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendOfferProduct">
+				<source>Please send me an Offer of this Product</source>
+				<target>Bitte senden Sie mir ein Angebot dieses Produkts zu</target>
+			</trans-unit>
+			<trans-unit id="contactTitleMr">
+				<source>Mr</source>
+				<target>Herr</target>
+			</trans-unit>
+			<trans-unit id="contactTitleMs">
+				<source>Ms</source>
+				<target>Frau</target>
+			</trans-unit>
+			<trans-unit id="iconMatchingProduct">
+				<source>matching products</source>
+				<target>passende Produkte</target>
+			</trans-unit>
+			<trans-unit id="iconMatchingSystem">
+				<source>matching Systems</source>
+				<target>passende Systeme</target>
+			</trans-unit>
+			<trans-unit id="iconMoreInformation">
+				<source>more information</source>
+				<target>weitere Informationen</target>
+			</trans-unit>
+			<trans-unit id="grain">
+				<source>Grain</source>
+				<target>Körnung</target>
+			</trans-unit>
+			<trans-unit id="characteristics">
+				<source>Characteristics</source>
+				<target>Charakteristica</target>
+			</trans-unit>
+			<trans-unit id="features">
+				<source>Features</source>
+				<target>Eigenschaften</target>
+			</trans-unit>
+			<trans-unit id="pourdensity">
+				<source>Density</source>
+				<target>Schüttdichte</target>
 			</trans-unit>
 		</body>
 	</file>

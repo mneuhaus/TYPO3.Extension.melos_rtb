@@ -63,6 +63,7 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 
@@ -71,6 +72,7 @@ class Color extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
 	 * @cascade remove
+	 * @lazy
 	 */
 	protected $articles = NULL;
 

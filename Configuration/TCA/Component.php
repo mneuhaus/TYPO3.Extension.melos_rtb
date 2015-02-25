@@ -30,6 +30,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				topview_image,
 				datasheet,
 				sieve_curves,
+				sieve_curves_table,
+				downloads,
 				characteristics',
 	),
 	'types' => array(
@@ -60,6 +62,8 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				attributes,
 				datasheet,
 				sieve_curves,
+				sieve_curves_table,
+				downloads,
 				characteristics,
 
 			--div--;LLL:EXT:melos_rtb/Resources/Private/Language/locallang_tabs.xlf:relations,
@@ -191,7 +195,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.main_feature_image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'main_feature_image',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -221,7 +230,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.thumbnail',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'thumbnail',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -230,7 +244,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -239,7 +258,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.image_mobile',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'imageMobile',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -248,7 +272,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.topview_image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'topviewImage',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
@@ -286,8 +315,41 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.sieve_curves',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'sieveCurves',
-				array('maxitems' => 5),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+		),
+		'sieve_curves_table' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.sieve_curves_table',
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'sieveCurvesTable',
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+		),
+		'downloads' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.downloads',
+			'config' =>
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'downloads',
+				array(
+					'maxitems' => 10,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				)				
 			),
 		),
 		'datasheet' => array(
@@ -295,7 +357,12 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_component.datasheet',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'datasheet',
-				array('maxitems' => 1),
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'collapseAll' => 1
+					),
+				),
 				'pdf'
 			),
 		),
@@ -471,7 +538,7 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_component'] = array(
 				'foreign_field' => 'component',
 				'maxitems'      => 9999,
 				'appearance' => array(
-					'collapseAll' => 0,
+					'collapseAll' => 1,
 					'levelLinksPosition' => 'top',
 					'showSynchronizationLink' => 1,
 					'showPossibleLocalizationRecords' => 1,

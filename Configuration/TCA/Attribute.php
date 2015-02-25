@@ -7,12 +7,18 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_attribute'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_melosrtb_domain_model_attribute']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
-				name,
-				value',
+            name,
+            video_link,
+            standard,
+            unit,
+            value',
 	),
 	'types' => array(
 		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1,
 			name,
+			video_link,
+			standard,
+			unit,
 			value'),
 	),
 	'palettes' => array(
@@ -104,6 +110,33 @@ $GLOBALS['TCA']['tx_melosrtb_domain_model_attribute'] = array(
 		'name' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_attribute.name',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+        'video_link' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_attribute.video_link',
+            'config' => array(
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ),
+        ),
+		'unit' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_attribute.unit',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'standard' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:melos_rtb/Resources/Private/Language/locallang_db.xlf:tx_melosrtb_domain_model_attribute.standard',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

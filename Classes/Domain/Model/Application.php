@@ -70,6 +70,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * thumbnail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $thumbnail = NULL;
 
@@ -77,6 +78,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 
@@ -84,6 +86,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * imageMobile
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $imageMobile = NULL;
 
@@ -92,6 +95,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 * @cascade remove
+	 * @lazy
 	 */
 	protected $downloads = NULL;
 
@@ -121,6 +125,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
 	 * @cascade remove
+	 * @lazy
 	 */
 	protected $systems = NULL;
 
@@ -336,7 +341,7 @@ class Application extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System> systems
 	 */
 	public function getSystems() {
-		return $this->systems;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($this->systems, 'sorting');
 	}
 
 	/**

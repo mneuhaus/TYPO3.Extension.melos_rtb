@@ -27,9 +27,9 @@
 		</div>
 		<p class="text-columns-2">{component.description}</p>
 
-		<f:render partial="Component/Applications" arguments="{applications: applications}" />
+		<f:render partial="Component/Applications" arguments="{currentComponent: currentComponent, applications: applications}" />
 
-		<f:render partial="Component/Contact" arguments="{currentComponent: currentComponent, colors:colors}" />
+		<f:render partial="Component/Contact" arguments="{currentComponent: currentComponent, colors:colors, grain: grain, clientTitle: clientTitle}" />
 	</f:then>
 	<f:else>
 		<f:render partial="Component/CategorySelector" arguments="{rows: rows, settings: settings}" />

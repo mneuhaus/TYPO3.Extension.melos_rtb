@@ -38,12 +38,33 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $name = '';
 
+    /**
+     * videoLink
+     *
+     * @var string
+     */
+    protected $videoLink = '';
+
 	/**
 	 * value
 	 *
 	 * @var string
 	 */
 	protected $value = '';
+
+	/**
+	 * standard
+	 *
+	 * @var string
+	 */
+	protected $standard = '';
+
+	/**
+	 * unit
+	 *
+	 * @var string
+	 */
+	protected $unit = '';
 
 	/**
 	 * Returns the name
@@ -63,6 +84,64 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setName($name) {
 		$this->name = $name;
 	}
+
+    /**
+     * Returns the videoLink
+     *
+     * @return string $videoLink
+     */
+    public function getVideoLink() {
+        return $this->videoLink;
+    }
+
+    /**
+     * Sets the videoLink
+     *
+     * @param string $videoLink
+     * @return void
+     */
+    public function setVideoLink($videoLink) {
+        $this->name = $videoLink;
+    }
+
+	/**
+	 * Returns the standard
+	 *
+	 * @return string $standard
+	 */
+	public function getStandard() {
+		return $this->standard;
+	}
+
+	/**
+	 * Sets the standard
+	 *
+	 * @param string $standard
+	 * @return void
+	 */
+	public function setStandard($standard) {
+		$this->name = $standard;
+	}
+
+	/**
+	 * Returns the unit
+	 *
+	 * @return string $unit
+	 */
+	public function getUnit() {
+		return $this->unit;
+	}
+
+	/**
+	 * Sets the standard
+	 *
+	 * @param string $unit
+	 * @return void
+	 */
+	public function setUnit($unit) {
+		$this->name = $unit;
+	}
+
 
 	/**
 	 * Returns the value

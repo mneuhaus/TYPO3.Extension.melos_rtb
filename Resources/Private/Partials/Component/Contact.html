@@ -1,3 +1,5 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+
 <!-- Anfrage Komponenten -->
 <div id="anfrageKomponenten" class="anfrageKomponenten">
 
@@ -15,23 +17,19 @@
                 <f:form.hidden name="component" value="{currentComponent}" />
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <div class="radio">
-                            <label><f:form.radio name="unit"  value="m²" checked="checked" /> m²</label>
-                            <label><f:form.radio name="unit" value="yards²" /> yards²</label>
-                            <label><f:form.radio name="unit" value="feets²" /> feets²</label>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <f:form.select name="clientTitle" options="{clientTitle}" class="form-control" />
+                            </div>
+                            <div class="col-xs-8">
+                                <f:form.validationResults for="clientName">
+                                    <f:form.textfield name="clientName" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
+                                    <f:if condition="{validationResults.flattenedErrors}">
+                                        <p class="text-danger"><f:translate key="errorName" default="please enter your name!"/></p>
+                                    </f:if>
+                                </f:form.validationResults>
+                            </div>
                         </div>
-                        <f:form.validationResults for="squareMeasure">
-                            <f:form.textfield name="squareMeasure" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="{f:translate(key: 'placeholderSquareMeasure', default: 'area in m² *')}" />
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <p class="text-danger"><f:translate key="errorSquareMeasure" default="Please enter a area!"/></p>
-                            </f:if>
-                        </f:form.validationResults>
-                        <f:form.validationResults for="clientName">
-                            <f:form.textfield name="clientName" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <p class="text-danger"><f:translate key="errorName" default="please enter your name!"/></p>
-                            </f:if>
-                        </f:form.validationResults>
 
                         <f:form.textfield name="clientCompany" class="form-control" id="clientCompany" placeholder="Firma" />
 
@@ -42,13 +40,39 @@
                             </f:if>
                         </f:form.validationResults>
 
-                        <f:form.textfield name="clientPhone" class="form-control" id="clientPhone" placeholder="{f:translate(key: 'placeholderPhone', default: 'phone')}" />
+                        <f:form.textfield name="clientPhone" class="form-control" id="clientPhone" placeholder="{f:translate(key: 'placeholderPhone', default: 'Phone')}" />
+                        <f:form.textfield name="clientCountry" class="form-control" id="clientCountry" placeholder="{f:translate(key: 'placeholderCountry', default: 'Country')}" />
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <p class="option">{f:translate(key: 'infoColorSample')}</p>
-                        <f:form.select name="colorSample" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="colorSample" options="{colors}" />
+                        <!-- <p class="option">{f:translate(key: 'infoColorSample')}</p> -->
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <f:form.select name="grain" options="{grain}" class="form-control" />
+                            </div>
+                        </div>
+                        <!-- <select id="color-select" name="color-select"> -->
+                        <select id="color-select" name="tx_melosrtb_components[colorSample]">
+                            <f:for each="{colors}" as="color">
+                                <f:if condition="{color.image.originalResource.publicUrl}">
+                                    <f:then>
+                                        <option value="{color.uid}" data-imagesrc="{f:uri.image(src: color.image.originalResource.publicUrl, height: 29)}">RAL {color.code} - {color.name}</option>
+                                    </f:then>
+                                    <f:else>
+                                        <option value="{color.uid}">{color.name}</option>
+                                    </f:else>
+                                </f:if>
+                            </f:for>
+                        </select>
+
+                        <div class="checkbox">
+                            <label>
+                                <f:form.checkbox name="pleaseSendOfferProduct" value="1"/>
+                                {f:translate(key: 'pleaseSendOfferProduct', default: 'Please send me an Offer of this product')}
+                            </label>
+                        </div>
+
                         <f:form.textarea name="clientMessage" class="form-control" id="clientMessage" rows="3" placeholder="{f:translate(key: 'placeholderClientMessage', default: 'comments')}" />
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-6">

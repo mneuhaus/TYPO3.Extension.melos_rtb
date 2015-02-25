@@ -63,15 +63,16 @@ class Layer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * products
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @lazy
 	 */
 	protected $products = NULL;
 
 	/**
-	 * applicationProcess
-	 *
-	 * @var \Famelo\MelosRtb\Domain\Model\ApplicationProcess
+	 * applicationProcesses
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\ApplicationProcess>
+	 * @lazy
 	 */
-	protected $applicationProcess = NULL;
+	protected $applicationProcesses = NULL;
 
 	/**
 	 * Returns the name
@@ -209,22 +210,22 @@ class Layer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the applicationProcess
+	 * Returns the applicationProcesses
 	 *
-	 * @return \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess
+	 * @return \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcesses
 	 */
-	public function getApplicationProcess() {
-		return $this->applicationProcess;
+	public function getApplicationProcesses() {
+		return $this->applicationProcesses;
 	}
 
 	/**
-	 * Sets the applicationProcess
+	 * Sets the applicationProcesses
 	 *
-	 * @param \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess
+	 * @param \Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcesses
 	 * @return void
 	 */
-	public function setApplicationProcess(\Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcess) {
-		$this->applicationProcess = $applicationProcess;
+	public function setApplicationProcesses(\Famelo\MelosRtb\Domain\Model\ApplicationProcess $applicationProcesses) {
+		$this->applicationProcesses = $applicationProcesses;
 	}
 
 }

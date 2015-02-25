@@ -8,7 +8,6 @@ if (!defined('TYPO3_MODE')) {
 	'Applications',
 	array(
 		'Application' => 'index',
-
 	),
 	// non-cacheable actions
 	array(
@@ -21,7 +20,6 @@ if (!defined('TYPO3_MODE')) {
 	'Systems',
 	array(
 		'System' => 'index, contact',
-
 	),
 	// non-cacheable actions
 	array(
@@ -35,7 +33,6 @@ if (!defined('TYPO3_MODE')) {
 	'Components',
 	array(
 		'Component' => 'index, contact',
-
 	),
 	// non-cacheable actions
 	array(

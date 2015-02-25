@@ -77,7 +77,11 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 			$this->view->assign('applications', $item->getApplications());
 			$this->view->assign('currentComponent', $item);
 
-			$colors = array('' => LocalizationUtility::translate('pleaseSendMeAColorSample', 'MelosRtb'));
+			$colors = array(
+				'' => array(
+					'name' => LocalizationUtility::translate('pleaseSendMeAColorSample', 'MelosRtb')
+				)
+			);
 			foreach($item->getColors() as $color) {
 				$colors[] = $color;
 			}
@@ -104,42 +108,81 @@ class ComponentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContro
 		}
 		$this->view->assign('rows', $rows);
 		$this->view->assign('components', $components);
+
+		$this->view->assign('grain', array(
+			'-' => LocalizationUtility::translate('grain', 'MelosRtb'),
+			'0,0 - 0,5 mm' => '0,0 - 0,5 mm',
+			'0,5 - 1,5 mm ' => '0,5 - 1,5 mm ',
+			'1,0 - 3,5 mm ' => '1,0 - 3,5 mm '
+		));
+
+		$this->view->assign('clientTitle', array(
+			'Herr' => LocalizationUtility::translate('contactTitleMr', 'MelosRtb'),
+			'Frau' => LocalizationUtility::translate('contactTitleMs', 'MelosRtb')
+		));
 	}
 
 	/**
 	 * action index
 	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
+	 * @param string $clientTitle
 	 * @param string $clientName
 	 * @param string $clientEmail
-	 * @param string $squareMeasure
- 	 * @param string $unit
 	 * @param string $clientCompany
 	 * @param string $clientPhone
+	 * @param string $clientCountry
+	 * @param string $grain
+	 * @param boolean $pleaseSendOfferProduct
 	 * @param string $clientMessage
 	 * @param \Famelo\MelosRtb\Domain\Model\Color $colorSample
 	 * @validate $clientName notEmpty;
 	 * @validate $clientEmail notEmpty;
 	 * @validate $clientEmail emailAddress;
-	 * @validate $squareMeasure notEmpty;
 	 * @return void
 	 */
-	public function contactAction(\Famelo\MelosRtb\Domain\Model\Component $component, $clientName, $clientEmail, $squareMeasure, $unit, $clientCompany = NULL, $clientPhone = NULL, $clientMessage = NULL, $colorSample) {
+	public function contactAction(\Famelo\MelosRtb\Domain\Model\Component $component, $clientTitle, $clientName, $clientEmail, $clientCompany = NULL, $clientPhone = NULL, $clientCountry = NULL, $grain = NULL, $pleaseSendOfferProduct = NULL, $clientMessage = NULL, $colorSample = NULL) {
+		$fluidVariables = array(
+			'component' => $component,
+			'clientTitle' => $clientTitle,
+			'clientName' => $clientName,
+			'clientCompany' => $clientCompany,
+			'clientEmail' => $clientEmail,
+			'clientPhone' => $clientPhone,
+			'clientCountry' => $clientCountry,
+			'grain' => $grain,
+			'pleaseSendOfferProduct' => $pleaseSendOfferProduct,
+			'clientMessage' => $clientMessage,
+			'colorSample' => $colorSample,
+		);
+
+		if (!is_dir($this->settings['inquirePdfPath'])) {
+			mkdir($this->settings['inquirePdfPath'], 0777, TRUE);
+		}
+
+		$pdfPath = $this->settings['inquirePdfPath'] . 'Produktanfrage vom ' . date('Y.m.d H.i.s') . '.pdf';
+
+		$pdf = new \Famelo\MelosRtb\Services\Pdf('melos_rtb:ComponentInquiry');
+		$pdf->assignMultiple($fluidVariables);
+		$pdf->save($pdfPath);
+
+
 		$mail = new \Famelo\MelosRtb\Services\Mail();
 		$mail->setFrom(array($clientEmail => $clientName));
 		$mail->setTo(array($this->settings['mail']['contactRecipientEmail'] => $this->settings['mail']['contactRecipientName']));
-		$mail->setSubject('Anfrage zur Komponente: ' . $component->getName() . ' ' . $component->getSubtitle());
+		$mail->setSubject('Anfrage von der Melos Homepage [RTB]');
 		$mail->setMessage('melos_rtb:ComponentInquiry');
-		$mail->assign('component', $component);
-		$mail->assign('clientName', $clientName);
-		$mail->assign('clientCompany', $clientCompany);
-		$mail->assign('clientEmail', $clientEmail);
-		$mail->assign('clientPhone', $clientPhone);
-		$mail->assign('squareMeasure', $squareMeasure);
-		$mail->assign('unit', $unit);
-		$mail->assign('clientMessage', $clientMessage);
-		$mail->assign('colorSample', $colorSample);
+		$mail->assignMultiple($fluidVariables);
+  		$mail->attach(\Swift_Attachment::fromPath($pdfPath));
 		$mail->send();
-	}
 
+		$senderMail = new \Famelo\MelosRtb\Services\Mail();
+		$senderMail->setFrom('noreply@melos-gmbh.com');
+		$senderMail->setTo(array($clientEmail => $clientName));
+		$senderMail->setSubject('Ihre Anfrage an die Melos GmbH wurde erfolgreich übermittelt');
+		$senderMail->setMessage('melos_rtb:ComponentInquirySender');
+		$senderMail->assignMultiple($fluidVariables);
+  		$senderMail->attach(\Swift_Attachment::fromPath($pdfPath));
+		$senderMail->send();
+	}
 }

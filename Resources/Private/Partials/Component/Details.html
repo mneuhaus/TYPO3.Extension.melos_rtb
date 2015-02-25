@@ -11,7 +11,9 @@
         </div>
 
         <div class="row">
-
+<!-- CGR = Coloured Granules -->
+<!-- PUR = Polyrethane -->
+<!-- ATL =  -->
             <div id="tabCarousel" class="tabCarousel">
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
@@ -21,16 +23,22 @@
                         <f:if condition="{component.rootParent.code} == 'PUR'">
                             <li class="active"><a class="active" href="">{f:translate(key: 'variants', default: 'Variants')}</a></li>
                         </f:if>
-                        <f:if condition="{component.rootParent.code} == 'ATL'">
+                        <!-- <f:if condition="{component.rootParent.code} == 'ATL'">
                             <li class="active"><a href="" class="active">{f:translate(key: 'details', default: 'Details')}</a></li>
-                        </f:if>
+                        </f:if> -->
                         <f:if condition="{component.colors}">
                             <li><a href="">{f:translate(key: 'color', default: 'Color')}</a></li>
                         </f:if>
-                        <f:if condition="{component.characteristics}">
-                            <li><a href="">{f:translate(key: 'characteristics', default: 'Characteristics')}</a></li>
+                        <f:if condition="{component.attributes}">
+                            <li><a href="">{f:translate(key: 'features', default: 'Features')}</a></li>
                         </f:if>
-                        <li><a href="">{f:translate(key: 'extras', default: 'Extras')}</a></li>
+                        <f:if condition="{component.downloads}">
+                            <li><a href="">{f:translate(key: 'downloads', default: 'Downloads')}</a></li>
+                        </f:if>
+                       <!--  <f:if condition="{component.characteristics}">
+                            <li><a href="">{f:translate(key: 'characteristics', default: 'Characteristics')}</a></li>
+                        </f:if> -->
+                        <!-- <li><a href="">{f:translate(key: 'extras', default: 'Extras')}</a></li> -->
                     </ul>
                 </div>
                 <div class="col-xs-12">
@@ -42,67 +50,18 @@
                                     <div class="col-sm-12">
                                         <table class="firstTable">
                                             <tr>
+                                                <td>{f:translate(key: 'topview', default: 'Topview')}</td>
                                                 <td>{f:translate(key: 'kerning', default: 'Kerning')}</td>
                                                 <td>{f:translate(key: 'sieveCurve', default: 'Sieve Curve')}</td>
                                                 <td>{f:translate(key: 'datasheet', default: 'Datasheet')}</td>
-                                                <td>{f:translate(key: 'topview', default: 'Topview')}</td>
+                                                <td>{f:translate(key: 'pourdensity', default: 'Density')}</td>
                                             </tr>
 
                                             <f:if condition="{component.kerning}">
-                                                <tr>
-                                                    <td>
-                                                        {component.kerning.name}
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{component.sieveCurves}">
-                                                            <a class="magnific-lightbox" href="{component.sieveCurves.originalResource.publicUrl}" title="{component.sieveCurves.originalResource.title}">
-                                                                <f:image src="{component.sieveCurves.originalResource.publicUrl}" alt="{component.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{component.datasheet}">
-                                                            <a href="{component.datasheet.originalResource.publicUrl}" title="{component.datasheet.originalResource.title}">
-                                                                <v:media.pdfThumbnail path="{component.datasheet.originalResource.forLocalProcessing}" src="{component.datasheet.originalResource.publicUrl}" alt="{component.datasheet.originalResource.title}" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{component.topviewImage}">
-                                                            <a href="{component.topviewImage.originalResource.publicUrl}" title="{component.topviewImage.originalResource.title}" class="magnific-lightbox">
-                                                                <f:image src="{component.topviewImage.originalResource.publicUrl}" alt="{component.topviewImage.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                </tr>
+                                                <f:render partial="Component/TabKerningRow" arguments="{component:component}" />
                                             </f:if>
                                             <f:for each="{component.children}" as="childComponent">
-                                                <tr>
-                                                    <td>
-                                                        {childComponent.kerning.name}
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{childComponent.sieveCurves}">
-                                                            <a class="magnific-lightbox" href="{childComponent.sieveCurves.originalResource.publicUrl}" title="{childComponent.sieveCurves.originalResource.title}">
-                                                                <f:image src="{childComponent.sieveCurves.originalResource.publicUrl}" alt="{childComponent.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{childComponent.datasheet}">
-                                                            <a href="{childComponent.datasheet.originalResource.publicUrl}" title="{childComponent.datasheet.originalResource.title}">
-                                                                <v:media.pdfThumbnail path="{childComponent.datasheet.originalResource.forLocalProcessing}" src="{childComponent.datasheet.originalResource.publicUrl}" alt="{childComponent.name}" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                    <td>
-                                                        <f:if condition="{childComponent.topviewImage}">
-                                                            <a href="{childComponent.topviewImage.originalResource.publicUrl}" title="{childComponent.topviewImage.originalResource.title}"  class="magnific-lightbox">
-                                                                <f:image src="{childComponent.topviewImage.originalResource.publicUrl}" alt="{childComponent.topviewImage.originalResource.title}" treatIdAsReference="TRUE" height="70px" />
-                                                            </a>
-                                                        </f:if>
-                                                    </td>
-                                                </tr>
+                                                <f:render partial="Component/TabKerningRow" arguments="{component:childComponent}" />
                                             </f:for>
                                         </table>
                                     </div>
@@ -133,26 +92,6 @@
                                 </div>
                             </div>
                         </f:if>
-                        <f:if condition="{component.rootParent.code} == 'ATL'">
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <table class="firstTable">
-                                            <tr>
-                                                <f:for each="{component.attributes}" as="attribute">
-                                                    <td>{f:translate(key: attribute.translationKey, default: attribute.name)}</td>
-                                                </f:for>
-                                            </tr>
-                                            <tr>
-                                                <f:for each="{component.attributes}" as="attribute">
-                                                    <td>{attribute.value}</td>
-                                                </f:for>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </f:if>
                         <f:if condition="{component.colors}">
                             <div class="item">
                                 <div class="thumbnails">
@@ -170,7 +109,62 @@
                                 </div>
                             </div>
                         </f:if>
-                        <f:if condition="{component.characteristics}">
+                        <f:if condition="{component.attributes}">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="firstTable">
+                                            <tr>
+                                                <td>{f:translate(key: 'tx_melosrtb_domain_model_attribute.name')}</td>
+                                                <td>{f:translate(key: 'tx_melosrtb_domain_model_attribute.video_link')}</td>
+                                                <td>{f:translate(key: 'tx_melosrtb_domain_model_attribute.standard')}</td>
+                                                <td>{f:translate(key: 'tx_melosrtb_domain_model_attribute.unit')}</td>
+                                                <td>{f:translate(key: 'tx_melosrtb_domain_model_attribute.value')}</td>
+                                            </tr>
+                                            <f:for each="{component.attributes}" as="attribute">
+                                                <tr>
+                                                    <td>{attribute.name}</td>
+                                                    <td>
+                                                        <f:if condition="{attribute.videoLink}">
+                                                            <a href="{attribute.videoLink}" class="magnific-lightbox" title="Video" target="_blank">
+                                                                <f:image src="{f:uri.resource(path: 'Icons/video.jpg', extensionName: 'MelosRtb')}" alt="Icon: Video" treatIdAsReference="TRUE" width="29" />
+                                                            </a>
+                                                        </f:if>
+                                                    </td>
+
+                                                    <td>{attribute.standard}</td>
+                                                    <td>{attribute.unit}</td>
+                                                    <td>{attribute.value}</td>
+                                                </tr>
+                                            </f:for>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:if>
+                        <f:if condition="{component.downloads}">
+                        <div class="item">
+                            <!-- <div class="row">
+                                <div class="col-sm-6">
+                                    <h4>{component.name}</h4>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="download-list">
+                                    <f:for each="{component.downloads}" as="download">
+                                        <li>
+                                            <a href="{download.originalResource.publicUrl}" title="{download.originalResource.title}" target="_blank">
+                                                {download.originalResource.name}
+                                            </a>
+                                        </li>
+                                    </f:for>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        </f:if>
+                        <!-- <f:if condition="{component.characteristics}">
                             <div class="item">
                                 <div class="row">
                                     <f:for each="{component.characteristics}" as="characteristic">
@@ -187,8 +181,8 @@
                                     </f:for>
                                 </div>
                             </div>
-                        </f:if>
-                        <div class="item">
+                        </f:if> -->
+                        <!-- <div class="item">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h4>Lorem ipsum dolor sit amet</h4>
@@ -202,7 +196,7 @@
                                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>

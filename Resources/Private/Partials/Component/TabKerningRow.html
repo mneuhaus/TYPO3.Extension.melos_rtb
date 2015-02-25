@@ -1,0 +1,41 @@
+<tr>
+    <td>
+        <f:if condition="{component.topviewImage}">
+            <a href="{component.topviewImage.originalResource.publicUrl}" title="{component.topviewImage.originalResource.title}"  class="magnific-lightbox">
+                <f:image src="{component.topviewImage.originalResource.publicUrl}" alt="{component.topviewImage.originalResource.title}" treatIdAsReference="TRUE" height="48px" />
+            </a>
+        </f:if>
+    </td>
+    <td>
+        {component.kerning.name}
+    </td>
+    <td>
+        <f:if condition="{component.sieveCurves}">
+            <a class="magnific-lightbox sievcurve" href="{component.sieveCurves.originalResource.publicUrl}" title="{component.sieveCurves.originalResource.title}">
+                <f:image src="{f:uri.resource(path: 'Icons/tabelle-siebkurve.png', extensionName: 'MelosRtb')}" alt="{component.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="48px" />
+                <!-- <f:image src="{component.sieveCurves.originalResource.publicUrl}" alt="{component.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="70px" /> -->
+            </a>
+        </f:if>
+        <f:if condition="{component.sieveCurvesTable}">
+            <a class="magnific-lightbox sievcurve" href="{component.sieveCurvesTable.originalResource.publicUrl}" title="{component.sieveCurvesTable.originalResource.title}">
+                <f:image src="{f:uri.resource(path: 'Icons/tabelle-tabelle.png', extensionName: 'MelosRtb')}" alt="{component.sieveCurvesTable.originalResource.title}" treatIdAsReference="TRUE" height="48px" />
+            </a>
+        </f:if>
+    </td>
+    <td>
+        <f:if condition="{component.datasheet}">
+            <a href="{component.datasheet.originalResource.publicUrl}" title="{component.datasheet.originalResource.title}" target="_blank">
+                <f:image src="{f:uri.resource(path: 'Icons/tabelle-pdf.png', extensionName: 'MelosRtb')}" alt="{component.sieveCurves.originalResource.title}" treatIdAsReference="TRUE" height="48px" />
+                <!-- <v:media.pdfThumbnail path="{component.datasheet.originalResource.forLocalProcessing}" src="{component.datasheet.originalResource.publicUrl}" alt="{component.name}" height="70px" /> -->
+            </a>
+        </f:if>
+    </td>
+    <td>
+        <f:if condition="{component.attributesSortedByName.dichte}">
+            {component.attributesSortedByName.dichte.value} {component.attributesSortedByName.dichte.unit}
+        </f:if>
+       <!--  <f:if condition="{component.parent.attributesSortedByName.dichte}">
+            {component.parent.attributesSortedByName.dichte.value} {component.parent.attributesSortedByName.dichte.unit}
+        </f:if> -->
+    </td>
+</tr>

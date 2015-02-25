@@ -49,6 +49,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 
@@ -56,6 +57,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * imageMobile
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $imageMobile = NULL;
 
@@ -63,6 +65,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * system
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\System
+	 * @lazy
 	 */
 	protected $system = NULL;
 
@@ -70,6 +73,7 @@ class CrossSection extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * color
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Color
+	 * @lazy
 	 */
 	protected $color = NULL;
 

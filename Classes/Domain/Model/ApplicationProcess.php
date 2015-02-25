@@ -43,6 +43,7 @@ class ApplicationProcess extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity 
 	 * icon
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $icon = NULL;
 
@@ -50,6 +51,7 @@ class ApplicationProcess extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity 
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 

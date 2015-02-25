@@ -63,6 +63,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 
@@ -70,6 +71,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * imageMobile
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $imageMobile = NULL;
 
@@ -77,6 +79,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * detail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $detail = NULL;
 
@@ -84,6 +87,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * kerning
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
+	 * @lazy
 	 */
 	protected $kerning = NULL;
 
@@ -91,6 +95,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * color
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Color
+	 * @lazy
 	 */
 	protected $color = NULL;
 
@@ -99,6 +104,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute>
 	 * @cascade remove
+	 * @lazy
 	 */
 	protected $attributes = NULL;
 
@@ -106,6 +112,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * component
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Component
+	 * @lazy
 	 */
 	protected $component = NULL;
 
@@ -113,6 +120,7 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * system
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
+	 * @lazy
 	 */
 	protected $system = NULL;
 

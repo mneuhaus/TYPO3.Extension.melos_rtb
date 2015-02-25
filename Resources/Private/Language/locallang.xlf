@@ -287,9 +287,23 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.name">
 				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.video_link">
+                <source>Videos</source>
+                <target>Videos</target>
+            </trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.standard">
+				<source>Standard</source>
+				<target>Standard</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.value">
 				<source>Value</source>
+				<target>Value</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.unit">
+				<source>Unit</source>
+				<target>Unit</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_crosssection">
 				<source>Cross Section</source>
@@ -353,22 +367,23 @@
 				<source>Downloads</source>
 			</trans-unit>
 			<trans-unit id="matchingSystemsFor">
-				<source>Matching Systems for</source>
+				<source>Systems that fit the application %s</source>
+				<target>tems that fit the application %s</target>
 			</trans-unit>
 			<trans-unit id="inquiryReceived">
 				<source>We've received your inquiry and will get back to you as soon as possible.</source>
 			</trans-unit>
 
 			<trans-unit id="relatedApplications">
-				<source>These applications could also be of interest</source>
-				<target>These applications could also be of interest</target>
+				<source>Applications, that fit the product %s</source>
+				<target>Applications, that fit the product %s</target>
 			</trans-unit>
 			<trans-unit id="components">
 				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="fittingComponents" xml:space="preserve">
-				<source>Products that harmonize with %s</source>
-				<target>Products that harmonize with %s</target>
+				<source>Products, that fit the product %s</source>
+				<target>Products, that fit the product %s</target>
 			</trans-unit>
 			<trans-unit id="componentDetails" xml:space="preserve">
 				<source>Details of the product %s</source>
@@ -386,12 +401,12 @@
 				<target>Name</target>
 			</trans-unit>
 			<trans-unit id="kerning" xml:space="preserve">
-				<source>kerning</source>
-				<target>kerning</target>
+				<source>Kerning</source>
+				<target>Kerning</target>
 			</trans-unit>
 			<trans-unit id="color" xml:space="preserve">
-				<source>color</source>
-				<target>color</target>
+				<source>Color</source>
+				<target>Color</target>
 			</trans-unit>
 			<trans-unit id="variants" xml:space="preserve">
 				<source>variants</source>
@@ -402,39 +417,41 @@
 				<target>your name *</target>
 			</trans-unit>
 			<trans-unit id="placeholderEmail" xml:space="preserve">
-				<source>your e-mail *</source>
-				<target>your e-mail *</target>
+				<source>Your e-mail *</source>
+				<target>Your e-mail *</target>
 			</trans-unit>
 			<trans-unit id="placeholderSquareMeasure" xml:space="preserve">
 				<source>area *</source>
 				<target>area *</target>
 			</trans-unit>
 			<trans-unit id="placeholderClientMessage" xml:space="preserve">
-				<source>comments</source>
-				<target>comments</target>
+				<source>Comments</source>
+				<target>Comments</target>
 			</trans-unit>
 			<trans-unit id="placeholderColorSample" xml:space="preserve">
 				<source>Select color sample</source>
 				<target>Select color sample</target>
 			</trans-unit>
 			<trans-unit id="inquireSend" xml:space="preserve">
-				<source>send inquiry</source>
-				<target>send inquiry</target>
+				<source>Send inquiry</source>
+				<target>Send inquiry</target>
 			</trans-unit>
 			<trans-unit id="inquireComponent" xml:space="preserve">
-				<source>request component</source>
-				<target>request component</target>
+				<source>Request component</source>
+				<target>Request component</target>
 			</trans-unit>
-			<trans-unit id="inquireComponents" xml:space="preserve">
-				<source>request Products</source>
-				<target>request Products</target>
+			<trans-unit id="inquireComponentsSystemBtn" xml:space="preserve">
+				<source>Ask for products that fit</source>
+				<target>Ask for products that fit</target>
+			</trans-unit>
+			<trans-unit id="inquireComponentsSystem" xml:space="preserve">
+				<source>Ask now for the products that fit</source>
+				<target>Ask now for the products that fit</target>
 			</trans-unit>
 			<trans-unit id="recommendedComponents" xml:space="preserve">
-				<source>recommended Products</source>
-				<target>recommended Products</target>
+				<source>Products that fit the system %s</source>
+				<target>Products that fit the system %s</target>
 			</trans-unit>
-
-
 			<trans-unit id="claimToTheSurface" xml:space="preserve">
 				<source>Claim to the surface</source>
 				<target>Claim to the surface</target>
@@ -448,21 +465,21 @@
 				<target>synonyms</target>
 			</trans-unit>
 			<trans-unit id="fieldsOfApplication" xml:space="preserve">
-				<source>field of application</source>
-				<target>field of application</target>
+				<source>Field of application</source>
+				<target>Field of application</target>
 			</trans-unit>
 			<trans-unit id="systemDescription" xml:space="preserve">
-				<source>system description</source>
-				<target>system description</target>
+				<source>System description</source>
+				<target>System description</target>
 			</trans-unit>
 			<trans-unit id="typePer" xml:space="preserve">
-				<source>type per</source>
-				<target>type per</target>
+				<source>Type per</source>
+				<target>Type per</target>
 			</trans-unit>
 
 			<trans-unit id="areaIn" xml:space="preserve">
-				<source>area in m²</source>
-				<target>area in m²</target>
+				<source>Area in m²</source>
+				<target>Area in m²</target>
 			</trans-unit>
 			<trans-unit id="recommendedFor" xml:space="preserve">
 				<source>Recommended for</source>
@@ -536,11 +553,11 @@
 				<target>Select color sample</target>
 			</trans-unit>
 			<trans-unit id="datasheet">
-				<source>datasheet</source>
+				<source>Datasheet</source>
 				<target>Datasheet</target>
 			</trans-unit>
 			<trans-unit id="topview">
-				<source>topview</source>
+				<source>Topview</source>
 				<target>Topview</target>
 			</trans-unit>
 			<trans-unit id="sieveCurve">
@@ -558,6 +575,46 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_applicationprocess.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="pleaseSendExampleSystem">
+				<source>Please send me a sample of this system</source>
+				<target>Please send me a sample of this system</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendOfferSystem">
+				<source>Please send me an offer about the required products</source>
+				<target>Please send me an offer about the required products</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendExampleProduct">
+				<source>Please send me a sample of this product</source>
+				<target>Please send me a sample of this product</target>
+			</trans-unit>
+			<trans-unit id="pleaseSendOfferProduct">
+				<source>Please send me an Offer of this Product</source>
+				<target>Please send me an Offer of this Product</target>
+			</trans-unit>
+			<trans-unit id="contactTitleMr">
+				<source>Mr</source>
+				<target>Mr</target>
+			</trans-unit>
+			<trans-unit id="contactTitleMs">
+				<source>Ms</source>
+				<target>Ms</target>
+			</trans-unit>
+			<trans-unit id="iconMatchingProduct">
+				<source>matching products</source>
+				<target>matching products</target>
+			</trans-unit>
+			<trans-unit id="iconMatchingSystem">
+				<source>matching Systems</source>
+				<target>matching Systems</target>
+			</trans-unit>
+			<trans-unit id="iconMoreInformation">
+				<source>more information</source>
+				<target>more information</target>
+			</trans-unit>
+			<trans-unit id="grain">
+				<source>Grain</source>
+				<target>Grain</target>
 			</trans-unit>
 		</body>
 	</file>

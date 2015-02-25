@@ -84,6 +84,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = NULL;
 
@@ -91,6 +92,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * mobileImage
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $mobileImage = NULL;
 
@@ -98,6 +100,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * crossSection
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $crossSection = NULL;
 
@@ -105,6 +108,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * crossSectionMobile
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $crossSectionMobile = NULL;
 
@@ -112,6 +116,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * thumbnail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $thumbnail = NULL;
 
@@ -168,6 +173,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * components
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $components = NULL;
@@ -176,6 +182,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * applications
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application>
+	 * @lazy
 	 */
 	protected $applications = NULL;
 
@@ -183,6 +190,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * articles
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
+	 * @lazy
 	 */
 	protected $articles = NULL;
 
@@ -190,6 +198,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * crossSections
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\CrossSection>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $crossSections = NULL;
@@ -202,9 +211,19 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $synonm = '';
 
 	/**
+	 * downloads
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 * @lazy
+	 * @cascade remove
+	 */
+	protected $downloads = NULL;
+
+	/**
 	 * layers
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Layer>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $layers = NULL;
@@ -248,6 +267,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->applications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->crossSections = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->downloads = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->layers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
@@ -366,6 +386,46 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * Adds a FileReference
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $download
+	 * @return void
+	 */
+	public function addDownload(\TYPO3\CMS\Extbase\Domain\Model\FileReference $download) {
+		$this->downloads->attach($download);
+	}
+
+	/**
+	 * Removes a FileReference
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $downloadToRemove The FileReference to be removed
+	 * @return void
+	 */
+	public function removeDownload(\TYPO3\CMS\Extbase\Domain\Model\FileReference $downloadToRemove) {
+		$this->downloads->detach($downloadToRemove);
+	}
+
+	/**
+	 * Returns the downloads
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $downloads
+	 */
+	public function getDownloads() {
+		return $this->downloads;
+	}
+
+	/**
+	 * Sets the downloads
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $downloads
+	 * @return void
+	 */
+	public function setDownloads(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $downloads) {
+		$this->downloads = $downloads;
+	}
+
+
+	/**
 	 * Adds a ComponentUse
 	 *
 	 * @param \Famelo\MelosRtb\Domain\Model\Component $component
@@ -404,7 +464,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component> components
 	 */
 	public function getComponents() {
-		return $this->components;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($this->components, 'sorting');
 	}
 
 	/**
@@ -443,7 +503,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Application> $applications
 	 */
 	public function getApplications() {
-		return $this->applications;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($this->applications, 'sorting');
 	}
 
 	/**
@@ -520,6 +580,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article> $articles
 	 */
 	public function getArticles() {
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($this->articles, 'sorting');
 		return $this->articles;
 	}
 
@@ -545,7 +606,8 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 				}
 			}
 		}
-		return $colors;
+
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($colors, 'sorting');
 	}
 
 	/**
@@ -631,7 +693,7 @@ class System extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\CrossSection> $crossSections
 	 */
 	public function getCrossSections() {
-		return $this->crossSections;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($this->crossSections, 'color.sorting');
 	}
 
 	/**

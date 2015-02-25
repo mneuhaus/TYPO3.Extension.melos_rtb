@@ -1,110 +1,11 @@
 {namespace m=Famelo\MelosRtb\ViewHelpers}
-<div id="anfrageKomponenten" class="anfrageKomponenten">
+<div id="anfrageKomponenten" class="anfrageKomponenten anfrageSystem">
 
-    <!-- Anfrage Step 1 -->
-    <div class="anfrage-step-1">
-
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="firstTable hidden-xs">
-                    <colgroup width="25%" span="4"></colgroup>
-                    <tr>
-                        <td><f:translate key="claimToTheSurface" default="claimToTheSurface"/></td>
-                        <!--<td><f:translate key="costs" default="costs"/></td>-->
-                        <td><f:translate key="synonyms" default="synonyms"/></td>
-                        <td><f:translate key="fieldsOfApplication" default="fieldsOfApplication"/></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul class="status statusStars">
-                            <m:star active="{currentSystem.requirement}" total="5">
-                                <f:for each="{stars}" as="star">
-                                    <li {f:if(condition: star.active, then: 'class="active"')}>&nbsp;</li>
-                                </f:for>
-                            </m:star>
-                            </ul>
-                        </td>
-                        <!--<td>-->
-                            <!--{currentSystem.cost}-->
-                        <!--</td>-->
-                        <td>{currentSystem.synonym}</td>
-                        <td>{currentSystem.application -> f:format.raw()}</td>
-                    </tr>
-                </table>
-                <table class="systemDescription hidden-xs">
-                    <colgroup width="50%" span="2"></colgroup>
-                    <tr>
-                        <td><f:translate key="systemDescription" default="systemDescription"/></td>
-                        <td><f:translate key="typePer" default="typePer"/> {currentSystem.standard}</td>
-                    </tr>
-                    <tr>
-                        <td>{currentSystem.featureDescription -> f:format.raw()}</td>
-                        <td>{currentSystem.description}</td>
-                    </tr>
-                </table>
-
-
-                <table class="firstTable visible-xs">
-                    <colgroup width="25%" span="4"></colgroup>
-                    <tr>
-                        <th><f:translate key="claimToTheSurface" default="claimToTheSurface"/></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul class="status statusStars">
-                                <m:star active="{currentSystem.requirement}" total="5">
-                                    <f:for each="{stars}" as="star">
-                                        <li {f:if(condition: star.active, then: 'class="active"')}>&nbsp;</li>
-                                    </f:for>
-                                </m:star>
-                            </ul>
-                        </td>
-                    </tr>
-                    <!--<tr>-->
-                        <!--<th><f:translate key="costs" default="costs"/></th>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>-->
-                            <!--{currentSystem.cost}-->
-                        <!--</td>-->
-                    <!--</tr>-->
-                    <tr>
-                        <th><f:translate key="synonyms" default="synonyms"/></th>
-                    </tr>
-                    <tr>
-                        <td>{currentSystem.synonym}</td>
-                    </tr>
-                    <tr>
-                        <th><f:translate key="fieldsOfApplication" default="fieldsOfApplication"/></th>
-                    </tr>
-                    <tr>
-                        <td>{currentSystem.application -> f:format.raw()}</td>
-                    </tr>
-                </table>
-                <table class="systemDescription visible-xs">
-                    <colgroup width="50%" span="2"></colgroup>
-                    <tr>
-                        <th><f:translate key="systemDescription" default="systemDescription"/></th>
-                    </tr>
-                    <tr>
-                        <td>{currentSystem.featureDescription -> f:format.raw()}</td>
-                    </tr>
-                    <tr>
-                        <th><f:translate key="typePer" default="typePer"/> {currentSystem.standard}</th>
-                    </tr>
-                    <tr>
-                        <td>{currentSystem.description}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-    </div>
-    <!-- ENDE Anfrage Step 1-->
+    
     <!-- Anfrage step 2-->
     <div class="row">
         <div class="col-sm-6">
-            <h2><f:translate key="inquireComponents" default="request components"/></h2>
+            <h2><f:translate key="inquireComponentsSystem"/></h2>
         </div>
     </div>
     <div class="row">
@@ -124,24 +25,19 @@
                 <f:form.hidden name="system" value="{currentSystem}" />
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <div class="radio">
-                            <label><f:form.radio name="unit"  value="m²" checked="checked" /> m²</label>
-                            <label><f:form.radio name="unit" value="yards²" /> yards²</label>
-                            <label><f:form.radio name="unit" value="feets²" /> feets²</label>
+                       <div class="row">
+                            <div class="col-xs-4">
+                                <f:form.select name="clientTitle" options="{clientTitle}" class="form-control" />
+                            </div>
+                            <div class="col-xs-8">
+                                <f:form.validationResults for="clientName">
+                                    <f:form.textfield name="clientName" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
+                                    <f:if condition="{validationResults.flattenedErrors}">
+                                        <p class="text-danger"><f:translate key="errorName" default="please enter your name!"/></p>
+                                    </f:if>
+                                </f:form.validationResults>
+                            </div>
                         </div>
-
-                        <f:form.validationResults for="squareMeasure">
-                            <f:form.textfield name="squareMeasure" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="{f:translate(key: 'placeholderSquareMeasure', default: 'area in m² *')}" />
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <p class="text-danger"><f:translate key="errorSquareMeasure" default="Please enter a area!"/></p>
-                            </f:if>
-                        </f:form.validationResults>
-                        <f:form.validationResults for="clientName">
-                            <f:form.textfield name="clientName" additionalAttributes="{aria-required:'true'}" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="clientName" placeholder="{f:translate(key: 'placeholderName', default: 'your name*')}" />
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <p class="text-danger"><f:translate key="errorName" default="please enter your name!"/></p>
-                            </f:if>
-                        </f:form.validationResults>
 
                         <f:form.textfield name="clientCompany" class="form-control" id="clientCompany" placeholder="Firma" />
 
@@ -153,12 +49,38 @@
                         </f:form.validationResults>
 
                         <f:form.textfield name="clientPhone" class="form-control" id="clientPhone" placeholder="{f:translate(key: 'placeholderPhone', default: 'phone')}" />
+                        <f:form.textfield name="clientCountry" class="form-control" id="clientCountry" placeholder="{f:translate(key: 'placeholderCountry', default: 'Country')}" />
                     </div>
                 </div>
                 <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <f:form.validationResults for="squareMeasure">
+                                <f:form.textfield name="squareMeasure" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="squareMeasure" placeholder="{f:translate(key: 'placeholderSquareMeasure', default: 'area')}" />
+                                <f:if condition="{validationResults.flattenedErrors}">
+                                    <p class="text-danger"><f:translate key="errorSquareMeasure" default="Please enter a area!"/></p>
+                                </f:if>
+                            </f:form.validationResults>
+                        </div>
+                        <div class="col-xs-4">
+                            <f:form.select name="unit" options="{units}" class="form-control" />
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <p class="radio">{f:translate(key: 'infoColorSample')}</p>
-                        <f:form.select name="colorSample" class="form-control {f:if(condition: validationResults.flattenedErrors, then: 'error')}" id="colorSample" options="{colors}" />
+                        <div class="checkbox">
+                            <label>
+                                <f:form.checkbox name="pleaseSendOfferSystem" value="1"/>
+                                {f:translate(key: 'pleaseSendOfferSystem', default: 'Please send me an Offer of this system')}
+                            </label>
+                            <!-- </div>
+                        <div class="checkbox"> -->
+                            <label>
+                                <f:form.checkbox name="pleaseSendExampleSystem" value="1"/>
+                                {f:translate(key: 'pleaseSendExampleSystem', default: 'Please send me a sample of this system')}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <f:form.textarea name="clientMessage" class="form-control" id="clientMessage" rows="3" placeholder="{f:translate(key: 'placeholderClientMessage', default: 'comments')}" />
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-6">

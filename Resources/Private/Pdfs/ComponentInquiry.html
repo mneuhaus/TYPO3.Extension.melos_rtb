@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="http://www.kundenvorschau.de/projekte/melos/rtb-integration-typo3/" />
+	<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'css/pdf.css', extensionName: 'template')}" />
+</head>
+<body>
+	<img class="logo" alt="Logo: Melos Ready to build" src="{f:uri.resource(path: 'art-global/melos.png', extensionName: 'template')}">
+
+	<div class="content">
+		<table>
+			<tr>
+				<td style="width: 55%;">
+					<div class="main-image">
+						<f:image src="{component.thumbnail.uid}" alt="{component.thumbnail.title}" treatIdAsReference="TRUE" width="340c" height="300c" />
+					</div>
+				</td>
+				<td style="width: 45%;">
+					<h4>Anfrage generiert von:</h4>
+					<table>
+						<tr class="margin-after">
+							<th>Datum: </th>
+							<td><f:format.date format="d.m.Y">now</f:format.date></td>
+						</tr>
+						<tr>
+							<th>Anrede: </th><td> {clientTitle}</td>
+						</tr>
+						<tr>
+							<th>Name: </th><td> {clientName}</td>
+						</tr>
+						<tr>
+							<th>Firma: </th><td> {clientCompany}</td>
+						</tr>
+						<tr>
+							<th>E-Mail: </th><td> {clientEmail}</td>
+						</tr>
+						<tr>
+							<th>Telefon: </th><td> {clientPhone}</td>
+						</tr>
+						<tr>
+							<th>Land: </th><td> {clientCountry}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+
+		<h3>Über die Melos-Homepage (Produkte) wurde folgende Anfrage geschickt:</h3>
+		<table>
+			<tr>
+				<th>Produkt: </th><td> {component.name} {component.subtitle}</td>
+			</tr>
+			<tr>
+				<th>Körnung: </th><td> {grain}</td>
+			</tr>
+			<tr>
+				<th>Auswahl Farbmuster: </th><td> {colorSample}</td>
+			</tr>
+			<tr>
+				<th>Angebot zusenden: </th><td> {f:if(condition: pleaseSendOfferProduct, then: 'ja', else: 'nein')}</td>
+			</tr>
+			<tr>
+				<th style="text-align: left;padding-right: 10px;vertical-align:top;">Bemerkungen: </th><td style="width:500px;"> {clientMessage}</td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

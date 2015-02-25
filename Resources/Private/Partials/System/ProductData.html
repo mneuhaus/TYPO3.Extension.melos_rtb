@@ -1,0 +1,102 @@
+{namespace m=Famelo\MelosRtb\ViewHelpers}
+<div class="anfrageKomponenten anfrageSystem">
+
+<!-- Anfrage Step 1 -->
+    <div class="anfrage-step-1">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="firstTable hidden-xs">
+                    <colgroup width="50%" span="2"></colgroup>
+                    <tr>
+                        <!--<td><f:translate key="claimToTheSurface" default="claimToTheSurface"/></td>-->
+                        <!--<td><f:translate key="costs" default="costs"/></td>-->
+                        <td><f:translate key="synonyms" default="synonyms"/></td>
+                        <td><f:translate key="fieldsOfApplication" default="fieldsOfApplication"/></td>
+                    </tr>
+                    <tr>
+                        <!--<td>-->
+                            <!--<ul class="status statusStars">-->
+                            <!--<m:star active="{currentSystem.requirement}" total="5">-->
+                                <!--<f:for each="{stars}" as="star">-->
+                                    <!--<li {f:if(condition: star.active, then: 'class="active"')}>&nbsp;</li>-->
+                                <!--</f:for>-->
+                            <!--</m:star>-->
+                            <!--</ul>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{currentSystem.cost}-->
+                        <!--</td>-->
+                        <td>{currentSystem.synonym}</td>
+                        <td>{currentSystem.application -> f:format.raw()}</td>
+                    </tr>
+                </table>
+                <table class="systemDescription hidden-xs">
+                    <colgroup width="50%" span="2"></colgroup>
+                    <tr>
+                        <td><f:translate key="systemDescription" default="systemDescription"/></td>
+                        <td><f:translate key="typePer" default="typePer"/> {currentSystem.standard}</td>
+                    </tr>
+                    <tr>
+                        <td>{currentSystem.featureDescription -> f:format.raw()}</td>
+                        <td>{currentSystem.description}</td>
+                    </tr>
+                </table>
+                <table class="firstTable visible-xs">
+                    <colgroup width="25%" span="4"></colgroup>
+                    <tr>
+                        <th><f:translate key="claimToTheSurface" default="claimToTheSurface"/></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="status statusStars">
+                                <m:star active="{currentSystem.requirement}" total="5">
+                                    <f:for each="{stars}" as="star">
+                                        <li {f:if(condition: star.active, then: 'class="active"')}>&nbsp;</li>
+                                    </f:for>
+                                </m:star>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<th><f:translate key="costs" default="costs"/></th>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--{currentSystem.cost}-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <tr>
+                        <th><f:translate key="synonyms" default="synonyms"/></th>
+                    </tr>
+                    <tr>
+                        <td>{currentSystem.synonym}</td>
+                    </tr>
+                    <tr>
+                        <th><f:translate key="fieldsOfApplication" default="fieldsOfApplication"/></th>
+                    </tr>
+                    <tr>
+                        <td>{currentSystem.application -> f:format.raw()}</td>
+                    </tr>
+                </table>
+                <table class="systemDescription visible-xs">
+                    <colgroup width="50%" span="2"></colgroup>
+                    <tr>
+                        <th><f:translate key="systemDescription" default="systemDescription"/></th>
+                    </tr>
+                    <tr>
+                        <td>{currentSystem.featureDescription -> f:format.raw()}</td>
+                    </tr>
+                    <tr>
+                        <th><f:translate key="typePer" default="typePer"/> {currentSystem.standard}</th>
+                    </tr>
+                    <tr>
+                        <td>{currentSystem.description}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- ENDE Anfrage Step 1-->
+</div>

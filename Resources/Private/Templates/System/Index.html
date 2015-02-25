@@ -1,15 +1,12 @@
 <f:render partial="System/HeaderImage" arguments="{systems: systems, currentSystem: currentSystem}" />
-
 <f:render partial="System/MobileNavigation" arguments="{systems: systems, currentSystem: currentSystem}" />
 
 <div class="content">
-		<div class="container">
-			<f:render partial="System/Components" arguments="{currentSystem: currentSystem}" />
-
-			 <f:render partial="System/MoreInformation" arguments="{currentSystem: currentSystem}" />
-
-			 <f:render partial="System/Layers" arguments="{currentSystem: currentSystem}" />
-
-			<f:render partial="System/Contact" arguments="{currentSystem: currentSystem, colors:colors}" />
-		</div>
+	<div class="container">
+		<f:render partial="System/Layers" arguments="{currentSystem: currentSystem}" />
+		<f:render partial="System/ProductData" arguments="{currentSystem: currentSystem}" />
+		<f:render partial="System/MoreInformation" arguments="{currentSystem: currentSystem}" />
+		<f:render partial="System/Components" arguments="{currentSystem: currentSystem}" />
+		<f:render partial="System/Contact" arguments="{currentSystem: currentSystem, colors:colors, units: units, clientTitle: clientTitle}" />
+	</div>
 </div>

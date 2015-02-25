@@ -33,6 +33,9 @@
 			<trans-unit id="tx_melosrtb_domain_model_application.image_mobile">
 				<source>Image Mobile</source>
 				<target>Bild für Mobilegeräte</target>
+			</trans-unit>			
+			<trans-unit id="tx_melosrtb_domain_model_system.downloads">
+				<source>Downloads</source>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_application.downloads">
 				<source>Downloads</source>
@@ -198,6 +201,14 @@
 				<source>Sieve Curves</source>
 				<target>Siebkurve</target>
 			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.sieve_curves_table">
+				<source>Sieve Curves (Table)</source>
+				<target>Siebkurve (Tabelle)</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_component.downloads">
+				<source>Downloads</source>
+				<target>Downloads</target>
+			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.datasheet">
 				<source>Datasheet</source>
 				<target>Datenblatt</target>
@@ -234,7 +245,7 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.attributes">
 				<source>Attributes</source>
-				<target>Attribute</target>
+				<target>Eigenschaften</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_component.characteristics">
 				<source>Characteristics</source>
@@ -364,6 +375,18 @@
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.name">
 				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.video_link">
+                <source>Video link</source>
+  				<target>Video Link</target>
+            </trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.standard">
+				<source>Standard</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="tx_melosrtb_domain_model_attribute.unit">
+				<source>Unit</source>
+				<target>Einheit</target>
 			</trans-unit>
 			<trans-unit id="tx_melosrtb_domain_model_attribute.value">
 				<source>Value</source>

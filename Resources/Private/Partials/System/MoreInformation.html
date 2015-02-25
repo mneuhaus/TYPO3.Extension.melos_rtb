@@ -3,4 +3,6 @@
         <h2>{currentSystem.teaser}</h2>
     </div>
 </div>
-<p class="text-columns-2">{currentSystem.description}</p>
+<f:if condition="{currentSystem.description}">
+	<p class="text-columns-2">{currentSystem.description}</p>
+</f:if>

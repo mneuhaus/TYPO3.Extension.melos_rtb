@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'css/pdf.css', extensionName: 'template')}" />
+</head>
+<body>
+	<img class="logo" alt="Logo: Melos Ready to build" src="{f:uri.resource(path: 'art-global/melos.png', extensionName: 'template')}">
+
+	<div class="content">
+		<table>
+			<tr>
+				<td style="width: 55%;">
+					<div class="main-image">
+						<f:image src="{system.thumbnail.uid}" alt="{system.thumbnail.title}" treatIdAsReference="TRUE" width="340c" height="300c" />
+					</div>
+				</td>
+				<td style="width: 45%;">
+					<h4>Anfrage generiert von:</h4>
+					<table>
+						<tr class="margin-after">
+							<th>Datum: </th>
+							<td><f:format.date format="d.m.Y">now</f:format.date></td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">Anrede: </th><td> {clientTitle}</td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">Name: </th><td> {clientName}</td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">Firma: </th><td> {clientCompany}</td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">E-Mail: </th><td> {clientEmail}</td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">Telefon: </th><td> {clientPhone}</td>
+						</tr>
+						<tr>
+							<th style="text-align: left; padding-right: 10px;">Land: </th><td> {clientCountry}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+
+		<h3>Über die Melos-Homepage (Produkte) wurde folgende Anfrage geschickt:</h3>
+		<table>
+			<tr>
+				<th style="text-align: left; padding-right: 10px;">System: </th><td> {system.name} {system.subtitle}</td>
+			</tr>
+			<tr>
+				<th style="text-align: left; padding-right: 10px;">Gewünschte Fläche: </th><td> {squareMeasure} {unit}</td>
+			</tr>
+			<tr>
+				<th style="text-align: left; padding-right: 10px;">Muster zusenden: </th><td>{f:if(condition: pleaseSendExampleSystem, then: 'ja', else: 'nein')}</td>
+			</tr>
+			<tr>
+				<th style="text-align: left; padding-right: 10px;">Angebot zusenden: </th><td>{f:if(condition: pleaseSendOfferSystem, then: 'ja', else: 'nein')}</td>
+			</tr>
+			<tr>
+				<th style="text-align: left;padding-right: 10px;vertical-align:top;">Bemerkungen: </th><td style="width:500px;"> {clientMessage}</td>
+			</tr>
+		</table>
+
+		<hr />
+
+		<h4>Systemaufbau</h4>
+		<table class="firstTable hidden-xs">
+		    <tr>
+		        <th>&nbsp;</th>
+		        <th>Schicht</th>
+		        <th>Produkte</th>
+		        <th>Aufbringung</th>
+		    </tr>
+		    <f:for each="{system.layers}" as="layer" iteration="i">
+		        <tr>
+		            <td>{i.cycle}</td>
+		            <td style="width: 25%;">{layer.name}</td>
+		            <td>
+		                <f:for each="{layer.products}" as="component" iteration="iteration">
+		                    {component.name}
+		                    <f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+		                </f:for>
+		            </td>
+		            <td>
+		            <f:for each="{layer.applicationProcesses}" as="applicationProcess" iteration="iteration">
+			        	{applicationProcess.name}
+		                <f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+		            </f:for>
+		            </td>
+		        </tr>
+		    </f:for>
+		</table>
+	</div>
+</body>
+</html>

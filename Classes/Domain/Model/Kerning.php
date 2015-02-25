@@ -63,6 +63,7 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * articles
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $articles = NULL;
@@ -71,6 +72,7 @@ class Kerning extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * components
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $components = NULL;

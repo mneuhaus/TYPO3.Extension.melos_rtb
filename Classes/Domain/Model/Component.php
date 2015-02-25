@@ -56,6 +56,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * mainFeatureImage
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $mainFeatureImage = NULL;
 
@@ -63,6 +64,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * thumbnail
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $thumbnail = NULL;
 
@@ -77,6 +79,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * image
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $image = '';
 
@@ -84,6 +87,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * imageMobile
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $imageMobile = NULL;
 
@@ -126,6 +130,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * systems
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\System>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $systems = NULL;
@@ -134,6 +139,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * articles
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Article>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $articles = NULL;
@@ -142,6 +148,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * kerning
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Kerning
+	 * @lazy
 	 */
 	protected $kerning = NULL;
 
@@ -149,6 +156,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * parent
 	 *
 	 * @var \Famelo\MelosRtb\Domain\Model\Component
+	 * @lazy
 	 */
 	protected $parent = NULL;
 
@@ -156,6 +164,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * children
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Component>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $children = NULL;
@@ -164,6 +173,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * colors
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Color>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $colors = NULL;
@@ -172,6 +182,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * attributes
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute>
+	 * @lazy
 	 * @cascade remove
 	 */
 	protected $attributes = NULL;
@@ -180,6 +191,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * topviewImage
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $topviewImage = NULL;
 
@@ -187,13 +199,33 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * sieveCurves
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $sieveCurves = NULL;
+
+	/**
+	 * sieveCurvesTable
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
+	 */
+	protected $sieveCurvesTable = NULL;
+
+	/**
+	 * downloads
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 * @lazy
+	 * @cascade remove
+	 */
+	protected $downloads = NULL;
+
 
 	/**
 	 * datasheet
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @lazy
 	 */
 	protected $datasheet = NULL;
 
@@ -201,6 +233,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * characteristics
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Characteristic>
+	 * @lazy
 	 */
 	protected $characteristics = NULL;
 
@@ -237,6 +270,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->children = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->colors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->attributes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->downloads = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->characteristics = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
@@ -593,14 +627,16 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Returns the colors
 	 */
 	public function getColors() {
-		if (!empty($this->colors)) {
-			return $this->colors;
+		$colors = $this->colors;
+
+		if (empty($this->colors)) {
+			$colors = array();
+			foreach ($this->articles as $article) {
+				$colors[] = $article->getColor();
+			}
 		}
-		$colors = array();
-		foreach ($this->articles as $article) {
-			$colors[] = $article->getColor();
-		}
-		return $colors;
+
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($colors, 'sorting');
 	}
 
 	/**
@@ -654,12 +690,15 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 					if ($component->getKerning() !== NULL && $component->getParent() !== NULL) {
 						$component = $component->getParent();
 					}
+
+					if ($this->getRootParent() == $component->getRootParent()) {
+						continue;
+					}
 					$components[$component->getSorting()] = $component;
 				}
 			}
 		}
-		ksort($components, SORT_NUMERIC);
-		return $components;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($components, 'sorting');
 	}
 
 	public function getApplications() {
@@ -671,8 +710,7 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 				}
 			}
 		}
-		ksort($applications, SORT_NUMERIC);
-		return $applications;
+		return \Famelo\MelosRtb\Services\ObjectStorageSorter::sort($applications, 'sorting');
 	}
 
 	/**
@@ -773,6 +811,19 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * Returns the attributesSortedByName
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
+	 */
+	public function getAttributesSortedByName() {
+		$attributes = array();
+		foreach ($this->getAttributes() as $key => $value) {
+			$attributes[strtolower($value->getName())] = $value;
+		}
+		return $attributes;
+	}
+
+	/**
 	 * Sets the attributes
 	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Famelo\MelosRtb\Domain\Model\Attribute> $attributes
@@ -819,6 +870,65 @@ class Component extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setSieveCurves(\TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurves) {
 		$this->sieveCurves = $sieveCurves;
 	}
+
+	/**
+	 * Returns the sieveCurvesTable
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurvesTable
+	 */
+	public function getSieveCurvesTable() {
+		return $this->sieveCurvesTable;
+	}
+
+	/**
+	 * Sets the sieveCurvesTable
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurvesTable
+	 * @return void
+	 */
+	public function setSieveCurvesTable(\TYPO3\CMS\Extbase\Domain\Model\FileReference $sieveCurvesTable) {
+		$this->sieveCurvesTable = $sieveCurvesTable;
+	}
+
+	/**
+	 * Adds a FileReference
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $download
+	 * @return void
+	 */
+	public function addDownload(\TYPO3\CMS\Extbase\Domain\Model\FileReference $download) {
+		$this->downloads->attach($download);
+	}
+
+	/**
+	 * Removes a FileReference
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $downloadToRemove The FileReference to be removed
+	 * @return void
+	 */
+	public function removeDownload(\TYPO3\CMS\Extbase\Domain\Model\FileReference $downloadToRemove) {
+		$this->downloads->detach($downloadToRemove);
+	}
+
+	/**
+	 * Returns the downloads
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $downloads
+	 */
+	public function getDownloads() {
+		return $this->downloads;
+	}
+
+	/**
+	 * Sets the downloads
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $downloads
+	 * @return void
+	 */
+	public function setDownloads(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $downloads) {
+		$this->downloads = $downloads;
+	}
+
 
 	/**
 	 * Returns the datasheet

@@ -1,11 +1,10 @@
-<f:translate key="recommendedSystemStructure" default="recommended system structure"/>
-
+<h3><f:translate key="recommendedSystemStructure" default="recommended system structure"/></h3>
 <table class="firstTable hidden-xs">
     <tr>
-        <th>&nbsp;</th>
-        <th><f:translate key="tx_melosrtb_domain_model_layer.name" default="layer"/></th>
-        <th><f:translate key="tx_melosrtb_domain_model_layer.product" default="product"/></th>
-        <th><f:translate key="tx_melosrtb_domain_model_layer.application" default="application"/></th>
+        <td>&nbsp;</td>
+        <td><f:translate key="tx_melosrtb_domain_model_layer.name" default="layer"/></td>
+        <td><f:translate key="tx_melosrtb_domain_model_layer.product" default="product"/></td>
+        <td><f:translate key="tx_melosrtb_domain_model_layer.application" default="application"/></td>
     </tr>
     <f:for each="{currentSystem.layers}" as="layer" iteration="i">
         <tr>
@@ -13,13 +12,28 @@
             <td>{layer.name}</td>
             <td>
                 <f:for each="{layer.products}" as="component">
-                    <f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component.parent}" target="_blank">
-                    <span class="color-square-{component.rootParent.code}"></span>
-                    {component.name} <br />
-                    </f:link.action>
+                    <!-- <f:link.action action="index" controller="Component" pluginName="Components" pageUid="{settings.componentPage}" arguments="{item: component.parent}" target="_blank"> -->
+                    <f:if condition="{component.kerning.name}">
+                        <f:then>
+                            <span class="color-square-{component.rootParent.code}"></span>
+                            {component.name}
+                            <span class="layerKerning">({component.kerning.name})</span><br />
+                        </f:then>
+                        <f:else>
+                            <span class="color-square-{component.rootParent.code}"></span>
+                            {component.name}<br />
+                        </f:else>
+                    </f:if>
+                    <!-- </f:link.action> -->
                 </f:for>
             </td>
-            <td>{layer.application -> f:format.nl2br()}</td>
+            <td>
+            <f:for each="{layer.applicationProcesses}" as="applicationProcess">
+                <a href="{applicationProcess.image.originalResource.publicUrl}" title="{applicationProcess.image.originalResource.title}" class="magnific-lightbox">
+                    <f:image src="{applicationProcess.icon.originalResource.publicUrl}" alt="{applicationProcess.icon.originalResource.title}" treatIdAsReference="TRUE" height="48"/>
+                </a>
+            </f:for>
+            </td>
         </tr>
     </f:for>
 </table>

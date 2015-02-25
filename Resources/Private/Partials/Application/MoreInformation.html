@@ -1,5 +1,5 @@
+{namespace v=Tx_Vhs_ViewHelpers}
 <div class="content">
-
     <div class="container">
         <div id="weitereInformationen" class="row">
             <div class="col-sm-6">
@@ -7,7 +7,6 @@
             </div>
         </div>
         <div class="row">
-
             <div id="tabCarousel" class="tabCarousel">
                 <div class="col-xs-12">
                     <ul class="triggerTabCarousel">
@@ -29,23 +28,14 @@
                         </div>
                         <f:if condition="{application.downloads}">
                         <div class="item">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h4>{application.name}</h4>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="download-list">
-                                    <f:for each="{application.downloads}" as="download">
-                                        <li>
-                                            <a href="{download.originalResource.publicUrl}" title="{download.originalResource.title}" target="_blank">
-                                                {download.originalResource.name}
-                                            </a>
-                                        </li>
-                                    </f:for>
-                                    </ul>
-                                </div>
+                            <div class="thumbnails thumbnails-wide">
+                                <f:for each="{application.downloads}" as="download">
+                                    <div class="thumbnail">
+                                        <a href="{download.originalResource.publicUrl}" title="{download.originalResource.title}" target="_blank" >
+                                            <v:media.pdfThumbnail path="{download.originalResource.forLocalProcessing}" src="{download.originalResource.forLocalProcessing}" alt="{download.originalResource.title}" height="315px" />
+                                        </a>
+                                    </div>
+                                </f:for>
                             </div>
                         </div>
                         </f:if>
@@ -54,5 +44,4 @@
             </div>
         </div>
     </div>
-
 </div>

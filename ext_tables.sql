@@ -75,6 +75,7 @@ CREATE TABLE tx_melosrtb_domain_model_system (
 	application text NOT NULL,
 	standard varchar(255) DEFAULT '' NOT NULL,
 	standard_description text NOT NULL,
+	downloads int(11) unsigned DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	components int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
@@ -137,6 +138,8 @@ CREATE TABLE tx_melosrtb_domain_model_component (
 	description text NOT NULL,
 	sorting int(11) DEFAULT '0' NOT NULL,
 	sieve_curves int(11) unsigned NOT NULL default '0',
+	sieve_curves_table int(11) unsigned NOT NULL default '0',
+	downloads int(11) unsigned DEFAULT '0' NOT NULL,
 	datasheet int(11) unsigned NOT NULL default '0',
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	systems int(11) unsigned DEFAULT '0' NOT NULL,
@@ -373,6 +376,9 @@ CREATE TABLE tx_melosrtb_domain_model_attribute (
 	component int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	video_link varchar(255) DEFAULT '' NOT NULL,
+	unit varchar(255) DEFAULT '' NOT NULL,
+	standard varchar(255) DEFAULT '' NOT NULL,
 	value varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
@@ -465,7 +471,7 @@ CREATE TABLE tx_melosrtb_domain_model_layer (
 	application_rate varchar(255) DEFAULT '' NOT NULL,
 	application varchar(255) DEFAULT '' NOT NULL,
 	products int(11) unsigned DEFAULT '0' NOT NULL,
-	application_process int(11) unsigned DEFAULT '0',
+	application_processes varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
